@@ -1,0 +1,612 @@
+<?xml version="1.0"?>
+<products>
+
+    <element >
+        <name>ΑΓΓΙΝΑΡΕΣ</name>
+        <profit>0.25</profit>
+        <kef5Code>1250</kef5Code>
+    </element>
+   
+	<element >
+        <name>ΑΓΓΟΥΡΙΑ ΚΝΩΣΣΟΥ</name>
+        <profit>0.25</profit>
+        <kef5Code>12099</kef5Code>
+    </element>
+	
+    <element >
+        <name>ΑΓΓΟΥΡΙΑ</name>
+        <profit>0.25</profit>
+        <kef5Code>2100</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΑΙΣΜΠΕΡΓΚ</name>
+        <profit>0.35</profit>
+        <kef5Code>331</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΑΜΠΕΛΟΦΑΣΟΥΛΑ</name>
+        <profit>0.28</profit>
+        <kef5Code>2101</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΑΝΘΟΙ</name>
+        <profit>0.3</profit>
+        <kef5Code>318</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΑΝΙΘΟΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>368</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΑΤΖΟΥΡΙΑ</name>
+        <profit>0.25</profit>
+        <kef5Code>314</kef5Code>
+    </element>
+
+    <element>
+        <name>ΑΝΤΙΔΙΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>2119</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΒΛΗΤΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>2103</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΔΥΟΣΜΟΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>306</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΚΑΛΑΜΠΟΚΙ</name>
+        <profit>0.3</profit>
+        <kef5Code>283</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΚΑΡΟΤΑ</name>
+        <profit>0.25</profit>
+        <kef5Code>2107</kef5Code>
+    </element>
+
+	<element>
+        <name>ΚΑΡΥΔΙΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>2106</kef5Code>
+    </element>
+
+	<element>
+        <name>ΚΟΛΟΚΥΘΙΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>2108</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΚΟΥΝΟΥΠΙΔΙ</name>
+        <profit>0.35</profit>
+        <kef5Code>2109</kef5Code>
+    </element>
+
+    <element>
+        <name>ΚΡΕΜΜΥΔΙΑ</name>
+        <profit>0.25</profit>
+        <kef5Code>2111</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΚΡΕΜΜΥΔΑΚΙΑ</name>
+        <profit>0.25</profit>
+        <kef5Code>177</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΚΡΕΜΜΥΔΙΑ ΣΤΙΦΑΔΟ</name>
+        <profit>0.3</profit>
+        <kef5Code>2114</kef5Code>
+    </element>
+
+	<element>
+        <name>ΛΑΧΑΝΟ</name>
+        <profit>0.35</profit>
+        <kef5Code>836</kef5Code>
+    </element>
+
+	<element>
+        <name>ΛΑΧΑΝΟ ΚΟΚΚΙΝΟ</name>
+        <profit>0.35</profit>
+        <kef5Code>2115</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΛΑΧΑΝΟ ΜΑΛΑΚΟ</name>
+        <profit>0.35</profit>
+        <kef5Code>2116</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΛΕΜΟΝΙΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>2117</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΜΑΙΝΤΑΝΟΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>149</kef5Code>
+    </element>
+
+    <element>
+        <name>ΜΑΝΙΤΑΡΙΑ ΠΛΕΥΡΩΤΟΥΣ</name>
+        <profit>0.30</profit>
+        <kef5Code>327</kef5Code>
+    </element>
+
+	<element>
+        <name>ΜΑΡΑΘΟ</name>
+        <profit>0.3</profit>
+        <kef5Code>369</kef5Code>
+    </element>
+   
+	<element>
+        <name>ΜΑΡΟΥΛΙΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>84</kef5Code>
+    </element>
+
+	<element>
+        <name>ΜΕΛΙΤΖΑΝΕΣ ΦΛΑΣΚΕΣ</name>
+        <profit>0.25</profit>
+        <kef5Code>2081</kef5Code>
+    </element>    
+	
+	<element>
+        <name>ΜΠΑΜΙΕΣ</name>
+        <profit>0.35</profit>
+        <kef5Code>384</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΜΠΑΡΜΠΟΥΝΕΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>2084</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΜΠΡΟΚΟΛΟ</name>
+        <profit>0.35</profit>
+        <kef5Code>1058</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΜΕΣΚΛΟΥΜ</name>
+        <profit>0.3</profit>
+        <kef5Code>128</kef5Code>
+    </element>
+
+	<element>
+        <name>ΠΑΝΤΖΑΡΙΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>555</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΠΑΤΑΤΕΣ ΦΡΕΣΚΕΣ</name>
+        <profit>0.25</profit>
+        <kef5Code>2085</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΠΑΤΑΤΕΣ ΧΩΡΙΣ ΧΩΜΑ</name>
+        <profit>0.25</profit>
+        <kef5Code>2085</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΠΙΠΕΡΙΕΣ ΦΛΑΣΚΕΣ</name>
+        <profit>0.25</profit>
+        <kef5Code>347</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΠΙΠΕΡΙΕΣ ΚΑΥΤΕΡΕΣ</name>
+        <profit>0.25</profit>
+        <kef5Code>346</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΠΙΠΕΡΙΕΣ ΚΕΡΑΤΟ</name>
+        <profit>0.25</profit>
+        <kef5Code>345</kef5Code>
+    </element>
+	
+	
+	<element>
+        <name>ΠΙΠΕΡΙΕΣ ΠΟΛΥΧΡΩΜΕΣ</name>
+        <profit>0.25</profit>
+        <kef5Code>348</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΠΙΠΕΡΙΕΣ ΦΛΩΡΙΝΗΣ</name>
+        <profit>0.25</profit>
+        <kef5Code>349</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΠΡΑΣΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>2083</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΡΑΔΙΚΙΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>366</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΡΑΠΑΝΑΚΙΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>340</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΡΟΚΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>339</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΣΑΛΑΤΑ ΛΟΛΑ ΚΟΚΚΙΝΗ</name>
+        <profit>0.35</profit>
+        <kef5Code>326</kef5Code>
+    </element>
+
+    <element>
+        <name>ΣΑΛΑΤΑ ΛΟΛΑ ΠΡΑΣΙΝΗ</name>
+        <profit>0.35</profit>
+        <kef5Code>325</kef5Code>
+    </element>
+
+	<element>
+        <name>ΣΑΛΙΓΚΑΡΙΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>324</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΣΕΛΙΝΟΡΙΖΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>1</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΣΚΟΡΔΑ</name>
+        <profit>0.28</profit>
+        <kef5Code>313</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΣΠΑΝΑΚΙ</name>
+        <profit>0.35</profit>
+        <kef5Code>321</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΣΤΑΜΝΑΓΚΑΘΙ</name>
+        <profit>0.35</profit>
+        <kef5Code>323</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΤΟΜΑΤΕΣ</name>
+        <profit>0.25</profit>
+        <kef5Code>2092</kef5Code>
+    </element>
+    
+	<element>
+        <name>ΤΟΜΑΤΕΣ ΤΣΑΜΠΙ</name>
+        <profit>0.25</profit>
+        <kef5Code>2090</kef5Code>
+    </element>
+    
+	<element>
+        <name>ΤΟΜΑΤΕΣ ΠΟΜΟΝΤΟΡΙΑ</name>
+        <profit>0.25</profit>
+        <kef5Code>551</kef5Code>
+    </element>
+    
+	<element>
+        <name>ΤΟΜΑΤΙΝΙΑ</name>
+        <profit>0.25</profit>
+        <kef5Code>2094</kef5Code>
+    </element>
+    
+	<element>
+        <name>ΦΑΣΟΛΙΑ ΤΣΑΟΥΛΙΑ</name>
+        <profit>0.28</profit>
+        <kef5Code>269</kef5Code>
+    </element>
+    
+	<element>
+        <name>ΨΑΡΕΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>381</kef5Code>
+    </element>
+       
+	<element>
+        <name>ΑΒΟΚΑΝΤΟ</name>
+        <profit>0.3</profit>
+        <kef5Code>190</kef5Code>
+    </element>
+    
+    <element>
+        <name>ΑΚΤΙΝΙΔΙΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>373</kef5Code>
+    </element>
+
+    <element>
+        <name>ΑΝΑΝΑΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>284</kef5Code>
+    </element>
+
+    <element>
+        <name>ΑΧΛΑΔΙΑ ΚΟΝΤΟΥΛΕΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>295</kef5Code>
+    </element>
+
+    <element>
+        <name>ΑΧΛΑΔΙΑ ΚΟΣΙΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>294</kef5Code>
+    </element>
+
+    <element>
+        <name>ΑΧΛΑΔΙΑ ΚΡΥΣΤΑΛΛΙΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>293</kef5Code>
+    </element>
+
+    <element>
+        <name>ΑΧΛΑΔΟΜΗΛΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>296</kef5Code>
+    </element>
+
+    <element>
+        <name>ΒΑΝΙΛΙΕΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>298</kef5Code>
+    </element>
+
+    <element>
+        <name>ΒΕΡΙΚΟΚΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>299</kef5Code>
+    </element>
+
+    <element>
+        <name>ΓΚΡΕΙΠ ΦΡΟΥΤ</name>
+        <profit>0.3</profit>
+        <kef5Code>300</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΔΕΣΠΟΛΕΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>303</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΚΑΡΠΟΥΖΙ</name>
+        <profit>0.3</profit>
+        <kef5Code>241</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΚΑΡΥΔΕΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>388</kef5Code>
+    </element>
+
+    <element>
+        <name>ΚΑΣΤΑΝΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>242</kef5Code>
+    </element>
+
+    <element>
+        <name>ΚΕΡΑΣΙΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>264</kef5Code>
+    </element>
+
+    <element>
+        <name>ΚΥΔΩΝΙΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>248</kef5Code>
+    </element>
+
+    <element>
+        <name>ΚΟΡΟΜΗΛΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>274</kef5Code>
+    </element>
+
+    <element>
+        <name>ΛΑΙΜΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>249</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΛΩΤΟΙ</name>
+        <profit>0.3</profit>
+        <kef5Code>251</kef5Code>
+    </element>
+
+    <element>
+        <name>ΜΑΝΤΑΡΙΝΙΑ ΚΛΗΜΕΝΤΙΝΙΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>259</kef5Code>
+    </element>
+	
+    <element>
+        <name>ΜΑΝΤΑΡΙΝΙΑ ΚΟΙΝΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>383</kef5Code>
+    </element>
+
+	<element>
+        <name>ΜΑΝΤΑΡΙΝΙΑ ΝΟΒΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>257</kef5Code>
+    </element>
+	
+	<element>
+        <name>ΜΗΛΑ GOLDEN</name>
+        <profit>0.3</profit>
+        <kef5Code>275</kef5Code>
+    </element>
+	
+	
+	<element>
+        <name>ΜΗΛΑ KOKKINA</name>
+        <profit>0.3</profit>
+        <kef5Code>276</kef5Code>
+    </element>
+	
+	
+	<element>
+        <name>ΜΗΛΑ SMITH</name>
+        <profit>0.3</profit>
+        <kef5Code>278</kef5Code>
+    </element>
+	
+	
+	
+	<element>
+        <name>ΜΗΛΑ JONA</name>
+        <profit>0.3</profit>
+        <kef5Code>279</kef5Code>
+    </element>
+	
+	
+	<element>
+        <name>ΜΠΑΝΑΝΕΣ</name>
+        <profit>0.3</profit>
+        <kef5Code>400</kef5Code>
+    </element>
+	
+	
+	<element>
+        <name>ΝΕΚΤΑΡΙΝΙΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>361</kef5Code>
+    </element>
+	
+	
+	<element>
+        <name>ΠΕΠΟΝΙΑ ΑΡΓΙΤΙΚΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>138</kef5Code>
+    </element>
+	
+	
+	<element>
+        <name>ΠΕΠΟΝΙ</name>
+        <profit>0.3</profit>
+        <kef5Code>370</kef5Code>
+    </element>
+	
+	
+	
+	<element>
+        <name>ΠΟΡΤΟΚΑΛΙΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>2093</kef5Code>
+    </element>
+	
+
+	<element>
+        <name>ΡΟΔΑΚΙΝΑ</name>
+        <profit>0.35</profit>
+        <kef5Code>362</kef5Code>
+    </element>
+
+	
+	
+	<element>
+        <name>ΡΟΔΙΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>364</kef5Code>
+    </element>
+	
+	
+	
+	<element>
+        <name>ΣΤΑΦΙΔΑ</name>
+        <profit>0.28</profit>
+        <kef5Code>385</kef5Code>
+    </element>
+	
+
+	<element>
+        <name>ΣΤΑΦΥΛΙ ΑΣΠΡΟ</name>
+        <profit>0.28</profit>
+        <kef5Code>386</kef5Code>
+    </element>
+
+	
+	
+	<element>
+        <name>ΣΤΑΦΥΛΙ ΚΟΚΚΙΝΟ</name>
+        <profit>0.28</profit>
+        <kef5Code>96</kef5Code>
+    </element>
+	
+	
+	<element>
+        <name>ΣΤΑΦΥΛΙ ΜΑΥΡΟ</name>
+        <profit>0.28</profit>
+        <kef5Code>387</kef5Code>
+    </element>
+	
+	
+	
+	<element>
+        <name>ΣΥΚΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>378</kef5Code>
+    </element>
+	
+	
+	
+	<element>
+        <name>ΦΡΑΟΥΛΕΣ</name>
+        <profit>0.4</profit>
+        <kef5Code>290</kef5Code>
+    </element>
+	
+	
+	<element>
+        <name>ΦΥΡΙΚΙΑ</name>
+        <profit>0.3</profit>
+        <kef5Code>379</kef5Code>
+    </element>
+	
+
+</products>

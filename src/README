@@ -1,0 +1,40 @@
+Every xls file has to be at the following format: Microsoft 97-2003 Worksheet
+
+Tutorial for SQL Server on unisoft website.
+
+######
+#TODO#
+######
+-Upload project on Git be careful add database.xml to .gitignore!!!.
+-bug:Stafyli aspro,stafyli mauro tha paroun tin idia timi!!!!
+-copy new kefalaio 5 folder and create sql server + enable users.
+
+-fix profit value for all products at products.xml.                 (done)
+-ask for more excel files.                                          (done)
+-get vegetables or fruits names from checkboxes that are true.      (done)
+-fix search feature.                                                (done)
+
+-refactor code
+-handle the case that user clicks and opens  files multiple times (excel file?).
+-implement code that can modify hashmap with profits from gui.
+
+-think cases/error case and how to handle .
+
+
+########%####
+#Error Cases#
+#############
+-User  opens a wrong file .
+-User opens->excel1 ,edit->list,opens->exel1.
+-User opens multiple files.
+
+-Product name on excel there is not in products xml.
+
+##########
+#TO CHECK#
+##########
+-check that all products on excel  there are inside of the VFVector.(how?)
+
+
+
+Imported Libs: apache-poi, sqljdbc
