@@ -80,7 +80,16 @@ public class Controller implements ActionListener,TableModelListener {
                 int result = fileChooser.showOpenDialog(null);
                 if (result == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = fileChooser.getSelectedFile();
-                    if(fileName!=null){
+                    //if table is not empty,remove all rows of table.
+                    if(model.getRowCount()>0){
+                    	model.setRowCount(0);
+                    }
+                    if( (fileName!=null) && (fileName.equals(selectedFile.getAbsolutePath())) ){
+
+                        model.setColumnIdentifiers(Constants.VF_TABLE_HEADER);
+                        for(int i=0; i < data.getSize();++i){
+                            model.addRow(model.getRow(i));
+						}
 
                     }else {
                         fileName = selectedFile.getAbsolutePath();
@@ -92,6 +101,7 @@ public class Controller implements ActionListener,TableModelListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Object[][] newData= new Object[][]
+				model.setRowCount(0);
                 model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
 				model.updateModelWithHash();
             }
