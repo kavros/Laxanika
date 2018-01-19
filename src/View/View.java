@@ -25,41 +25,24 @@ public class View {
 
 
 		//create icons for menu bar
-		ImageIcon iconNew = new ImageIcon("icons\\new.png");
 		ImageIcon iconOpen = new ImageIcon("icons\\open.png");
-		ImageIcon iconSave = new ImageIcon("icons\\save.png");
 		ImageIcon iconExit = new ImageIcon("icons\\exit.png");
-		iconNew  = scaleIcon(iconNew,10,10);
-		iconSave =scaleIcon(iconSave,10,10);
 		iconExit =scaleIcon(iconExit,10,10);
 		iconOpen =scaleIcon(iconOpen,10,10);
+
 
 		//create and add JMenu items
 		JMenu fileMenu = new JMenu("Αρχείο");
 		JMenu editMenu = new JMenu("Επεξεργασία");
 
-		JMenu impMenu = new JMenu("Εισαγωγή");
-		JMenuItem newsfMi = new JMenuItem("Import newsfeed list...");
-		JMenuItem bookmMi = new JMenuItem("Import bookmarks...");
-		JMenuItem mailMi = new JMenuItem("Import mail...");
-
-		impMenu.add(newsfMi);
-		impMenu.add(bookmMi);
-		impMenu.add(mailMi);
-
-
-		//JMenuItem newMi = new JMenuItem("Νέο Αρχείο", iconNew);
 		JMenuItem openMi = new JMenuItem("Άνοιγμα", iconOpen);
-		//JMenuItem saveMi = new JMenuItem("Αποθήκευση", iconSave);
 		JMenuItem exitMi = new JMenuItem("Έξοδος", iconExit);
-		JMenuItem editListMi = new JMenuItem("Λίστα Λαχανικών-Φρούτων");
-		exitMi.setToolTipText("Exit application");
+		JMenuItem editListMi = new JMenuItem("Λίστας");
+		exitMi.setToolTipText("Έξοδος απο την εφαρμογή");
+		editListMi.setToolTipText("Επεξεργασία κωδικών και ποσοστών κέρδους για τα φρούτα και τα λαχανικά");
 
-		//fileMenu.add(newMi);
+
 		fileMenu.add(openMi);
-		//fileMenu.add(saveMi);
-		fileMenu.addSeparator();
-		fileMenu.add(impMenu);
 		fileMenu.addSeparator();
 		fileMenu.add(exitMi);
 		menubar.add(fileMenu);
@@ -98,6 +81,7 @@ public class View {
 		// Set the view layout
 		JPanel ctrlPane = new JPanel();
 
+		//hide buttons and search field.
 		searchTermTextField.setVisible(false);
 		updateButton.setVisible(false);
 		filterButton.setVisible(false);
