@@ -20,7 +20,7 @@ public class ExcelReader {
         HSSFWorkbook workbook = null;
         try {
             ExcelFileToRead = new FileInputStream(fileName);
-            //Getting the workbook instance for xls file
+            //Getting the workbook instance for excel file
             workbook = new HSSFWorkbook(ExcelFileToRead);
         } catch (IOException e) {
             e.printStackTrace();
@@ -94,11 +94,7 @@ public class ExcelReader {
                 } else { // //Here if require, we can also add below methods to
 
                 }
-
                 cell_num++;
-
-
-
             }
             if(skip_last_lines == true){
                 break;
