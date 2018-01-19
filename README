@@ -1,11 +1,10 @@
-Every xls file has to be at the following format: Microsoft 97-2003 Worksheet
-
+Every excel file has to be at the following format: Microsoft 97-2003 Worksheet
 Tutorial for SQL Server on unisoft website.
 
 ######
 #TODO#
 ######
--Upload project on Git be careful add database.xml to .gitignore!!!.
+
 -bug:Stafyli aspro,stafyli mauro tha paroun tin idia timi!!!!
 -copy new kefalaio 5 folder and create sql server + enable users.
 
@@ -13,10 +12,14 @@ Tutorial for SQL Server on unisoft website.
 -ask for more excel files.                                          (done)
 -get vegetables or fruits names from checkboxes that are true.      (done)
 -fix search feature.                                                (done)
+-Upload project on Git be careful add database.xml to .gitignore!!!.(done)
+-fix  case that excel with same name opens multiple times           (done)
+-fix case when user clicks edit->list multiple times.               (done)
+
 
 -refactor code
 -handle the case that user clicks and opens  files multiple times (excel file?).
--implement code that can modify hashmap with profits from gui.
+-implement code that can modify products.xml and VFHashMap.
 
 -think cases/error case and how to handle .
 
@@ -28,7 +31,7 @@ Tutorial for SQL Server on unisoft website.
 -User opens->excel1 ,edit->list,opens->exel1.
 -User opens multiple files.
 
--Product name on excel there is not in products xml.
+-Handle case that product name on excel there is not in products.xml.
 
 ##########
 #TO CHECK#
