@@ -9,7 +9,7 @@ public class VFHashMap {
     protected HashMap<String,VFHashMapValues> vf_map ;
     public VFHashMap(){
 
-        XmlReader xmlProducts = new XmlReader();
+        XMLReader xmlProducts = new XMLReader();
         vf_map = xmlProducts.getProducts();
 
     }

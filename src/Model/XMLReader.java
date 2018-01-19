@@ -10,7 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.HashMap;
 
-public class XmlReader {
+public class XMLReader {
     public class DatabaseEntry{
         String username;
         String password;
