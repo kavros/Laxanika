@@ -3,8 +3,6 @@ package Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import Model.VFHashMapValues;
-import java.util.Map;
 
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
@@ -13,8 +11,6 @@ import javax.swing.event.TableModelListener;
 
 
 import Model.*;
-
-import static com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver.iterator;
 
 /**
  * @author ashraf
@@ -25,15 +21,15 @@ public class Controller implements ActionListener,TableModelListener {
 	int  BOOLEAN_COLUMN  = 5;
 	private JTextField searchTermTextField;// = new JTextField(26);
 	private JMenuItem openMi;
-	JMenuItem editListMi;
+	private JMenuItem editListMi;
 	private MyModel model;
 
 	JButton _filterButton;
 	JButton _updateButton;
-	JTable _table ;
+	JTable  _table ;
 
-    VFVector data;
-    String fileName = null;
+
+    String   fileName = null;
 
 	public Controller(JTextField searchTermTextField,
 					  JMenuItem openM,
@@ -50,23 +46,37 @@ public class Controller implements ActionListener,TableModelListener {
 		_updateButton            = updateButton;
 		_filterButton			 = filterButton;
 		this.editListMi 		 = editListMi;
-        data                     = model.getVector();
 		JMenuActionListener();
 	}
 
 
 	public void setComponentsVisible(){
 
+	    //make necessary buttons visible
 		searchTermTextField.setVisible(true);
 		_updateButton.setVisible(true);
 		_filterButton.setVisible(true);
-        ReadExcel reader = new ReadExcel();
-        reader.readXLSFile(fileName, model.getVector());
-        data.update(model.getVFHashMap());
 
+        //if table is not empty,remove all rows of table.
+        //and recreate vector.
+        if(model.getRowCount()>0){
+            model.reCreateVector();
+            model.setRowCount(0);
+        }
+
+        ExcelReader reader = new ExcelReader();
+        reader.readExcelFile(fileName, model.getVector());
+
+        //updates every entry on vector with the right value for
+        // kef5code.
+        model.getVector().update(model.getVFHashMap());
+
+        //fix columns names
         model.setColumnIdentifiers(Constants.VF_TABLE_HEADER);
-		for(int i=0; i < data.getSize(); ++i){
-		    model.addRow(model.getRow(i));
+
+        //add rows to model
+		for(int i = 0; i < model.getVector().getSize(); ++i){
+		    model.addRow(model.getVectorRow(i));
         }
 	}
 
@@ -80,27 +90,15 @@ public class Controller implements ActionListener,TableModelListener {
                 int result = fileChooser.showOpenDialog(null);
                 if (result == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = fileChooser.getSelectedFile();
-                    //if table is not empty,remove all rows of table.
-                    if(model.getRowCount()>0){
-                    	model.setRowCount(0);
-                    }
-                    if( (fileName!=null) && (fileName.equals(selectedFile.getAbsolutePath())) ){
-
-                        model.setColumnIdentifiers(Constants.VF_TABLE_HEADER);
-                        for(int i=0; i < data.getSize();++i){
-                            model.addRow(model.getRow(i));
-						}
-
-                    }else {
-                        fileName = selectedFile.getAbsolutePath();
-                        setComponentsVisible();
-                    }
+                    fileName = selectedFile.getAbsolutePath();
+                    setComponentsVisible();
                 }
             }});
+
         editListMi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Object[][] newData= new Object[][]
+
 				model.setRowCount(0);
                 model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
 				model.updateModelWithHash();
@@ -113,10 +111,10 @@ public class Controller implements ActionListener,TableModelListener {
 
         String searchTerm = searchTermTextField.getText();
 		if (searchTerm != null && !"".equals(searchTerm)) {
-			Object[][] newData = new Object[data.getSize()][];
+			Object[][] newData = new Object[model.getVector().getSize()][];
 			int idx = 0;
-			for(int i=0; i < data.getSize();++i){
-			    Object[] o= model.getRow(i);
+			for(int i = 0; i < model.getVector().getSize(); ++i){
+			    Object[] o= model.getVectorRow(i);
 			    if("*".equals(searchTerm.trim())) {
                     newData[idx++] = o;
                 }else{
@@ -145,7 +143,7 @@ public class Controller implements ActionListener,TableModelListener {
 			String vf_name      = (String) model.getValueAt(row,0);
 			Boolean checked     = (Boolean) model.getValueAt(row, column);
 
-			boolean isUpdateDone =data.updateVectorValueUpdateNeeded(vf_name,checked);
+			boolean isUpdateDone = model.getVector().updateVectorValueUpdateNeeded(vf_name,checked);
 			if(isUpdateDone == false){
 			    System.err.println("Error: Vegetable or fruit name does not in vector can not updated !");
             }

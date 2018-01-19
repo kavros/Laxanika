@@ -14,20 +14,23 @@ public class MyModel extends DefaultTableModel {
 
 
 	public MyModel() {
-		vf_rates=new VFHashMap();
-		data                     = new VFVector();
+		vf_rates = new VFHashMap();
+		data = new VFVector();
 	}
 
+
 	public VFVector getVector(){
-		return  data;
+		return data;
 	}
 
 	public VFHashMap getVFHashMap() {
 		return vf_rates;
 	}
 
-	public Object[] getRow(int i){
-		double profit;// = vf_rates.getHashMapValues(data.getVec().get(i).vf_name).profit;
+	public Object[] getVectorRow(int i){
+
+		//find profit value from hashmap
+		double profit;
 		if(vf_rates.getHashMapValues(data.getVec().get(i).vf_name) == null){
 			String[] a = (data.getVec().get(i).vf_name).split(" ",2);
 			profit = vf_rates.getHashMapValues(a[0]).profit;
@@ -36,6 +39,7 @@ public class MyModel extends DefaultTableModel {
 		}
 		profit = profit *100;
 
+		//
 		return  new Object[]{
 				data.getVec().get(i).vf_name,
 				String.valueOf(profit)+"%",
@@ -49,5 +53,11 @@ public class MyModel extends DefaultTableModel {
 
 	public void updateModelWithHash(){
 		vf_rates.updateModelWithHash(this);
+	}
+
+	public void reCreateVector(){
+		data = null;
+		data = new VFVector();
+
 	}
 }

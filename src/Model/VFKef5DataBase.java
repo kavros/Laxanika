@@ -19,8 +19,8 @@ public class VFKef5DataBase {
     public void testDatabase() {
 
         //read credentials for kef5 database from xml file
-        ReadXml db =new ReadXml();
-        ReadXml.DatabaseEntry dbCredentials =db.getDatabaseCredentials();
+        XmlReader db =new XmlReader();
+        XmlReader.DatabaseEntry dbCredentials =db.getDatabaseCredentials();
 
         username = dbCredentials.username;
         password = dbCredentials.password;

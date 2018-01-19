@@ -12,9 +12,9 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellType;
 
-public class ReadExcel {
+public class ExcelReader {
 
-    public void readXLSFile(String fileName, VFVector vec) {
+    public void readExcelFile(String fileName, VFVector vec) {
 
         InputStream ExcelFileToRead = null;
         HSSFWorkbook workbook = null;

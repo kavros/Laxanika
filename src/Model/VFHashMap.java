@@ -1,6 +1,5 @@
 package Model;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
@@ -10,7 +9,7 @@ public class VFHashMap {
     protected HashMap<String,VFHashMapValues> vf_map ;
     public VFHashMap(){
 
-        ReadXml xmlProducts = new ReadXml();
+        XmlReader xmlProducts = new XmlReader();
         vf_map = xmlProducts.getProducts();
 
     }
