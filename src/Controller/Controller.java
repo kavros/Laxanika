@@ -3,6 +3,7 @@ package Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
@@ -52,7 +53,7 @@ public class Controller implements ActionListener,TableModelListener {
 
 	public void setComponentsVisible(){
 
-	    //make necessary buttons visible
+	    //make necessary components visible
 		searchTermTextField.setVisible(true);
 		_updateButton.setVisible(true);
 		_filterButton.setVisible(true);
@@ -64,17 +65,33 @@ public class Controller implements ActionListener,TableModelListener {
             model.setRowCount(0);
         }
 
+        //update vector with excel data.
         ExcelReader reader = new ExcelReader();
         reader.readExcelFile(fileName, model.getVector());
 
-        //updates every entry on vector with the right value for
-        // kef5code.
+        //if product is not in hash Map show error
+        model.getVector().transformVector();
+        ArrayList<String> unknownProductsList = model.getUnknownNames();
+        if(unknownProductsList.isEmpty() == false){
+            //System.out.println(fileName);
+            //System.out.println(unknownProductsList);
+            JOptionPane.showMessageDialog(null,
+                    "Παρακαλώ καταχώρησε στην λίστα τα παρακάτω: "+""+unknownProductsList.toString(), "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            model.reCreateVector();
+            model.setRowCount(0);
+            return;
+        }
+
+        //updates every entry on vector
+        //with the right value for kef5code and final price.
         model.getVector().update(model.getVFHashMap());
+
 
         //fix columns names
         model.setColumnIdentifiers(Constants.VF_TABLE_HEADER);
 
-        //add rows to model
+        //add rows to the model
 		for(int i = 0; i < model.getVector().getSize(); ++i){
 		    model.addRow(model.getVectorRow(i));
         }
@@ -100,6 +117,12 @@ public class Controller implements ActionListener,TableModelListener {
             public void actionPerformed(ActionEvent e) {
 
 				model.setRowCount(0);
+
+                //make necessary components invisible
+                searchTermTextField.setVisible(false);
+                _updateButton.setVisible(false);
+                _filterButton.setVisible(false);
+
                 model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
 				model.updateModelWithHash();
             }

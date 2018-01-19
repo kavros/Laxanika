@@ -31,12 +31,7 @@ public class VFVector {
         return vec.toString();
     }
 
-    /**
-     * TODO:update kefalaio 5 codes
-     * updates: kef5_code,vf_finalPrices,vf_name ,vf_origin,vf_kef5prices.
-     */
-    public void update(VFHashMap vf_rates ){
-
+    public void transformVector(){
         //remove TELARA,ΚΕΝΑ from vec
         for(int i=0; i < vec.size(); ++i){
             if(vec.get(i).vf_name.contains("ΤΕΛΑΡΑ")){
@@ -47,14 +42,28 @@ public class VFVector {
             }
         }
 
+        //fix vf_name and vf_name on vector
+        for(int i = 0 ;  i < vec.size() ; ++i) {
+            String str[] = vec.get(i).vf_name.split("-", 2);
+            vec.get(i).vf_name = str[0];
+            if(str.length > 2) {
+                vec.get(i).vf_origin = str[1];
+            }
+        }
+    }
+
+
+
+    /**
+     * TODO:update kefalaio 5 codes
+     * updates: kef5_code,vf_finalPrices,vf_name ,vf_origin,vf_kef5prices.
+     */
+    public void update(VFHashMap vf_rates ){
+
+        transformVector();
+
         for(int i = 0 ;  i < vec.size() ; ++i){
-            String str[] = vec.get(i).vf_name.split("-",2);
-
-
-            vec.get(i).vf_name      = str[0];
-            vec.get(i).vf_origin    = str[1];
             if(vf_rates.isNameValid(vec.get(i).vf_name) == true){
-
                 try {
                     vf_rates.calculateFinalPrice(vec,i);
                     vf_rates.updateKef5Codes(vec,i);

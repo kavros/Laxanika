@@ -1,6 +1,8 @@
 package Model;
 
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  * @author ashraf
@@ -22,6 +24,22 @@ public class MyModel extends DefaultTableModel {
 	public VFVector getVector(){
 		return data;
 	}
+
+	/*
+	* Returns all products from vector that can not match with hashMap
+	* */
+	public ArrayList<String> getUnknownNames(){
+	    ArrayList<String> notValidNames=new ArrayList<String>();
+        Vector<VFVectorEntry> vec = data.getVec();
+        for(int i=0; i < data.getSize(); ++i){
+            boolean isNameValid =vf_rates.isNameValid(vec.get(i).vf_name);
+            if(!isNameValid){
+                notValidNames.add(vec.get(i).vf_name);
+            }
+        }
+        return  notValidNames;
+
+    }
 
 	public VFHashMap getVFHashMap() {
 		return vf_rates;
