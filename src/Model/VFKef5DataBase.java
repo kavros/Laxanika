@@ -31,7 +31,7 @@ public class VFKef5DataBase {
             conn = DriverManager.getConnection(dbURL, username, password);
             if (conn != null) {
                 Statement st = conn.createStatement();
-                ResultSet res = st.executeQuery("select count(sFileId) from Cmp003.dbo.SMAST;");
+                ResultSet res = st.executeQuery("select count(sFileId) from dbo.SMAST;");
                 while (res.next()) {
                     System.out.println(res.getString(1));
                 }
