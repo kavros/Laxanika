@@ -55,7 +55,6 @@ public class VFVector {
 
 
     /**
-     * TODO:update kefalaio 5 codes
      * updates: kef5_code,vf_finalPrices,vf_name ,vf_origin,vf_kef5prices.
      */
     public void update(VFHashMap vf_rates ){
@@ -85,7 +84,7 @@ public class VFVector {
     public  boolean updateVectorValueUpdateNeeded(String name, Boolean new_bool_val){
         boolean isUpdateDone = false;
         for(int i =0;i<vec.size(); ++i){
-            if(vec.get(i).vf_name == name){
+            if(vec.get(i).vf_name.equals(name)){
                 vec.get(i).isUpdateNeeded = new_bool_val;
                 isUpdateDone = true;
                 //System.out.println(vec.get(i).vf_name+" "+vec.get(i).isUpdateNeeded);
