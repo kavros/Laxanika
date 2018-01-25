@@ -18,7 +18,9 @@ public class Main {
             reader.parsePdfFile("C:\\Users\\Alexis\\IdeaProjects\\Laxanika\\pdf\\a.pdf",vector);
             System.out.println(vector);
             VFKef5DataBase dataBase = new VFKef5DataBase();
-            dataBase.testDatabase();
+            //dataBase.getKef5Price("select count(sFileId) from dbo.SMAST;");
+            //double a=dataBase.getKef5Price("select sRetailPr  from dbo.smast where sCode='251';");
+            dataBase.updateKef5Price("UPDATE dbo.smast SET sRetailPr = 40 WHERE sCode='2100';");
 
         }catch (Exception e){
             System.out.println(e.getStackTrace());

@@ -2,6 +2,7 @@ package Model;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 
@@ -66,7 +67,7 @@ public class VFVector {
                 try {
                     vf_rates.calculateFinalPrice(vec,i);
                     vf_rates.updateKef5Codes(vec,i);
-
+                    insertKef5PricesToVec(i);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -78,6 +79,13 @@ public class VFVector {
         }
 
         //System.out.print(vec);
+
+    }
+    public void insertKef5PricesToVec(int position){
+        VFKef5DataBase dataBase = new VFKef5DataBase();
+        double kef5Price= dataBase.getKef5Price(
+                "select sRetailPr  from dbo.smast where sCode="+"'"+vec.get(position).kef5_code+"'"+";");
+        vec.get(position).kef5_price=kef5Price;
 
     }
 
@@ -95,5 +103,23 @@ public class VFVector {
         }
         return isUpdateDone;
     }
+
+    public ArrayList<String> updateKef5Prices() {
+        ArrayList<String> products = new ArrayList<String>();
+
+        for (int i = 0; i < vec.size(); ++i) {
+            if (vec.get(i).isUpdateNeeded == true) {
+                products.add(vec.get(i).vf_name);
+                double newprice = vec.get(i).vf_final_price;
+                String kef5Code = vec.get(i).kef5_code;
+                String query = "UPDATE dbo.smast SET sRetailPr =" + newprice + "WHERE sCode=" + "'" + kef5Code + "';";
+                VFKef5DataBase dataBase = new VFKef5DataBase();
+                dataBase.updateKef5Price(query);
+            }
+        }
+        return  products;
+    }
+
+
 
 }

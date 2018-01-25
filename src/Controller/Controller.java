@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
@@ -48,6 +49,7 @@ public class Controller implements ActionListener,TableModelListener {
 		_filterButton			 = filterButton;
 		this.editListMi 		 = editListMi;
 		JMenuActionListener();
+		addUpdateButtonListener();
 	}
 
 
@@ -134,7 +136,20 @@ public class Controller implements ActionListener,TableModelListener {
 				model.updateModelWithHash();
             }
         });
+
     }
+
+    private void addUpdateButtonListener(){
+		_updateButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ArrayList<String> products = model.updateKef5Prices();
+				JOptionPane.showMessageDialog(null,
+						"Ενημερώθηκαν επιτυχώς οι τιμές στο Κεφάλαιο 5 για τα παρακάτω: "+""+products.toString(), "Ενημέρωση Τιμών στο Κεφάλαιο 5",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -163,7 +178,6 @@ public class Controller implements ActionListener,TableModelListener {
 
 	}
 
-
 	public void tableChanged(TableModelEvent e) {
 		int row = e.getFirstRow();
 		int column = e.getColumn();
@@ -177,13 +191,15 @@ public class Controller implements ActionListener,TableModelListener {
 			if(isUpdateDone == false){
 			    System.err.println("Error: Vegetable or fruit name does not in vector can not updated !");
             }
-			if (checked) {
+			/*if (checked) {
 				System.out.println(columnName + ": "+vf_name+","+ true);
 			} else {
 				System.out.println(columnName + ": "+vf_name+"," + false);
-			}
+			}*/
 		}
 	}
+
+
 }
 
 

@@ -78,4 +78,8 @@ public class MyModel extends DefaultTableModel {
 		data = new VFVector();
 
 	}
+
+	public  ArrayList<String > updateKef5Prices(){
+		return data.updateKef5Prices();
+	}
 }
