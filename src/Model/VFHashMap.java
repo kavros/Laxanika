@@ -80,7 +80,7 @@ public class VFHashMap {
 
 
         String vf_name       = vec.get(i).vf_name;
-        int kef5_code        = -1;
+        String kef5_code      = null;
 
 
         if( ! vf_map.containsKey(vec.get(i).vf_name) ) {
@@ -94,7 +94,7 @@ public class VFHashMap {
             kef5_code = this.vf_map.get(vf_name).kef5Code;
         }
 
-        if(kef5_code == -1 ){
+        if(kef5_code == null ){
             throw new Exception("Error:kef5Code is negaive,probably not found in hashmap");
         }
 

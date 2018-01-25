@@ -2,6 +2,6 @@ package Model;
 
 public class VFHashMapValues {
     double profit;
-    int kef5Code;
+    String kef5Code;
 
 }

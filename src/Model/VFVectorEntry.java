@@ -14,7 +14,7 @@ public class VFVectorEntry {
     double vf_final_price;
 
     boolean isUpdateNeeded;
-    int     kef5_code;
+    String     kef5_code;
     double  kef5_price;
 
     public String toString(){

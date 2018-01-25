@@ -84,7 +84,7 @@ public class XMLReader {
                     //System.out.println("Staff id : " + eElement.getAttribute("id"));
                     vfName = eElement.getElementsByTagName("name").item(0).getTextContent();
                     values.profit   = Double.parseDouble(eElement.getElementsByTagName("profit").item(0).getTextContent());
-                    values.kef5Code = Integer.parseInt(eElement.getElementsByTagName("kef5Code").item(0).getTextContent());
+                    values.kef5Code = eElement.getElementsByTagName("kef5Code").item(0).getTextContent();
 
                     map.put(vfName,values);
                 }
