@@ -15,28 +15,30 @@ Tutorial for SQL Server on unisoft website.
 -Upload project on Git be careful add database.xml to .gitignore!!!.(done)
 -fix  case that excel with same name opens multiple times           (done)
 -fix case when user clicks edit->list multiple times.               (done)
-
+-User opens->excel1 ,edit->list,opens->exel2.                       (done)
+-User opens multiple files.                                         (done)
+-fix search button problem.                                         (done)
+-fix case that product name on excel there is not in products.xml.  (done)
 
 -refactor code
--handle the case that user clicks and opens  files multiple times (excel file?).
 -implement code that can modify products.xml and VFHashMap.
+-find and fix warnings
+-why kef5Code there is on vector and on hashMap?
 
 -think cases/error case and how to handle .
+
 
 
 ########%####
 #Error Cases#
 #############
--User  opens a wrong file .
--User opens->excel1 ,edit->list,opens->exel1.
--User opens multiple files.
+-User opens a wrong file.                                            !!
 
--Handle case that product name on excel there is not in products.xml.
 
 ##########
 #TO CHECK#
 ##########
--check that all products on excel  there are inside of the VFVector.(how?)
+-check that all products on excel  there are inside of the VFVector.(how?) !!!
 
 
 
