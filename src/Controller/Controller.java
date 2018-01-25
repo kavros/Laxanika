@@ -53,10 +53,6 @@ public class Controller implements ActionListener,TableModelListener {
 
 	public void setComponentsVisible(){
 
-	    //make necessary components visible
-		searchTermTextField.setVisible(true);
-		_updateButton.setVisible(true);
-		_filterButton.setVisible(true);
 
         //if table is not empty,remove all rows of table.
         //and recreate vector.
@@ -66,22 +62,33 @@ public class Controller implements ActionListener,TableModelListener {
         }
 
         //update vector with excel data.
-        ExcelReader reader = new ExcelReader();
-        reader.readExcelFile(fileName, model.getVector());
+		PdfParser reader = new PdfParser();
+        try {
+			reader.parsePdfFile(fileName, model.getVector());
+		}catch (Exception e){
+        	System.out.println(e.getStackTrace());
+		}
+
 
         //if product is not in hash Map show error
         model.getVector().transformVector();
         ArrayList<String> unknownProductsList = model.getUnknownNames();
         if(unknownProductsList.isEmpty() == false){
-            //System.out.println(fileName);
-            //System.out.println(unknownProductsList);
+
             JOptionPane.showMessageDialog(null,
                     "Παρακαλώ καταχώρησε στην λίστα τα παρακάτω: "+""+unknownProductsList.toString(), "Error",
                     JOptionPane.ERROR_MESSAGE);
+
             model.reCreateVector();
             model.setRowCount(0);
+            editListMi.doClick();
             return;
         }
+
+        //make necessary components visible
+        searchTermTextField.setVisible(true);
+        _updateButton.setVisible(true);
+        _filterButton.setVisible(true);
 
         //updates every entry on vector
         //with the right value for kef5code and final price.
