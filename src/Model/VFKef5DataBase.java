@@ -8,16 +8,9 @@ public class VFKef5DataBase {
     String username;
     String password;
     String dbURL;
-    /*
-    * Update vegetables and fruits prices at kefalaio 5 database.
-    * Input: a
 
-    boolean updateEntries(VFHashMap<String,VFHashMapValues> vf_map){
-
-    }*/
-
-    public void testDatabase() {
-
+    public String getKef5Price(String query) {
+        String answer = new String() ;
         //read credentials for kef5 database from xml file
         XMLReader db =new XMLReader();
         XMLReader.DatabaseEntry dbCredentials =db.getDatabaseCredentials();
@@ -31,9 +24,11 @@ public class VFKef5DataBase {
             conn = DriverManager.getConnection(dbURL, username, password);
             if (conn != null) {
                 Statement st = conn.createStatement();
-                ResultSet res = st.executeQuery("select count(sFileId) from dbo.SMAST;");
+//                ResultSet res = st.executeQuery("select count(sFileId) from dbo.SMAST;");
+                ResultSet res = st.executeQuery(query);
                 while (res.next()) {
                     System.out.println(res.getString(1));
+                    answer = res.getString(1);
                 }
                 DatabaseMetaData dm = (DatabaseMetaData) conn.getMetaData();
 
@@ -55,7 +50,7 @@ public class VFKef5DataBase {
                 ex.printStackTrace();
             }
         }
-
+        return answer;
 
     }
 }
