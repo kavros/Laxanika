@@ -75,7 +75,7 @@
 	
 	<element>
         <name>ΚΑΡΟΤΑ</name>
-        <profit>0.25</profit>
+        <profit>0.35</profit>
         <kef5Code>2107</kef5Code>
     </element>
 
@@ -151,7 +151,14 @@
         <kef5Code>327</kef5Code>
     </element>
 
-	<element>
+    <element>
+        <name>ΜΑΝΙΤΑΡΙΑ</name>
+        <profit>0.30</profit>
+        <kef5Code>328</kef5Code>
+    </element>
+
+
+    <element>
         <name>ΜΑΡΑΘΟ</name>
         <profit>0.3</profit>
         <kef5Code>369</kef5Code>
@@ -189,7 +196,7 @@
 	
 	<element>
         <name>ΜΕΣΚΛΟΥΜ</name>
-        <profit>0.3</profit>
+        <profit>0.35</profit>
         <kef5Code>128</kef5Code>
     </element>
 
@@ -287,7 +294,7 @@
 	<element>
         <name>ΣΕΛΙΝΟΡΙΖΑ</name>
         <profit>0.35</profit>
-        <kef5Code>1</kef5Code>
+        <kef5Code>317</kef5Code>
     </element>
 	
 	<element>
@@ -313,12 +320,31 @@
         <profit>0.25</profit>
         <kef5Code>2092</kef5Code>
     </element>
+
+    <element>
+        <name>ΤΟΜΑΤΕΣ LONG LIFE</name>
+        <profit>0.25</profit>
+        <kef5Code>2092</kef5Code>
+    </element>
+
+    <element>
+        <name>ΤΟΜΑΤΕΣ ELPIDA</name>
+        <profit>0.25</profit>
+        <kef5Code>2092</kef5Code>
+    </element>
     
 	<element>
         <name>ΤΟΜΑΤΕΣ ΤΣΑΜΠΙ</name>
         <profit>0.25</profit>
         <kef5Code>2090</kef5Code>
     </element>
+
+    <element>
+        <name>ΤΟΜΑΤΕΣ ΤΣΑΜΠΙ (FIRAMO)</name>
+        <profit>0.25</profit>
+        <kef5Code>2090</kef5Code>
+    </element>
+
     
 	<element>
         <name>ΤΟΜΑΤΕΣ ΠΟΜΟΝΤΟΡΙΑ</name>
@@ -484,7 +510,7 @@
 	
 	
 	<element>
-        <name>ΜΗΛΑ KOKKINA</name>
+        <name>ΜΗΛΑ ΚΟΚΚΙΝΑ</name>
         <profit>0.3</profit>
         <kef5Code>276</kef5Code>
     </element>
@@ -514,7 +540,7 @@
 	
 	<element>
         <name>ΝΕΚΤΑΡΙΝΙΑ</name>
-        <profit>0.35</profit>
+        <profit>0.30</profit>
         <kef5Code>361</kef5Code>
     </element>
 	
