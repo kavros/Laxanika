@@ -1,18 +1,17 @@
 package Controller;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Vector;
+
 
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
-
-
-
 import Model.*;
+
 
 /**
  * @author ashraf
@@ -111,7 +110,9 @@ public class Controller implements ActionListener,TableModelListener {
         openMi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setPreferredSize(new Dimension(600,700));
                 fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
                 int result = fileChooser.showOpenDialog(null);
                 if (result == JFileChooser.APPROVE_OPTION) {
@@ -191,11 +192,7 @@ public class Controller implements ActionListener,TableModelListener {
 			if(isUpdateDone == false){
 			    System.err.println("Error: Vegetable or fruit name does not in vector can not updated !");
             }
-			/*if (checked) {
-				System.out.println(columnName + ": "+vf_name+","+ true);
-			} else {
-				System.out.println(columnName + ": "+vf_name+"," + false);
-			}*/
+
 		}
 	}
 

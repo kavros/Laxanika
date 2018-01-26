@@ -71,8 +71,8 @@ public class PdfParser {
         for(int i=0; i < productLine.length();++i){
             char character = productLine.charAt(i) ;
             if( Character.isLetter (character)
-               ||character == '-'
-               || character == ' ' || character== '∆'){
+               ||character == '-' || character == ' ' || character== '∆' ||character == ')' ||character == '('){
+
                 if(character == '∆'){
                     nameAndOrigin.append('Δ');
                 }else if(character=='Ω'){

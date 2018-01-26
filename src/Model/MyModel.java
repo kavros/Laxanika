@@ -49,12 +49,15 @@ public class MyModel extends DefaultTableModel {
 
 		//find profit value from hashmap
 		double profit;
-		if(vf_rates.getHashMapValues(data.getVec().get(i).vf_name) == null){
-			String[] a = (data.getVec().get(i).vf_name).split(" ",2);
-			profit = vf_rates.getHashMapValues(a[0]).profit;
-		}else{
-			profit = vf_rates.getHashMapValues(data.getVec().get(i).vf_name).profit;
+		VFHashMapValues a = null;
+		try {
+			a = vf_rates.get(data.getVec().get(i).vf_name);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
+		profit = a.profit;
+
 		profit = profit *100;
 
 		//
