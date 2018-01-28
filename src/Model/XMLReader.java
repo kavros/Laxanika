@@ -83,6 +83,9 @@ public class XMLReader {
 
                     //System.out.println("Staff id : " + eElement.getAttribute("id"));
                     vfName = eElement.getElementsByTagName("name").item(0).getTextContent();
+                    if(vfName.equals("DELETED")){
+                        continue;
+                    }
                     values.profit   = Double.parseDouble(eElement.getElementsByTagName("profit").item(0).getTextContent());
                     values.kef5Code = eElement.getElementsByTagName("kef5Code").item(0).getTextContent();
 
