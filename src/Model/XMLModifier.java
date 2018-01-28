@@ -15,8 +15,59 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 
 public class XMLModifier {
+    private boolean isInputsValid(String vf_name,String profit,String kef5Code){
+        if(vf_name.isEmpty() || profit.isEmpty()|| kef5Code.isEmpty()){
+            return false;
+        }
 
-    public void addXMLNode(String vf_name,String profit,String kef5Code){
+        if(Double.parseDouble(profit)> 1 ){
+            System.out.println(profit);
+            return  false;
+        }
+        char[] name = vf_name.toCharArray();
+        char[] pro  = profit.toCharArray();
+        char[] code = kef5Code.toCharArray();
+
+
+        for(int i=0; i < pro.length; ++i){
+            if( !Character.isDigit(pro[i]) &&
+                     pro[i] != '.'){
+                return false;
+            }
+        }
+
+        for(int i=0; i < code.length; ++i){
+            if(!Character.isDigit(code[i])){
+                return  false;
+            }
+        }
+        return  true;
+
+    }
+
+    public boolean addXMLNode(String vf_name,String profit,String kef5Code){
+
+        //fix profit number format
+        char[] pr = profit.toCharArray();
+        for(int i=0; i < pr.length; ++i){
+            if(pr[i] == ','){
+                pr[i] ='.';
+            }
+        }
+        profit = new String(pr);
+
+        double profit_num = Double.parseDouble(profit);
+        if(profit_num > 1){
+            profit_num=profit_num/100;
+        }
+        profit = String.valueOf(profit_num);
+        System.out.println(profit);
+
+        //validate user inputs
+        if(! isInputsValid(vf_name,profit,kef5Code) ){
+            return false;
+        }
+
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -61,6 +112,7 @@ public class XMLModifier {
             System.err.println("function addToXML at class XMLModifier has failed");
             e.printStackTrace();
         }
+        return  true;
     }
 
 

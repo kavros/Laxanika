@@ -3,6 +3,11 @@ package Model;
 public class VFHashMapValues {
     double profit;
     String kef5Code;
+    public VFHashMapValues(double profit,String kef5Code){
+        this.profit=profit;
+        this.kef5Code=kef5Code;
+    }
+    public VFHashMapValues(){}
     public double getProfit(){
         return profit;
     }

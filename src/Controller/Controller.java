@@ -29,8 +29,13 @@ public class Controller implements ActionListener,TableModelListener {
 	JButton _updateButton;
 	JTable  _table ;
 
+	JTextField _vfNameField ;
+	JTextField _profitField ;
+	JTextField _kef5CodeField ;
+	Object[] _inputFields ;
+	JButton  _addXmlButton;
 
-    String   fileName = null;
+	String   fileName = null;
 
 	public Controller(JTextField searchTermTextField,
 					  JMenuItem openM,
@@ -38,6 +43,12 @@ public class Controller implements ActionListener,TableModelListener {
 					  MyModel model,
                       JButton filterButton,
                       JButton updateButton,
+					  JTextField vfNameField,
+					  JTextField profitField,
+					  JTextField kef5CodeField,
+					  Object[] inputFields,
+					  JButton  addXmlButton,
+
                       JTable table) {
 		super();
 		this.searchTermTextField = searchTermTextField;
@@ -47,8 +58,16 @@ public class Controller implements ActionListener,TableModelListener {
 		_updateButton            = updateButton;
 		_filterButton			 = filterButton;
 		this.editListMi 		 = editListMi;
+
+		_vfNameField 		     = vfNameField;
+		_profitField             = profitField;
+		_kef5CodeField           = kef5CodeField;
+		_inputFields             = inputFields;
+		_addXmlButton            = addXmlButton;
+
 		JMenuActionListener();
 		addUpdateButtonListener();
+		addXmlButtonListener();
 	}
 
 
@@ -62,7 +81,7 @@ public class Controller implements ActionListener,TableModelListener {
             model.setRowCount(0);
         }
 
-        //update vector with excel data.
+        //update vector with pdf data.
 		PdfParser reader = new PdfParser();
         try {
 			reader.parsePdfFile(fileName, model.getVector());
@@ -135,6 +154,7 @@ public class Controller implements ActionListener,TableModelListener {
 
                 model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
 				model.updateModelWithHash();
+				_addXmlButton.setVisible(true);
             }
         });
 
@@ -148,6 +168,46 @@ public class Controller implements ActionListener,TableModelListener {
 				JOptionPane.showMessageDialog(null,
 						"Ενημερώθηκαν επιτυχώς οι τιμές στο Κεφάλαιο 5 για τα παρακάτω: "+""+products.toString(), "Ενημέρωση Τιμών στο Κεφάλαιο 5",
 						JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+	}
+
+	private void addXmlButtonListener(){
+		_addXmlButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int result = JOptionPane.showConfirmDialog(null, _inputFields,
+						"Εισαγωγή Προϊόντος", JOptionPane.OK_CANCEL_OPTION);
+				if (result == JOptionPane.OK_OPTION) {
+
+					XMLModifier xml= new XMLModifier();
+					//adds info to products.xml
+					boolean isSuccessfullyAdded = xml.addXMLNode( _vfNameField.getText(),
+									_profitField.getText(),
+									_kef5CodeField.getText()
+									);
+					//adds info to hash table
+					double profit = Double.parseDouble(_profitField.getText());
+					model.getVFHashMap().put(_vfNameField.getText(),profit,_kef5CodeField.getText());
+
+					if(isSuccessfullyAdded == true ){
+						JOptionPane.showMessageDialog(null,
+								"Η καταχώρηση του προιόντος έγινε επιτυχώς", "Επιτυχής Καταχώρηση",
+								JOptionPane.INFORMATION_MESSAGE);
+					}else{
+						JOptionPane.showMessageDialog(null,
+								"Η καταχώρηση του προιόντος απέτυχε.\n" +
+										"Τα πεδία κωδικός και κέρδος πρέπει να είναι αριθμός.\n",
+								"Αποτυχής Καταχώρηση",
+								JOptionPane.INFORMATION_MESSAGE);
+					}
+				}
+				//update gui table
+				model.setRowCount(0);
+				model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
+				model.updateModelWithHash();
+
+
 			}
 		});
 	}
