@@ -36,11 +36,7 @@ public class XMLModifier {
             }
         }
 
-        for(int i=0; i < code.length; ++i){
-            if(!Character.isDigit(code[i])){
-                return  false;
-            }
-        }
+
         return  true;
 
     }
