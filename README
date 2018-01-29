@@ -1,13 +1,12 @@
-Every excel file has to be at the following format: Microsoft 97-2003 Worksheet
+Every excel file has to be at the following format: Microsoft 97-2003 Worksheet (old)
 Tutorial for SQL Server on unisoft website.
 
 ######
 #TODO#
 ######
 
--bug:Stafyli aspro,stafyli mauro tha paroun tin idia timi!!!!
--copy new kefalaio 5 folder and create sql server + enable users.
-
+-bug:Stafyli aspro,stafyli mauro tha paroun tin idia timi!!!!       (done)
+-copy new kefalaio 5 folder and create sql server + enable users.   (done)
 -fix profit value for all products at products.xml.                 (done)
 -ask for more excel files.                                          (done)
 -get vegetables or fruits names from checkboxes that are true.      (done)
@@ -19,15 +18,28 @@ Tutorial for SQL Server on unisoft website.
 -User opens multiple files.                                         (done)
 -fix search button problem.                                         (done)
 -fix case that product name on excel there is not in products.xml.  (done)
+-getHashMapValues,isNameValid το hashmap value με το ακριβες
+ονομα γιατι αλλιως θα ενημερώνεται λαθος κωδικός στο κεφαλαιο!!!!   (done)
+-getHashMapValues να γινει overight με την get                      (done)
 
--refactor code
+
+
 -implement code that can modify products.xml and VFHashMap.
--find and fix warnings
+-Junit tests
+-make JTable text bigger
+-trace changes on kefalaio.
+
+-refactor code.
+-find and fix warnings.
 -why kef5Code there is on vector and on hashMap?
-
--think cases/error case and how to handle .
-
-
+-think cases/error case and how to handle.
+-find problem with special characters like Δ and Ω.
+-add feature to modify final prices from GUI.
+-handle the case that profit is under 30 cents.
+-configurations paths need to be dynamic
+-find the right way to handle exceptions
+-Documentation for every class and function
+-change Kefalaio 5 entry (ΣΥΚΑ ΞΕΡΑ)
 
 ########%####
 #Error Cases#
@@ -39,7 +51,7 @@ Tutorial for SQL Server on unisoft website.
 #TO CHECK#
 ##########
 -check that all products on excel  there are inside of the VFVector.(how?) !!!
+-find wireless price tags or print labels.
 
 
-
-Imported Libs: apache-poi, sqljdbc
+Imported Libs: apache-poi, sqljdbc,pdfbox
