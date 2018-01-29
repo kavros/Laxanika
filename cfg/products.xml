@@ -2,15 +2,15 @@
 <products>
 
     <element>
-        <name>ΑΓΓΙΝΑΡΕΣ</name>
+        <name>ΑΓΚΙΝΑΡΕΣ</name>
         <profit>0.25</profit>
-        <kef5Code>1250</kef5Code>
+        <kef5Code>250</kef5Code>
     </element>
    
 	<element>
         <name>ΑΓΓΟΥΡΙΑ ΚΝΩΣΣΟΥ</name>
         <profit>0.25</profit>
-        <kef5Code>12099</kef5Code>
+        <kef5Code>2099</kef5Code>
     </element>
 	
     <element>
@@ -634,4 +634,9 @@
         <kef5Code>379</kef5Code>
     </element>
 
+<element>
+      <name>ΣΥΚΑ ΞΕΡΑ</name>
+      <profit>0.3</profit>
+      <kef5Code>450.04.04.01</kef5Code>
+   </element>
 </products>
