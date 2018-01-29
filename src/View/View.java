@@ -18,6 +18,11 @@ public class View {
 	public View() {
 		// Create views swing UI components 
 		JTextField searchTermTextField = new JTextField(10);
+
+		/*JTextField productName     = new JTextField(10);
+		JTextField productProfit   = new JTextField(10);
+		JTextField productKef5Code = new JTextField(10);*/
+
 		JButton filterButton = new JButton("Εύρεση");
 		JButton updateButton = new JButton("Ενημέρωση Κεφαλαίου");
 		JTable table ;//= new JTable();
@@ -27,9 +32,19 @@ public class View {
 		//create icons for menu bar
 		ImageIcon iconOpen = new ImageIcon("icons\\open.png");
 		ImageIcon iconExit = new ImageIcon("icons\\exit.png");
-		iconExit =scaleIcon(iconExit,10,10);
-		iconOpen =scaleIcon(iconOpen,10,10);
+		ImageIcon iconAdd  = new ImageIcon("icons\\add2.png");
+		ImageIcon iconDelete  = new ImageIcon("icons\\delete.png");
+		ImageIcon iconEdit  = new ImageIcon("icons\\edit.png");
 
+		iconExit = scaleIcon(iconExit,15,15);
+		iconOpen = scaleIcon(iconOpen,15,15);
+
+		iconAdd  	= scaleIcon(iconAdd,40,40);
+		iconDelete  = scaleIcon(iconDelete,40,40);
+		iconEdit    = scaleIcon(iconEdit,40,40);
+		JButton  addXmlButton      	= new JButton("Καταχώρηση",iconAdd);
+		JButton  deleteXmlButton	= new JButton("Διαγραφή",iconDelete);
+		JButton  editXmlButton 		= new JButton("Επεξεργασία",iconEdit);
 
 		//create and add JMenu items
 		JMenu fileMenu = new JMenu("Αρχείο");
@@ -90,6 +105,14 @@ public class View {
 		ctrlPane.add(filterButton);
 		ctrlPane.add(updateButton);
 
+		ctrlPane.add(addXmlButton);
+		ctrlPane.add(editXmlButton);
+		ctrlPane.add(deleteXmlButton);
+		addXmlButton.setVisible(false);
+		editXmlButton.setVisible(false);
+		deleteXmlButton.setVisible(false);
+
+
 		JScrollPane tableScrollPane = new JScrollPane(table);
 		tableScrollPane.setPreferredSize(new Dimension(1000, 600));
 		tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Λαχανικά-Φρούτα",
@@ -101,6 +124,7 @@ public class View {
 		splitPane.setEnabled(false);
 
 
+
 		// Display it all in a scrolling window and make the window appear
 		JFrame frame = new JFrame("ΛΑΧΑΝΙΚΑ-ΦΡΟΥΤΑ");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -110,8 +134,25 @@ public class View {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
+		//JTextFields to insert product to products.xml
+		JTextField vfNameField = new JTextField(15);
+		JTextField profitField = new JTextField(15);
+		JTextField kef5CodeField = new JTextField(15);
+		Object[] inputFields = {"Όνομα Προϊόντος", vfNameField,
+				"Κέρδος", profitField,
+				"Κωδικός", kef5CodeField};
+
+
+
         // Create controller
-        Controller controller = new Controller(searchTermTextField,openMi,editListMi,model,filterButton,updateButton,table);
+        Controller controller = new Controller(searchTermTextField,
+											openMi,editListMi,model,
+											filterButton,updateButton,
+											vfNameField,profitField,
+											kef5CodeField,inputFields,
+											addXmlButton,
+											table);
+
         filterButton.addActionListener(controller);
 		table.getModel().addTableModelListener(controller);
 
@@ -119,7 +160,7 @@ public class View {
 
 	private ImageIcon scaleIcon(ImageIcon imageicon,int w,int h){
 		Image image = imageicon.getImage(); // transform it
-		Image newimg = image.getScaledInstance(15, 15,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+		Image newimg = image.getScaledInstance(w, h,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
 		return new ImageIcon(newimg);  // transform it back
 	}
 
