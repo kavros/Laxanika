@@ -109,6 +109,7 @@ public class Controller implements ActionListener,TableModelListener {
         searchTermTextField.setVisible(true);
         _updateButton.setVisible(true);
         _filterButton.setVisible(true);
+		_addXmlButton.setVisible(false);
 
         //updates every entry on vector
         //with the right value for kef5code and final price.
@@ -187,7 +188,11 @@ public class Controller implements ActionListener,TableModelListener {
 									_kef5CodeField.getText()
 									);
 					//adds info to hash table
-					double profit = Double.parseDouble(_profitField.getText());
+
+					String a      = _profitField.getText();
+					a= a.replace(",",".");
+					double profit = Double.parseDouble(a);
+
 					model.getVFHashMap().put(_vfNameField.getText(),profit,_kef5CodeField.getText());
 
 					if(isSuccessfullyAdded == true ){
