@@ -4,5 +4,6 @@
         <lastname>mook kim</lastname>
         <nickname>mkyong</nickname>
         <salary>2000000</salary>
-    <age>28</age></staff>
+        <age>28</age>
+    </staff>
 </company>

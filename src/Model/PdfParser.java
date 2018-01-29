@@ -12,8 +12,6 @@ public class PdfParser {
          // /Loading an existing document
         File file = new File(fileName);
         PDDocument document = PDDocument.load(file);
-        int numberOfRows    = document.getNumberOfPages();
-
 
         //Instantiate PDFTextStripper class
         PDFTextStripper pdfStripper = new PDFTextStripper();
