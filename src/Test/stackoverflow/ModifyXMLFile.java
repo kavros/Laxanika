@@ -21,7 +21,7 @@ public class ModifyXMLFile {
 
     public static void main(String argv[]) {
 
-        try {
+        /*try {
             String filepath = "C:\\Users\\Alexis\\IdeaProjects\\Laxanika\\src\\Test\\stackoverflow\\file.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -76,17 +76,43 @@ public class ModifyXMLFile {
 
             System.out.println("Done");
 
-        } catch (ParserConfigurationException pce) {
-            pce.printStackTrace();
-        } catch (TransformerException tfe) {
-            tfe.printStackTrace();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        } catch (SAXException sae) {
-            sae.printStackTrace();
-        }
+        } catch (Exception e) {
+            System.err.println("Method modify at class XMLModifier failed ");
+            e.printStackTrace();
+        }*/
+        modifyXMLFile("ΣΥΚΑ1","ΣΥΚΑ");
     }
-    public void modifyXMLFile(int id,double profit,int kef5Code,int productName){
+    public static void modifyXMLFile(String  vf_name,String newVfName){
+        try {
+            String filepath = "C:\\Users\\Alexis\\IdeaProjects\\Laxanika\\src\\Test\\stackoverflow\\server.xml";
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(filepath);
 
+            NodeList nodes = (NodeList) doc.getElementsByTagName("name");//.item(0);
+            Node targetNode=null;
+
+            for(int i=0; i < nodes.getLength();++i){
+
+                targetNode =nodes.item(i);
+                if(targetNode.getTextContent().equals(vf_name)){
+                    targetNode.setTextContent(newVfName);
+                    break;
+                }
+            }
+
+            // write the content into xml file
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File(filepath));
+            transformer.transform(source, result);
+
+
+
+        } catch (Exception e) {
+            System.err.println("Method modifyXML at class XMLModifier has failed ");
+            e.printStackTrace();
+        }
     }
 }

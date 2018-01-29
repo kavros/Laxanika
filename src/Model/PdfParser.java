@@ -1,14 +1,7 @@
 package Model;
-
-
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
-import org.apache.pdfbox.text.PDFTextStripperByArea;
-
 import java.io.File;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 
 public class PdfParser {
 
@@ -57,56 +50,61 @@ public class PdfParser {
 
     }
 
-     void addProductToVector(String productLine,VFVector vector){
+     void addProductToVector(String productLine,VFVector vector) throws  Exception{
 
+         //replace strange characters
+         productLine=productLine.replace('∆','Δ');
+         productLine=productLine.replace('Ω','Ω');
+
+         //ignore ΤΕΛΑΡΑ and ΚΕΝΑ
         if(productLine.contains("ΤΕΛΑΡΑ")
            || productLine.contains("ΚΕΝΑ")){
             return;
         }
 
         VFVectorEntry laxaniko = new VFVectorEntry();
-        StringBuffer  nameAndOrigin = new StringBuffer();
-        String        lineAfterName = new String();
 
-        for(int i=0; i < productLine.length();++i){
-            char character = productLine.charAt(i) ;
-            if( Character.isLetter (character)
-               ||character == '-' || character == ' ' || character== '∆' ||character == ')' ||character == '('){
-
-                if(character == '∆'){
-                    nameAndOrigin.append('Δ');
-                }else if(character=='Ω'){
-                    nameAndOrigin.append("Ω");
-                }else{
-                    nameAndOrigin.append(character);
-                }
-
-            }else if(Character.isDigit(character)){
-                lineAfterName=productLine.substring(i);
-                break;
-            }
-
+         //line[0]  -> proion,proeleusi,noumero
+         //line[1]  -> ypoloipa dedomena gramis xwris Monada Metrisis
+        String[] line=null;
+        if(productLine.contains("ΚΙΛ")){
+            line = productLine.split("ΚΙΛ");
+        }else if(productLine.contains("ΤΕΜ")){
+            line =  productLine.split("ΤΕΜ");
+        }else{
+            throw new Exception("Error: function addProductToVector on PdfParser failed");
         }
 
-        laxaniko.vf_name   = nameAndOrigin.toString().split("-")[0];
-         ByteBuffer byteBuffer = Charset.forName("UTF-8").encode(laxaniko.vf_name );
 
-         laxaniko.vf_origin = nameAndOrigin.toString().split("-",2)[1];
+        String[] subLine2 = line[0].split(" ");
+        String[] subLine3 = line[1].trim().split(" ");
 
-        String[] lax = lineAfterName.split(" ");
-        for(int i=0;i<lax.length; ++i){
-            lax[i]=lax[i].replace(",",".");
-        }
-        laxaniko.vf_mm   = lax[0];
-        laxaniko.vf_packing  = lax[1];
-        laxaniko.vf_quantity = Double.parseDouble(lax[3]);
-        laxaniko.vf_value    = lax[5];
-        laxaniko.vf_price    = Double.parseDouble(lax[4]);
-        laxaniko.vf_discount = Double.parseDouble(lax[6]);
-        laxaniko.vf_net_value= lax[7];
-        laxaniko.vf_tax      = Double.parseDouble(lax[8]);
-        vector.add(laxaniko);
-        //System.out.println(vector);
+
+        laxaniko.vf_number = subLine2[subLine2.length-1];
+
+        laxaniko.vf_name    = line[0].split("-")[0];
+        laxaniko.vf_origin  = line[0].split("-")[1];
+
+        laxaniko.vf_mm      = "ΚΙΛ";
+        laxaniko.vf_packing = subLine3[0].replace(",",".");
+        laxaniko.vf_quantity= Double.parseDouble(subLine3[1].replace(",","."));
+        laxaniko.vf_price   = Double.parseDouble(subLine3[2].replace(",","."));
+        laxaniko.vf_value   = subLine3[3].replace(",",".");
+        laxaniko.vf_discount= Double.parseDouble(subLine3[4].replace(",","."));
+        laxaniko.vf_net_value=subLine3[5].replace(",",".");
+        laxaniko.vf_tax      =Double.parseDouble(subLine3[6].replace(",","."));
+         vector.add(laxaniko);
+       /*System.out.println("name: "+laxaniko.vf_name );
+        System.out.println("origin: "+laxaniko.vf_origin );
+        System.out.println("number: "+laxaniko.vf_number );
+        System.out.println("mm: "+laxaniko.vf_mm );
+        System.out.println("packing: "+laxaniko.vf_packing );
+        System.out.println("quantity: "+laxaniko.vf_quantity );
+        System.out.println("price: "+laxaniko.vf_price );
+        System.out.println("value: "+laxaniko.vf_value );
+        System.out.println("discount: "+laxaniko.vf_discount );
+        System.out.println("net value: "+laxaniko.vf_net_value );
+        System.out.println("tax: "+laxaniko.vf_tax );*/
     }
 
 }
