@@ -639,4 +639,9 @@
       <profit>0.3</profit>
       <kef5Code>450.04.04.01</kef5Code>
    </element>
+<element>
+      <name>ΚΟΥΚΙΑ</name>
+      <profit>0.25</profit>
+      <kef5Code>309</kef5Code>
+   </element>
 </products>
