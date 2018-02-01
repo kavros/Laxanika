@@ -1,6 +1,7 @@
 package Model;
 
 import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -83,7 +84,7 @@ public class MyModel extends DefaultTableModel {
 
 	}
 
-	public  ArrayList<String > updateKef5Prices(){
+	public  ArrayList<String > updateKef5Prices() throws SQLException{
 		return data.updateKef5Prices();
 	}
 }

@@ -101,7 +101,7 @@ public class VFVector {
         return isUpdateDone;
     }
 
-    public ArrayList<String> updateKef5Prices() {
+    public ArrayList<String> updateKef5Prices() throws  SQLException{
         ArrayList<String> products = new ArrayList<>();
         int i;
         for ( i = 0; i < vec.size(); ++i) {

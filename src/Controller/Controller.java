@@ -135,7 +135,8 @@ public class Controller implements ActionListener,TableModelListener {
 		try {
 			model.getVector().update(model.getVFHashMap());
 		}catch (SQLException e){
-			showMessageDialog("SQL failed to update VFHashMap"," SQL failed",JOptionPane.ERROR_MESSAGE);
+			showMessageDialog("Απέτυχε η εύρεση των τιμών απο το κεφάλαιο λογω προβλήματος με την SQL.",
+                    "Αποτυχία SQL",JOptionPane.ERROR_MESSAGE);
 		}
 
 
@@ -184,8 +185,13 @@ public class Controller implements ActionListener,TableModelListener {
 
     private void updateButtonListener(){
 		_updateButton.addActionListener(e -> {
-            ArrayList<String> products;
-            products = model.updateKef5Prices();
+            ArrayList<String> products ;
+            try{
+                products = model.updateKef5Prices();
+            }catch (SQLException a){
+                showMessageDialog("Απέτυχε η ενημέρωση τιμών λόγω πρόβληματος με την SQL.","Αποτυχία SQL",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             showMessageDialog(
                     "Ενημερώθηκαν επιτυχώς οι τιμές στο Κεφάλαιο 5 για τα παρακάτω: "+""+products.toString(), "Ενημέρωση Τιμών στο Κεφάλαιο 5",
                     JOptionPane.INFORMATION_MESSAGE

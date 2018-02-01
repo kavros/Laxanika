@@ -33,9 +33,7 @@ public class VFKef5DataBase {
                 System.out.println("conn is null");
             }
 
-        } catch (SQLException ex) {
 
-            throw new SQLException();
         } finally {
             try {
                 if (conn != null && !conn.isClosed()) {
@@ -50,7 +48,7 @@ public class VFKef5DataBase {
     }
 
 
-    public void updateKef5Price(String query){
+    public void updateKef5Price(String query) throws SQLException{
         //read credentials for kef5 database from xml file
         XMLReader db =new XMLReader();
         XMLReader.DatabaseEntry dbCredentials =db.getDatabaseCredentials();
@@ -71,8 +69,7 @@ public class VFKef5DataBase {
                 System.out.println("conn is null");
             }
 
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+
         } finally {
             try {
                 if (conn != null && !conn.isClosed()) {
