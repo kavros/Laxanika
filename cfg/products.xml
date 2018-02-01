@@ -634,14 +634,24 @@
         <kef5Code>379</kef5Code>
     </element>
 
-<element>
+    <element>
       <name>ΣΥΚΑ ΞΕΡΑ</name>
       <profit>0.3</profit>
       <kef5Code>450.04.04.01</kef5Code>
    </element>
-<element>
+    <element>
       <name>ΚΟΥΚΙΑ</name>
       <profit>0.25</profit>
       <kef5Code>309</kef5Code>
+   </element>
+<element>
+      <name>DELETED</name>
+      <profit>0.76</profit>
+      <kef5Code>111</kef5Code>
+   </element>
+<element>
+      <name>ΠΙΠΕΡΙΕΣ ΠΟΡΤΟΚΑΛΙ</name>
+      <profit>0.25</profit>
+      <kef5Code>348</kef5Code>
    </element>
 </products>
