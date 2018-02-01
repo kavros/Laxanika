@@ -65,10 +65,15 @@ public class PdfParser {
          //line[0]  -> proion,proeleusi,noumero
          //line[1]  -> ypoloipa dedomena gramis xwris Monada Metrisis
         String[] line=null;
-        if(productLine.contains("ΚΙΛ")){
-            line = productLine.split("ΚΙΛ");
-        }else if(productLine.contains("ΤΕΜ")){
-            line =  productLine.split("ΤΕΜ");
+        if(productLine.contains("ΚΙΛ ")){
+            line = productLine.split("ΚΙΛ ");
+            laxaniko.vf_mm      = "ΚΙΛ ";
+        }else if(productLine.contains("ΤΕΜ ")){
+            line =  productLine.split("ΤΕΜ ");
+            laxaniko.vf_mm      = "TEM ";
+        }else if(productLine.contains("ΜΑΤ ")) {
+            line =  productLine.split("ΜΑΤ ");
+            laxaniko.vf_mm      = "ΜΑΤ ";
         }else{
             throw new Exception("Error: function addProductToVector on PdfParser failed");
         }
@@ -77,13 +82,13 @@ public class PdfParser {
         String[] subLine2 = line[0].split(" ");
         String[] subLine3 = line[1].trim().split(" ");
 
+        //System.out.println(line[0]+" "+line[1]);
 
         laxaniko.vf_number = subLine2[subLine2.length-1];
 
         laxaniko.vf_name    = line[0].split("-")[0];
         laxaniko.vf_origin  = line[0].split("-")[1];
 
-        laxaniko.vf_mm      = "ΚΙΛ";
         laxaniko.vf_packing = subLine3[0].replace(",",".");
         laxaniko.vf_quantity= Double.parseDouble(subLine3[1].replace(",","."));
         laxaniko.vf_price   = Double.parseDouble(subLine3[2].replace(",","."));
