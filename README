@@ -26,25 +26,28 @@ Tutorial for SQL Server on unisoft website.
 -implement code that can modify products.xml and VFHashMap.(delete+add)      (done)
 -find why my final prices are 1 cent less.                          (done)
 -find and fix warnings.                                             (done)
+-why kef5Code there is on vector and on hashMap? we don't want to search
+every time on hashmap.                                              (done)
+-fix ΠΙΠΕΡΙΕΣ ΠΟΡΤΟΚΑΛΙ kef5code.                                   (done)
+-change Kefalaio 5 entry (ΣΥΚΑ ΞΕΡΑ) it is special case just
+ignore it                                                                    (done)
+-if fruit or vegetable is not on kefalaio database print error message.      (done)
 
+
+-configurations files paths has to be dynamic (first create jar).
+-Junit tests.
+-find the right way to handle exceptions.
 
 -profit column.
 -trace changes on kefalaio.
 -History table.
--Junit tests.
--find the right way to handle exceptions.
+
+
 -make GUI good looking.
-
 -refactor code.
--why kef5Code there is on vector and on hashMap?
--think cases/error case and how to handle.
+-add documentation for every class and function.
 
 
--configurations files paths has to be dynamic.
--Documentation for every class and function.
--change Kefalaio 5 entry (ΣΥΚΑ ΞΕΡΑ)
--fix ΠΙΠΕΡΙΕΣ ΠΟΡΤΟΚΑΛΙ kef5code.
--if fruit or vegetable is not on kefalaio database print error message.
 
 
 ########%####
