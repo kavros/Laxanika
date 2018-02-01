@@ -2,6 +2,7 @@ package Model;
 
 
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -59,21 +60,15 @@ public class VFVector {
     /**
      * updates: kef5_code,vf_finalPrices,vf_name ,vf_origin,vf_kef5prices.
      */
-    public void update(VFHashMap vf_rates ){
+    public void update(VFHashMap vf_rates ) throws SQLException{
 
         transformVector();
 
         for(int i = 0 ;  i < vec.size() ; ++i){
             if(vf_rates.isNameValid(vec.get(i).vf_name)){
-                try {
                     vf_rates.calculateFinalPrice(vec,i);
                     vf_rates.updateKef5Codes(vec,i);
                     insertKef5PricesToVec(i);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                //System.out.println(vec.get(i).vf_name +" "+vec.get(i).vf_final_price+" "+vec.get(i).kef5_code);
             }
 
 
@@ -82,7 +77,7 @@ public class VFVector {
         //System.out.print(vec);
 
     }
-    private void insertKef5PricesToVec(int position){
+    private void insertKef5PricesToVec(int position) throws SQLException{
         VFKef5DataBase dataBase = new VFKef5DataBase();
 
         vec.get(position).kef5_price=dataBase.getKef5Price(

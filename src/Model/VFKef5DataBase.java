@@ -9,7 +9,7 @@ public class VFKef5DataBase {
     private String password;
     private String dbURL;
 
-    public double getKef5Price(String query) {
+    public double getKef5Price(String query) throws SQLException {
         double answer = -1 ;
         //read credentials for kef5 database from xml file
         XMLReader db =new XMLReader();
@@ -34,7 +34,8 @@ public class VFKef5DataBase {
             }
 
         } catch (SQLException ex) {
-            ex.printStackTrace();
+
+            throw new SQLException();
         } finally {
             try {
                 if (conn != null && !conn.isClosed()) {
