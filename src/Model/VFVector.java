@@ -1,16 +1,16 @@
 package Model;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+
 
 import java.util.ArrayList;
 import java.util.Vector;
 
 
 public class VFVector {
-    Vector<VFVectorEntry> vec;
+    private Vector<VFVectorEntry> vec;
 
     public VFVector(){
-        vec = new Vector<VFVectorEntry>();
+        vec = new Vector<>();
     }
     public int getSize(){
         return  vec.size();
@@ -33,7 +33,7 @@ public class VFVector {
     }
 
     public void transformVector(){
-        //remove TELARA,ΚΕΝΑ from vec
+        //remove ΤΕΛΑΡΑ,ΚΕΝΑ from vec
         for(int i=0; i < vec.size(); ++i){
             if(vec.get(i).vf_name.contains("ΤΕΛΑΡΑ")){
                 //System.out.println(vec.get(i).vf_name);
@@ -44,7 +44,8 @@ public class VFVector {
         }
 
         //fix vf_name and vf_name on vector
-        for(int i = 0 ;  i < vec.size() ; ++i) {
+        int i;
+        for(i = 0; i < vec.size() ; ++i) {
             String str[] = vec.get(i).vf_name.split("-", 2);
             vec.get(i).vf_name = str[0];
             if(str.length > 2) {
@@ -63,7 +64,7 @@ public class VFVector {
         transformVector();
 
         for(int i = 0 ;  i < vec.size() ; ++i){
-            if(vf_rates.isNameValid(vec.get(i).vf_name) == true){
+            if(vf_rates.isNameValid(vec.get(i).vf_name)){
                 try {
                     vf_rates.calculateFinalPrice(vec,i);
                     vf_rates.updateKef5Codes(vec,i);
@@ -81,23 +82,24 @@ public class VFVector {
         //System.out.print(vec);
 
     }
-    public void insertKef5PricesToVec(int position){
+    private void insertKef5PricesToVec(int position){
         VFKef5DataBase dataBase = new VFKef5DataBase();
-        double kef5Price= dataBase.getKef5Price(
+
+        vec.get(position).kef5_price=dataBase.getKef5Price(
                 "select sRetailPr  from dbo.smast where sCode="+"'"+vec.get(position).kef5_code+"'"+";");
-        vec.get(position).kef5_price=kef5Price;
 
     }
 
     public  boolean updateVectorValueUpdateNeeded(String name, Boolean new_bool_val){
         boolean isUpdateDone = false;
-        for(int i =0;i<vec.size(); ++i){
+        int i;
+        for(i =0;i<vec.size(); ++i){
             if(vec.get(i).vf_name.equals(name)){
                 vec.get(i).isUpdateNeeded = new_bool_val;
                 isUpdateDone = true;
                 //System.out.println(vec.get(i).vf_name+" "+vec.get(i).isUpdateNeeded);
             }
-            if(isUpdateDone == true){
+            if(isUpdateDone){
                 break;
             }
         }
@@ -105,10 +107,10 @@ public class VFVector {
     }
 
     public ArrayList<String> updateKef5Prices() {
-        ArrayList<String> products = new ArrayList<String>();
-
-        for (int i = 0; i < vec.size(); ++i) {
-            if (vec.get(i).isUpdateNeeded == true) {
+        ArrayList<String> products = new ArrayList<>();
+        int i;
+        for ( i = 0; i < vec.size(); ++i) {
+            if (vec.get(i).isUpdateNeeded) {
                 products.add(vec.get(i).vf_name);
                 double newprice = vec.get(i).vf_final_price;
                 String kef5Code = vec.get(i).kef5_code;

@@ -55,12 +55,12 @@ public class XMLReader {
 
     public HashMap<String, VFHashMapValues> getProducts(){
 
-        HashMap<String, VFHashMapValues>   map    = new  HashMap<String, VFHashMapValues> ();
+        HashMap<String, VFHashMapValues>   map    = new  HashMap< > ();
 
-        String                           vfName = new String();
+
 
         try {
-
+            String vfName ;
             File fXmlFile = new File("cfg\\products.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -68,8 +68,6 @@ public class XMLReader {
 
             //optional, but recommended
             doc.getDocumentElement().normalize();
-
-            String rootName=doc.getDocumentElement().getNodeName();
             NodeList nList = doc.getElementsByTagName("element");
 
             for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -86,8 +84,8 @@ public class XMLReader {
                     if(vfName.equals("DELETED")){
                         continue;
                     }
-                    values.profit   = Double.parseDouble(eElement.getElementsByTagName("profit").item(0).getTextContent());
-                    values.kef5Code = eElement.getElementsByTagName("kef5Code").item(0).getTextContent();
+                    values.setProfit( Double.parseDouble(eElement.getElementsByTagName("profit").item(0).getTextContent()));
+                    values.setKef5Code(eElement.getElementsByTagName("kef5Code").item(0).getTextContent());
 
                     map.put(vfName,values);
                 }

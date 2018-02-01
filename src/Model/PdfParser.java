@@ -22,8 +22,8 @@ public class PdfParser {
 
         String[] pdfLines = text.split("\n");
         boolean isReading = false;
-
-        for(int i=0; i < pdfLines.length;++i){
+        int i;
+        for( i=0; i < pdfLines.length;++i){
             String line = pdfLines[i];
             if(line.contains("ΣΧΕΤΙΚΑ ΠΑΡΑΣΤΑΤΙΚΑ")
               ||line.contains("Εκ Μεταφοράς")) {
@@ -31,13 +31,12 @@ public class PdfParser {
                 isReading = true;
                 continue;
 
-            }else if(
-                      (line.contains("ΥΠΟΛΟΙΠΑ"))
+            }else if((line.contains("ΥΠΟΛΟΙΠΑ"))
                     ||(line.contains("Σε µεταφορά"))
                     ){
                 isReading=false;
             }
-            if(isReading == true){
+            if(isReading ){
                 //System.out.println(line);
                 addProductToVector(line,vector);
             }
@@ -48,7 +47,7 @@ public class PdfParser {
 
     }
 
-     void addProductToVector(String productLine,VFVector vector) throws  Exception{
+     private void addProductToVector(String productLine, VFVector vector) throws  Exception{
 
          //replace strange characters
          productLine=productLine.replace('∆','Δ');
@@ -64,8 +63,8 @@ public class PdfParser {
 
          //line[0]  -> proion,proeleusi,noumero
          //line[1]  -> ypoloipa dedomena gramis xwris Monada Metrisis
-        String[] line=null;
-        if(productLine.contains("ΚΙΛ ")){
+        String[] line;
+         if(productLine.contains("ΚΙΛ ")){
             line = productLine.split("ΚΙΛ ");
             laxaniko.vf_mm      = "ΚΙΛ ";
         }else if(productLine.contains("ΤΕΜ ")){

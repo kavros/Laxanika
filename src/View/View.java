@@ -26,6 +26,8 @@ public class View {
 		JButton filterButton = new JButton("Εύρεση");
 		JButton updateButton = new JButton("Ενημέρωση Κεφαλαίου");
 		JTable table ;//= new JTable();
+
+
 		JMenuBar menubar = new JMenuBar();
 
 
@@ -80,18 +82,14 @@ public class View {
 				}
 			}
 			@Override
-			public boolean isCellEditable(int row, int column){
-				 if(column<5){
-				     return false;
-                 }else{
-				     return true;
-                 }
+			public boolean isCellEditable(int row, int column) {
+                return editXmlButton.isVisible() || column >= 5;
 
-			}
+
+            }
 		};
-
+		table.setFont(new Font("Serif", Font.PLAIN, 17));
 		table.setModel(model);
-
 
 		// Set the view layout
 		JPanel ctrlPane = new JPanel();
@@ -127,7 +125,7 @@ public class View {
 
 		// Display it all in a scrolling window and make the window appear
 		JFrame frame = new JFrame("ΛΑΧΑΝΙΚΑ-ΦΡΟΥΤΑ");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.add(splitPane);
 		frame.setJMenuBar(menubar);
 		frame.pack();
@@ -151,6 +149,8 @@ public class View {
 											vfNameField,profitField,
 											kef5CodeField,inputFields,
 											addXmlButton,
+											deleteXmlButton,
+				  							editXmlButton,
 											table);
 
         filterButton.addActionListener(controller);

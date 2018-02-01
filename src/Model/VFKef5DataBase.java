@@ -5,9 +5,9 @@ import java.sql.*;
 
 public class VFKef5DataBase {
 
-    String username;
-    String password;
-    String dbURL;
+    private String username;
+    private String password;
+    private String dbURL;
 
     public double getKef5Price(String query) {
         double answer = -1 ;
@@ -28,7 +28,6 @@ public class VFKef5DataBase {
                 while (res.next()) {
                     answer = Double.parseDouble(res.getString(1));
                 }
-                DatabaseMetaData dm = (DatabaseMetaData) conn.getMetaData();
                 conn.commit();
             } else {
                 System.out.println("conn is null");

@@ -1,17 +1,18 @@
 package Model;
 
 public class VFHashMapValues {
-    double profit;
-    String kef5Code;
-    public VFHashMapValues(double profit,String kef5Code){
+    private double profit;
+    private String kef5Code;
+
+    VFHashMapValues(double profit,String kef5Code){
         this.profit=profit;
         this.kef5Code=kef5Code;
     }
-    public VFHashMapValues(){}
-    public double getProfit(){
+    VFHashMapValues(){}
+    protected double getProfit(){
         return profit;
     }
-    public String getKef5Code(){
+    protected String getKef5Code(){
         return  kef5Code;
     }
 
@@ -19,4 +20,13 @@ public class VFHashMapValues {
     public String toString() {
         return profit+" "+kef5Code;
     }
+
+    public void setProfit(double profit){
+        this.profit=profit;
+    }
+
+    public void setKef5Code(String kef5Code){
+        this.kef5Code=kef5Code;
+    }
+
 }

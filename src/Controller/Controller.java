@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 import javax.swing.*;
@@ -19,7 +20,7 @@ import Model.*;
  */
 public class Controller implements ActionListener,TableModelListener {
 
-	int  BOOLEAN_COLUMN  = 5;
+	private int  BOOLEAN_COLUMN  = 5;
 	private JTextField searchTermTextField;// = new JTextField(26);
 	private JMenuItem openMi;
 	private JMenuItem editListMi;
@@ -37,7 +38,7 @@ public class Controller implements ActionListener,TableModelListener {
 	private JButton  _deleteXmlButton;
 	private JButton  _editXmlButton;
 
-	String   fileName = null;
+	private String   fileName = null;
 
 	public Controller(JTextField searchTermTextField,
 					  JMenuItem openM,
@@ -83,7 +84,7 @@ public class Controller implements ActionListener,TableModelListener {
 		JOptionPane.showMessageDialog(null,msg,title,type);
 	}
 
-	public void setComponentsVisible(){
+	private void setComponentsVisible(){
 
 
         //if table is not empty,remove all rows of table.
@@ -98,14 +99,14 @@ public class Controller implements ActionListener,TableModelListener {
         try {
 			reader.parsePdfFile(fileName, model.getVector());
 		}catch (Exception e){
-        	System.out.println(e.getStackTrace());
+        	System.out.println(Arrays.toString(e.getStackTrace()));
 		}
 
 
         //if product is not in hash Map show error
         model.getVector().transformVector();
         ArrayList<String> unknownProductsList = model.getUnknownNames();
-        if(unknownProductsList.isEmpty() == false){
+        if( ! unknownProductsList.isEmpty() ){
 
 			showMessageDialog(
 					"Παρακαλώ καταχώρησε στην λίστα τα παρακάτω: "
@@ -143,142 +144,121 @@ public class Controller implements ActionListener,TableModelListener {
 	}
 
 	private void JMenuActionListener(){
-        openMi.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        openMi.addActionListener((ActionEvent e) -> {
 
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setPreferredSize(new Dimension(600,700));
-                fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-                int result = fileChooser.showOpenDialog(null);
-                if (result == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = fileChooser.getSelectedFile();
-                    fileName = selectedFile.getAbsolutePath();
-                    setComponentsVisible();
-                }
-            }});
-
-        editListMi.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-				model.setRowCount(0);
-
-                //make necessary components invisible
-                searchTermTextField.setVisible(false);
-                _updateButton.setVisible(false);
-                _filterButton.setVisible(false);
-
-                model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
-				model.updateModelWithHash();
-
-				_addXmlButton.setVisible(true);
-				_editXmlButton.setVisible(true);
-				_deleteXmlButton.setVisible(true);
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setPreferredSize(new Dimension(600,700));
+            fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+            int result = fileChooser.showOpenDialog(null);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                fileName = selectedFile.getAbsolutePath();
+                setComponentsVisible();
             }
+        });
+
+        editListMi.addActionListener(e -> {
+
+            model.setRowCount(0);
+
+            //make necessary components invisible
+            searchTermTextField.setVisible(false);
+            _updateButton.setVisible(false);
+            _filterButton.setVisible(false);
+
+            model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
+            model.updateModelWithHash();
+
+            _addXmlButton.setVisible(true);
+            _editXmlButton.setVisible(true);
+            _deleteXmlButton.setVisible(true);
         });
 
     }
 
     private void updateButtonListener(){
-		_updateButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ArrayList<String> products = model.updateKef5Prices();
-				showMessageDialog(
-						"Ενημερώθηκαν επιτυχώς οι τιμές στο Κεφάλαιο 5 για τα παρακάτω: "+""+products.toString(), "Ενημέρωση Τιμών στο Κεφάλαιο 5",
-						JOptionPane.INFORMATION_MESSAGE
-				);
-			}
-		});
+		_updateButton.addActionListener(e -> {
+            ArrayList<String> products;
+            products = model.updateKef5Prices();
+            showMessageDialog(
+                    "Ενημερώθηκαν επιτυχώς οι τιμές στο Κεφάλαιο 5 για τα παρακάτω: "+""+products.toString(), "Ενημέρωση Τιμών στο Κεφάλαιο 5",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        });
 	}
 
 	private void deleteXmlButtonListener(){
-		_deleteXmlButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if(_table.getSelectedRow() != -1 ){
+		_deleteXmlButton.addActionListener(e -> {
+            if(_table.getSelectedRow() != -1 ){
 
-					XMLModifier xml = new XMLModifier();
+                XMLModifier xml = new XMLModifier();
 
-					String selected_vf_name =(String) model.getValueAt(_table.getSelectedRow(),0);
-					VFHashMapValues val = model.getVFHashMap().remove(selected_vf_name);
-					model.removeRow(_table.getSelectedRow());
-					xml.deleteXMLNode(selected_vf_name);
+                String selected_vf_name =(String) model.getValueAt(_table.getSelectedRow(),0);
+                VFHashMapValues val = model.getVFHashMap().remove(selected_vf_name);
+                model.removeRow(_table.getSelectedRow());
+                xml.deleteXMLNode(selected_vf_name);
 
-					showMessageDialog(
-							"Το προιόν : "+selected_vf_name+" "+val.toString()+" διαγράφηκε επιτυχώς\n",
-							"Επιτυχής Διαγραφή",
-							JOptionPane.INFORMATION_MESSAGE
-					);
-				}else{
-					showMessageDialog(
-							"Παρακαλώ επιλέξετε την γραμμή που θέλετε να διαγράψετε!\n",
-							"Αποτυχής Διαγραφή",
-							JOptionPane.INFORMATION_MESSAGE
-					);
-				}
+                showMessageDialog(
+                        "Το προιόν : "+selected_vf_name+" "+val.toString()+" διαγράφηκε επιτυχώς\n",
+                        "Επιτυχής Διαγραφή",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            }else{
+                showMessageDialog(
+                        "Παρακαλώ επιλέξετε την γραμμή που θέλετε να διαγράψετε!\n",
+                        "Αποτυχής Διαγραφή",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            }
 
-			}
-		});
+        });
 	}
 
 	private void editXmlButtonListener(){
-		_editXmlButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-
-
-				_editXmlButton.setVisible(false);
-			}
-		});
+		_editXmlButton.addActionListener(e -> _editXmlButton.setVisible(false));
 	}
 
 	private void addXmlButtonListener(){
-		_addXmlButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				int result = JOptionPane.showConfirmDialog(null, _inputFields,
-						"Εισαγωγή Προϊόντος", JOptionPane.OK_CANCEL_OPTION);
-				if (result == JOptionPane.OK_OPTION) {
+		_addXmlButton.addActionListener(e -> {
+            int result = JOptionPane.showConfirmDialog(null, _inputFields,
+                    "Εισαγωγή Προϊόντος", JOptionPane.OK_CANCEL_OPTION);
+            if (result == JOptionPane.OK_OPTION) {
 
-					XMLModifier xml= new XMLModifier();
-					//adds info to products.xml
-					boolean isSuccessfullyAdded = xml.addXMLNode( _vfNameField.getText(),
-									_profitField.getText(),
-									_kef5CodeField.getText()
-									);
-					//adds info to hash table
+                XMLModifier xml= new XMLModifier();
+                //adds info to products.xml
+                boolean isSuccessfullyAdded = xml.addXMLNode( _vfNameField.getText(),
+                                _profitField.getText(),
+                                _kef5CodeField.getText()
+                                );
+                //adds info to hash table
 
-					String a      = _profitField.getText();
-					a= a.replace(",",".");
-					double profit = Double.parseDouble(a);
+                String a      = _profitField.getText();
+                a= a.replace(",",".");
+                double profit = Double.parseDouble(a);
 
-					model.getVFHashMap().put(_vfNameField.getText(),profit,_kef5CodeField.getText());
+                model.getVFHashMap().put(_vfNameField.getText(),profit,_kef5CodeField.getText());
 
-					if(isSuccessfullyAdded == true ){
-						showMessageDialog(
-								"Η καταχώρηση του προιόντος έγινε επιτυχώς", "Επιτυχής Καταχώρηση",
-								JOptionPane.INFORMATION_MESSAGE
-						);
-					}else{
-						showMessageDialog(
-								"Η καταχώρηση του προιόντος απέτυχε.\n" +
-										"Τα πεδία κωδικός και κέρδος πρέπει να είναι αριθμός.\n",
-								"Αποτυχής Καταχώρηση",
-								JOptionPane.INFORMATION_MESSAGE
-						);
-					}
-				}
-				//update gui table
-				model.setRowCount(0);
-				model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
-				model.updateModelWithHash();
+                if(isSuccessfullyAdded ){
+                    showMessageDialog(
+                            "Η καταχώρηση του προιόντος έγινε επιτυχώς", "Επιτυχής Καταχώρηση",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                }else{
+                    showMessageDialog(
+                            "Η καταχώρηση του προιόντος απέτυχε.\n" +
+                                    "Τα πεδία κωδικός και κέρδος πρέπει να είναι αριθμός.\n",
+                            "Αποτυχής Καταχώρηση",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                }
+            }
+            //update gui table
+            model.setRowCount(0);
+            model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
+            model.updateModelWithHash();
 
 
-			}
-		});
+        });
 	}
 
 	@Override
@@ -314,12 +294,11 @@ public class Controller implements ActionListener,TableModelListener {
 		int column = e.getColumn();
 		if (column == BOOLEAN_COLUMN) {
 			//TableModel model    = (TableModel) e.getSource();
-			String columnName   = model.getColumnName(column);
 			String vf_name      = (String) model.getValueAt(row,0);
 			Boolean checked     = (Boolean) model.getValueAt(row, column);
 
 			boolean isUpdateDone = model.getVector().updateVectorValueUpdateNeeded(vf_name,checked);
-			if(isUpdateDone == false){
+			if(!isUpdateDone ){
 			    System.err.println("Error: Vegetable or fruit name does not in vector can not updated !");
             }
 

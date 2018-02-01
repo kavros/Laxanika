@@ -11,8 +11,8 @@ import java.util.Vector;
 @SuppressWarnings("serial")
 public class MyModel extends DefaultTableModel {
 
-	VFHashMap vf_rates;
-	VFVector data;
+	private VFHashMap vf_rates;
+	private VFVector data;
 
 
 	public MyModel() {
@@ -29,7 +29,7 @@ public class MyModel extends DefaultTableModel {
 	* Returns all products from vector that can not match with hashMap
 	* */
 	public ArrayList<String> getUnknownNames(){
-	    ArrayList<String> notValidNames=new ArrayList<String>();
+	    ArrayList<String> notValidNames=new ArrayList<>();
         Vector<VFVectorEntry> vec = data.getVec();
         for(int i=0; i < data.getSize(); ++i){
             boolean isNameValid =vf_rates.isNameValid(vec.get(i).vf_name);
@@ -56,7 +56,8 @@ public class MyModel extends DefaultTableModel {
 			e.printStackTrace();
 		}
 
-		profit = a.profit;
+		assert a != null;
+		profit = a.getProfit();
 
 		profit = profit *100;
 

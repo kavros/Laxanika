@@ -24,12 +24,9 @@ public class XMLModifier {
             System.out.println(profit);
             return  false;
         }
-        char[] name = vf_name.toCharArray();
         char[] pro  = profit.toCharArray();
-        char[] code = kef5Code.toCharArray();
-
-
-        for(int i=0; i < pro.length; ++i){
+        int i;
+        for( i=0; i < pro.length; ++i){
             if( !Character.isDigit(pro[i]) &&
                      pro[i] != '.'){
                 return false;
@@ -66,7 +63,7 @@ public class XMLModifier {
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            Document document = null;
+            Document document;
             document = documentBuilder.parse("C:\\Users\\Alexis\\IdeaProjects\\Laxanika\\cfg\\products.xml");
 
 
@@ -95,7 +92,7 @@ public class XMLModifier {
             DOMSource source = new DOMSource(document);
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
 
-            Transformer transformer = null;
+            Transformer transformer;
             transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "3");
@@ -119,8 +116,8 @@ public class XMLModifier {
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);
 
-            NodeList nodes = (NodeList) doc.getElementsByTagName("name");//.item(0);
-            Node targetNode=null;
+            NodeList nodes = doc.getElementsByTagName("name");
+            Node targetNode;
 
             for(int i=0; i < nodes.getLength();++i){
 
