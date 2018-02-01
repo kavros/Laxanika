@@ -17,6 +17,11 @@ public class VFHashMap {
     public  void put(String name,double profit,String num){
         vf_map.put(name,new VFHashMapValues(profit,num));
     }
+
+    public  VFHashMapValues remove(String vf_name){
+        return vf_map.remove(vf_name);
+    }
+
     public int getSize(){
 
         return vf_map.size();
