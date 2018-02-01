@@ -20,8 +20,8 @@ public class VFVectorEntry {
 
     public String toString(){
 
-        return vf_name+" "+vf_origin+" "+vf_mm+" "+" "+vf_number+vf_packing+" "+vf_quantity+" "+vf_price
-                +" "+vf_value+" "+vf_discount+" "+vf_net_value+" "+vf_tax+" "+vf_final_price
+        return vf_name+" "+vf_origin+" "+vf_mm+" "+" "+vf_number+" "+vf_packing+" "+vf_quantity+" "+vf_price
+                +" "+vf_value+" "+vf_discount+" "+vf_net_value+" "+vf_tax+" "+vf_final_price+" "
                 +isUpdateNeeded+" "+kef5_code+" "+kef5_price+"\n";
     }
 

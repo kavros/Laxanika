@@ -43,7 +43,7 @@ public class XMLModifier {
 
     public boolean addXMLNode(String vf_name,String profit,String kef5Code){
 
-        //fix profit number format
+        //fix number format for profit
         char[] pr = profit.toCharArray();
         for(int i=0; i < pr.length; ++i){
             if(pr[i] == ','){
@@ -57,7 +57,6 @@ public class XMLModifier {
             profit_num=profit_num/100;
         }
         profit = String.valueOf(profit_num);
-        System.out.println(profit);
 
         //validate user inputs
         if(! isInputsValid(vf_name,profit,kef5Code) ){

@@ -17,6 +17,6 @@ public class VFHashMapValues {
 
     @Override
     public String toString() {
-        return "("+profit+","+kef5Code+")";
+        return profit+" "+kef5Code;
     }
 }
