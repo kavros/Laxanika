@@ -1,4 +1,4 @@
-Every excel file has to be at the following format: Microsoft 97-2003 Worksheet (old)
+﻿Every excel file has to be at the following format: Microsoft 97-2003 Worksheet (old)
 Tutorial for SQL Server on unisoft website.
 
 ######
@@ -18,28 +18,34 @@ Tutorial for SQL Server on unisoft website.
 -User opens multiple files.                                         (done)
 -fix search button problem.                                         (done)
 -fix case that product name on excel there is not in products.xml.  (done)
--getHashMapValues,isNameValid το hashmap value με το ακριβες
-ονομα γιατι αλλιως θα ενημερώνεται λαθος κωδικός στο κεφαλαιο!!!!   (done)
--getHashMapValues να γινει overight με την get                      (done)
+-fix getHashMapValues,isNameValid                                   (done)
+-overwrite getHashMapValues with get                                (done)
+-verify that kef5Code on product with name (ΚΟΥΚΙΑ) is ΚΟΥΚΙΑ.      (done)
+-make JTable text bigger                                            (done)
+-find problem with special characters like Δ and Ω. -> added special case    (done)
+-implement code that can modify products.xml and VFHashMap.(delete+add)      (done)
+-find why my final prices are 1 cent less.                          (done)
+-find and fix warnings.                                             (done)
 
 
-
--implement code that can modify products.xml and VFHashMap.
--Junit tests
--make JTable text bigger
+-profit column.
 -trace changes on kefalaio.
+-History table.
+-Junit tests.
+-find the right way to handle exceptions.
+-make GUI good looking.
 
 -refactor code.
--find and fix warnings.
 -why kef5Code there is on vector and on hashMap?
 -think cases/error case and how to handle.
--find problem with special characters like Δ and Ω.
--add feature to modify final prices from GUI.
--handle the case that profit is under 30 cents.
--configurations paths need to be dynamic
--find the right way to handle exceptions
--Documentation for every class and function
+
+
+-configurations files paths has to be dynamic.
+-Documentation for every class and function.
 -change Kefalaio 5 entry (ΣΥΚΑ ΞΕΡΑ)
+-fix ΠΙΠΕΡΙΕΣ ΠΟΡΤΟΚΑΛΙ kef5code.
+-if fruit or vegetable is not on kefalaio database print error message.
+
 
 ########%####
 #Error Cases#
@@ -52,6 +58,34 @@ Tutorial for SQL Server on unisoft website.
 ##########
 -check that all products on excel  there are inside of the VFVector.(how?) !!!
 -find wireless price tags or print labels.
+
+
+###########
+#Education#
+###########
+-Spring & Hibernate course.
+-Intellij design gui tutorial.
+-
+
+###################
+#Instalation steps#
+###################
+1)Follow tutorial on unisoft website.
+    1.1)Install Sql Server 2012. ?????????
+    1.2)Open SQL Server Management Studio <<1)right click on Security ->Logins->set input for login name
+                                            ->set input for SQL Server authentication
+                                            ->deactivate  Enforce password policy.
+                                            2)set master as  Default Database
+                                            3)set dbcreator Server Roles.
+    1.3)Connect Kefalaio to SQL Server  «Οργάνωση – Σύστημα» run «SQL Server setup».
+    1.4)Create company from Kefalaio with sql Server enabled.
+
+2)Configure database.xml
+
+
+
+
+
 
 
 Imported Libs: apache-poi, sqljdbc,pdfbox
