@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -131,7 +132,12 @@ public class Controller implements ActionListener,TableModelListener {
 
         //updates every entry on vector
         //with the right value for kef5code and final price.
-        model.getVector().update(model.getVFHashMap());
+		try {
+			model.getVector().update(model.getVFHashMap());
+		}catch (SQLException e){
+			showMessageDialog("SQL failed to update VFHashMap"," SQL failed",JOptionPane.ERROR_MESSAGE);
+		}
+
 
 
         //fix columns names
