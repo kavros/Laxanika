@@ -25,15 +25,17 @@ public class Controller implements ActionListener,TableModelListener {
 	private JMenuItem editListMi;
 	private MyModel model;
 
-	JButton _filterButton;
-	JButton _updateButton;
-	JTable  _table ;
+	private JButton _filterButton;
+	private JButton _updateButton;
+	private JTable  _table ;
 
-	JTextField _vfNameField ;
-	JTextField _profitField ;
-	JTextField _kef5CodeField ;
-	Object[] _inputFields ;
-	JButton  _addXmlButton;
+	private JTextField _vfNameField ;
+	private JTextField _profitField ;
+	private JTextField _kef5CodeField ;
+	private Object[] _inputFields ;
+	private JButton  _addXmlButton;
+	private JButton  _deleteXmlButton;
+	private JButton  _editXmlButton;
 
 	String   fileName = null;
 
@@ -48,7 +50,8 @@ public class Controller implements ActionListener,TableModelListener {
 					  JTextField kef5CodeField,
 					  Object[] inputFields,
 					  JButton  addXmlButton,
-
+					  JButton  deleteXmlButton,
+					  JButton  editXmlButton,
                       JTable table) {
 		super();
 		this.searchTermTextField = searchTermTextField;
@@ -63,13 +66,22 @@ public class Controller implements ActionListener,TableModelListener {
 		_profitField             = profitField;
 		_kef5CodeField           = kef5CodeField;
 		_inputFields             = inputFields;
-		_addXmlButton            = addXmlButton;
 
+		_addXmlButton            = addXmlButton;
+		_deleteXmlButton         = deleteXmlButton;
+		_editXmlButton           = editXmlButton;
+
+		//init actions listeners
 		JMenuActionListener();
-		addUpdateButtonListener();
+		updateButtonListener();
 		addXmlButtonListener();
+		deleteXmlButtonListener();
+		editXmlButtonListener();
 	}
 
+	private void showMessageDialog(String msg,String title,int type){
+		JOptionPane.showMessageDialog(null,msg,title,type);
+	}
 
 	public void setComponentsVisible(){
 
@@ -95,9 +107,11 @@ public class Controller implements ActionListener,TableModelListener {
         ArrayList<String> unknownProductsList = model.getUnknownNames();
         if(unknownProductsList.isEmpty() == false){
 
-            JOptionPane.showMessageDialog(null,
-                    "Παρακαλώ καταχώρησε στην λίστα τα παρακάτω: "+""+unknownProductsList.toString(), "Error",
-                    JOptionPane.ERROR_MESSAGE);
+			showMessageDialog(
+					"Παρακαλώ καταχώρησε στην λίστα τα παρακάτω: "
+							+""+unknownProductsList.toString(), "Error",
+                    JOptionPane.ERROR_MESSAGE
+			);
 
             model.reCreateVector();
             model.setRowCount(0);
@@ -109,7 +123,10 @@ public class Controller implements ActionListener,TableModelListener {
         searchTermTextField.setVisible(true);
         _updateButton.setVisible(true);
         _filterButton.setVisible(true);
-		_addXmlButton.setVisible(false);
+
+        _addXmlButton.setVisible(false);
+        _deleteXmlButton.setVisible(false);
+        _editXmlButton.setVisible(false);
 
         //updates every entry on vector
         //with the right value for kef5code and final price.
@@ -124,7 +141,6 @@ public class Controller implements ActionListener,TableModelListener {
 		    model.addRow(model.getVectorRow(i));
         }
 	}
-
 
 	private void JMenuActionListener(){
         openMi.addActionListener(new ActionListener() {
@@ -155,20 +171,66 @@ public class Controller implements ActionListener,TableModelListener {
 
                 model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
 				model.updateModelWithHash();
+
 				_addXmlButton.setVisible(true);
+				_editXmlButton.setVisible(true);
+				_deleteXmlButton.setVisible(true);
             }
         });
 
     }
 
-    private void addUpdateButtonListener(){
+    private void updateButtonListener(){
 		_updateButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<String> products = model.updateKef5Prices();
-				JOptionPane.showMessageDialog(null,
+				showMessageDialog(
 						"Ενημερώθηκαν επιτυχώς οι τιμές στο Κεφάλαιο 5 για τα παρακάτω: "+""+products.toString(), "Ενημέρωση Τιμών στο Κεφάλαιο 5",
-						JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.INFORMATION_MESSAGE
+				);
+			}
+		});
+	}
+
+	private void deleteXmlButtonListener(){
+		_deleteXmlButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(_table.getSelectedRow() != -1 ){
+
+					XMLModifier xml = new XMLModifier();
+
+					String selected_vf_name =(String) model.getValueAt(_table.getSelectedRow(),0);
+					VFHashMapValues val = model.getVFHashMap().remove(selected_vf_name);
+					model.removeRow(_table.getSelectedRow());
+					xml.deleteXMLNode(selected_vf_name);
+
+					showMessageDialog(
+							"Το προιόν : "+selected_vf_name+" "+val.toString()+" διαγράφηκε επιτυχώς\n",
+							"Επιτυχής Διαγραφή",
+							JOptionPane.INFORMATION_MESSAGE
+					);
+				}else{
+					showMessageDialog(
+							"Παρακαλώ επιλέξετε την γραμμή που θέλετε να διαγράψετε!\n",
+							"Αποτυχής Διαγραφή",
+							JOptionPane.INFORMATION_MESSAGE
+					);
+				}
+
+			}
+		});
+	}
+
+	private void editXmlButtonListener(){
+		_editXmlButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+
+
+				_editXmlButton.setVisible(false);
 			}
 		});
 	}
@@ -196,15 +258,17 @@ public class Controller implements ActionListener,TableModelListener {
 					model.getVFHashMap().put(_vfNameField.getText(),profit,_kef5CodeField.getText());
 
 					if(isSuccessfullyAdded == true ){
-						JOptionPane.showMessageDialog(null,
+						showMessageDialog(
 								"Η καταχώρηση του προιόντος έγινε επιτυχώς", "Επιτυχής Καταχώρηση",
-								JOptionPane.INFORMATION_MESSAGE);
+								JOptionPane.INFORMATION_MESSAGE
+						);
 					}else{
-						JOptionPane.showMessageDialog(null,
+						showMessageDialog(
 								"Η καταχώρηση του προιόντος απέτυχε.\n" +
 										"Τα πεδία κωδικός και κέρδος πρέπει να είναι αριθμός.\n",
 								"Αποτυχής Καταχώρηση",
-								JOptionPane.INFORMATION_MESSAGE);
+								JOptionPane.INFORMATION_MESSAGE
+						);
 					}
 				}
 				//update gui table
@@ -237,9 +301,10 @@ public class Controller implements ActionListener,TableModelListener {
             }
 			model.setDataVector(newData, Constants.VF_TABLE_HEADER);
 		} else {
-			JOptionPane.showMessageDialog(null,
+			showMessageDialog(
 					"Search term is empty", "Error",
-					JOptionPane.ERROR_MESSAGE);
+					JOptionPane.ERROR_MESSAGE
+			);
 		}
 
 	}
