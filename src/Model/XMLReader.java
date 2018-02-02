@@ -15,6 +15,14 @@ public class XMLReader {
         String username;
         String password;
         String dbURL;
+
+        public String getUsername(){
+            return username;
+        }
+
+        public String getDbURL(){
+            return dbURL;
+        }
     }
 
     public DatabaseEntry getDatabaseCredentials(){
