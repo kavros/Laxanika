@@ -185,16 +185,27 @@ public class Controller implements ActionListener,TableModelListener {
     private void updateButtonListener(){
 		_updateButton.addActionListener(e -> {
             ArrayList<String> products ;
+
             try{
                 products = model.updateKef5Prices();
+				showMessageDialog(
+						"Ενημερώθηκαν επιτυχώς οι τιμές στο Κεφάλαιο 5 για τα παρακάτω: "
+							+""+products.toString(), "Ενημέρωση Τιμών στο Κεφάλαιο 5",
+							JOptionPane.INFORMATION_MESSAGE
+				);
+				Tracer tracer = new Tracer();
+				try{
+					tracer.run(model);
+				}catch(Exception ex){
+					showMessageDialog("Απέτυχε η ενημέρωση του txt αρχείου.","Αποτυχία ενημέρωσης txt",JOptionPane.ERROR_MESSAGE);
+				}
+
+
             }catch (SQLException a){
                 showMessageDialog("Απέτυχε η ενημέρωση τιμών λόγω πρόβληματος με την SQL.","Αποτυχία SQL",JOptionPane.ERROR_MESSAGE);
-                return;
+
             }
-            showMessageDialog(
-                    "Ενημερώθηκαν επιτυχώς οι τιμές στο Κεφάλαιο 5 για τα παρακάτω: "+""+products.toString(), "Ενημέρωση Τιμών στο Κεφάλαιο 5",
-                    JOptionPane.INFORMATION_MESSAGE
-            );
+
         });
 	}
 

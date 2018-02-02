@@ -9,8 +9,8 @@ public class VFKef5DataBase {
     private String password;
     private String dbURL;
 
-    public double getKef5Price(String query) throws SQLException {
-        double answer = -1 ;
+    public String getFromDatabase(String query) throws SQLException {
+        String answer = null;
         //read credentials for kef5 database from xml file
         XMLReader db =new XMLReader();
         XMLReader.DatabaseEntry dbCredentials =db.getDatabaseCredentials();
@@ -26,7 +26,7 @@ public class VFKef5DataBase {
                 Statement st = conn.createStatement();
                 ResultSet res = st.executeQuery(query);
                 while (res.next()) {
-                    answer = Double.parseDouble(res.getString(1));
+                    answer = res.getString(1);
                 }
                 conn.commit();
             } else {
@@ -42,6 +42,11 @@ public class VFKef5DataBase {
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
+        }
+
+        //fix number format
+        if(answer.contains(",")){
+            answer = answer.replace(",",".");
         }
         return answer;
 

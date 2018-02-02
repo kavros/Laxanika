@@ -33,6 +33,8 @@ every time on hashmap.                                              (done)
 ignore it                                                                    (done)
 -if fruit or vegetable is not on kefalaio database print error message.      (done)
 -add a Junit test.                                                  (done)
+-trace changes on kefalaio.                                         (done)
+
 
 
 -configurations files paths has to be dynamic (first create jar).
@@ -40,7 +42,6 @@ ignore it                                                                    (do
 -find the right way to handle exceptions.
 
 -profit column.
--trace changes on kefalaio.
 -History table.
 
 

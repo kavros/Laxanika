@@ -79,10 +79,9 @@ public class VFVector {
     }
     private void insertKef5PricesToVec(int position) throws SQLException{
         VFKef5DataBase dataBase = new VFKef5DataBase();
-
-        vec.get(position).kef5_price=dataBase.getKef5Price(
-                "select sRetailPr  from dbo.smast where sCode="+"'"+vec.get(position).kef5_code+"'"+";");
-
+        String query="select sRetailPr  from dbo.smast where sCode="+"'"+vec.get(position).kef5_code+"'"+";" ;
+        Double result = Double.parseDouble(dataBase.getFromDatabase(query));
+        vec.get(position).kef5_price =  result;
     }
 
     public  boolean updateVectorValueUpdateNeeded(String name, Boolean new_bool_val){
