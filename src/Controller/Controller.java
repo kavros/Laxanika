@@ -21,8 +21,7 @@ import Model.*;
  */
 public class Controller implements ActionListener,TableModelListener {
 
-	private int  BOOLEAN_COLUMN  = 5;
-	private JTextField searchTermTextField;// = new JTextField(26);
+    private JTextField searchTermTextField;// = new JTextField(26);
 	private JMenuItem openMi;
 	private JMenuItem editListMi;
 	private MyModel model;
@@ -304,7 +303,8 @@ public class Controller implements ActionListener,TableModelListener {
 	public void tableChanged(TableModelEvent e) {
 		int row = e.getFirstRow();
 		int column = e.getColumn();
-		if (column == BOOLEAN_COLUMN) {
+        int BOOLEAN_COLUMN = 5;
+        if (column == BOOLEAN_COLUMN) {
 			//TableModel model    = (TableModel) e.getSource();
 			String vf_name      = (String) model.getValueAt(row,0);
 			Boolean checked     = (Boolean) model.getValueAt(row, column);

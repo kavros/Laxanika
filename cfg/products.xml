@@ -211,7 +211,13 @@
         <profit>0.25</profit>
         <kef5Code>2085</kef5Code>
     </element>
-	
+
+    <element>
+        <name>ΠΑΤΑΤΕΣ</name>
+        <profit>0.25</profit>
+        <kef5Code>2085</kef5Code>
+    </element>
+
 	<element>
         <name>ΠΑΤΑΤΕΣ ΧΩΡΙΣ ΧΩΜΑ</name>
         <profit>0.25</profit>
@@ -653,5 +659,10 @@
       <name>ΠΙΠΕΡΙΕΣ ΠΟΡΤΟΚΑΛΙ</name>
       <profit>0.25</profit>
       <kef5Code>348</kef5Code>
+   </element>
+<element>
+      <name>ΑΝΙΘΟ</name>
+      <profit>0.3</profit>
+      <kef5Code>268</kef5Code>
    </element>
 </products>

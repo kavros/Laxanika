@@ -32,10 +32,11 @@ every time on hashmap.                                              (done)
 -change Kefalaio 5 entry (ΣΥΚΑ ΞΕΡΑ) it is special case just
 ignore it                                                                    (done)
 -if fruit or vegetable is not on kefalaio database print error message.      (done)
+-add a Junit test.                                                  (done)
 
 
 -configurations files paths has to be dynamic (first create jar).
--Junit tests.
+-add JUnit tests for most of the classes.
 -find the right way to handle exceptions.
 
 -profit column.
