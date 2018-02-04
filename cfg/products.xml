@@ -38,7 +38,7 @@
     </element>
 	
     <element>
-        <name>ΑΝΙΘΟΣ</name>
+        <name>DELETED</name>
         <profit>0.3</profit>
         <kef5Code>368</kef5Code>
     </element>
@@ -663,6 +663,11 @@
 <element>
       <name>ΑΝΙΘΟ</name>
       <profit>0.3</profit>
-      <kef5Code>268</kef5Code>
+      <kef5Code>368</kef5Code>
+   </element>
+<element>
+      <name>ΑΝΙΘΟΣ</name>
+      <profit>0.35</profit>
+      <kef5Code>368</kef5Code>
    </element>
 </products>
