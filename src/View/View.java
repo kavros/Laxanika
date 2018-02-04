@@ -5,7 +5,6 @@ import Controller.Controller;
 
 import Model.*;
 import java.awt.*;
-
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
@@ -22,6 +21,7 @@ public class View {
 		/*JTextField productName     = new JTextField(10);
 		JTextField productProfit   = new JTextField(10);
 		JTextField productKef5Code = new JTextField(10);*/
+
 
 		JButton filterButton = new JButton("Εύρεση");
 		JButton updateButton = new JButton("Ενημέρωση Κεφαλαίου");
@@ -75,7 +75,7 @@ public class View {
 			@Override
 			public Class getColumnClass(int column) {
 				switch (column) {
-					case 5:
+					case 6:
 						return Boolean.class;
 					default:
 						return String.class;
@@ -83,8 +83,7 @@ public class View {
 			}
 			@Override
 			public boolean isCellEditable(int row, int column) {
-                return editXmlButton.isVisible() || column >= 5;
-
+                return column == 6;//editXmlButton.isVisible() || column >= 5;
 
             }
 		};
@@ -122,7 +121,6 @@ public class View {
 		splitPane.setEnabled(false);
 
 
-
 		// Display it all in a scrolling window and make the window appear
 		JFrame frame = new JFrame("ΛΑΧΑΝΙΚΑ-ΦΡΟΥΤΑ");
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -136,9 +134,7 @@ public class View {
 		JTextField vfNameField = new JTextField(15);
 		JTextField profitField = new JTextField(15);
 		JTextField kef5CodeField = new JTextField(15);
-		Object[] inputFields = {"Όνομα Προϊόντος", vfNameField,
-				"Κέρδος", profitField,
-				"Κωδικός", kef5CodeField};
+
 
 
 
@@ -147,11 +143,11 @@ public class View {
 											openMi,editListMi,model,
 											filterButton,updateButton,
 											vfNameField,profitField,
-											kef5CodeField,inputFields,
+											kef5CodeField,
 											addXmlButton,
 											deleteXmlButton,
 				  							editXmlButton,
-											table);
+											table,splitPane);
 
         filterButton.addActionListener(controller);
 		table.getModel().addTableModelListener(controller);

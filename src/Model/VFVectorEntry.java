@@ -39,7 +39,9 @@ public class VFVectorEntry {
     public void updateActualProfit(double actProf){
         //TODO round up final price
         double price_with_taxes = ((vf_price*vf_tax*0.01)+vf_price);
-        vf_final_price          = price_with_taxes+actProf;
+
+        vf_final_price          = Math.round((price_with_taxes+actProf)*100);
+        vf_final_price          = vf_final_price/100;
         actual_profit           = actProf;
 
     }

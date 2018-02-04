@@ -1,6 +1,10 @@
 package Controller;
 
 import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.dnd.DnDConstants;
+import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -9,6 +13,7 @@ import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Vector;
 
 
@@ -42,7 +47,7 @@ public class Controller implements ActionListener,TableModelListener {
 	private JButton  _addXmlButton;
 	private JButton  _deleteXmlButton;
 	private JButton  _editXmlButton;
-
+    JSplitPane _mainPane;
 	private String   fileName = null;
 
 	public Controller(JTextField searchTermTextField,
@@ -57,7 +62,8 @@ public class Controller implements ActionListener,TableModelListener {
 					  JButton  addXmlButton,
 					  JButton  deleteXmlButton,
 					  JButton  editXmlButton,
-                      JTable table) {
+                      JTable table,
+                      JSplitPane mainPane ) {
 		super();
 		this.searchTermTextField = searchTermTextField;
 		openMi                   = openM;
@@ -81,6 +87,7 @@ public class Controller implements ActionListener,TableModelListener {
 		_deleteXmlButton         = deleteXmlButton;
 		_editXmlButton           = editXmlButton;
 
+		_mainPane                =mainPane;
 		//init actions listeners
 		JMenuActionListener();
 		updateButtonListener();
@@ -88,13 +95,14 @@ public class Controller implements ActionListener,TableModelListener {
 		deleteXmlButtonListener();
 		editXmlButtonListener();
 		addMouseListener();
+        addDragAndDropListener();
 	}
 
 	private void showMessageDialog(String msg,String title,int type){
 		JOptionPane.showMessageDialog(null,msg,title,type);
 	}
 
-	private void setComponentsVisible(){
+	private void setMainTableVisble(){
 
 
         //if table is not empty,remove all rows of table.
@@ -169,7 +177,7 @@ public class Controller implements ActionListener,TableModelListener {
             if (result == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fileChooser.getSelectedFile();
                 fileName = selectedFile.getAbsolutePath();
-                setComponentsVisible();
+                setMainTableVisble();
             }
         });
 
@@ -235,6 +243,30 @@ public class Controller implements ActionListener,TableModelListener {
 			}});
 	}
 
+	private void addDragAndDropListener(){
+        _mainPane.setDropTarget(new DropTarget() {
+            public synchronized void drop(DropTargetDropEvent evt) {
+                try {
+                    evt.acceptDrop(DnDConstants.ACTION_COPY);
+                    List<File> droppedFiles = (List<File>)
+                            evt.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
+                    if(droppedFiles.size() > 1){
+                        showMessageDialog("Το drag & drop λειτουργεί μονο εαν τραβήξουμε ενα αρχειο στο" +
+                                "παράθηρο ","Λάθος ενέργεια",JOptionPane.ERROR_MESSAGE);
+                    }
+                    fileName = droppedFiles.get(0).getAbsolutePath();
+                    setMainTableVisble();
+                    /*
+                    for (File file : droppedFiles) {
+                        fileName = file.getAbsolutePath();
+                        setMainTableVisble();
+                    }*/
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
 
     private void updateButtonListener(){
 		_updateButton.addActionListener(e -> {
