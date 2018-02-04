@@ -3,10 +3,13 @@ package Controller;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Vector;
 
 
 import javax.swing.*;
@@ -34,6 +37,8 @@ public class Controller implements ActionListener,TableModelListener {
 	private JTextField _profitField ;
 	private JTextField _kef5CodeField ;
 	private Object[] _inputFields ;
+	private Object[] _editFields;
+	private JTextField _desiredProfit;
 	private JButton  _addXmlButton;
 	private JButton  _deleteXmlButton;
 	private JButton  _editXmlButton;
@@ -49,7 +54,6 @@ public class Controller implements ActionListener,TableModelListener {
 					  JTextField vfNameField,
 					  JTextField profitField,
 					  JTextField kef5CodeField,
-					  Object[] inputFields,
 					  JButton  addXmlButton,
 					  JButton  deleteXmlButton,
 					  JButton  editXmlButton,
@@ -66,7 +70,12 @@ public class Controller implements ActionListener,TableModelListener {
 		_vfNameField 		     = vfNameField;
 		_profitField             = profitField;
 		_kef5CodeField           = kef5CodeField;
-		_inputFields             = inputFields;
+		_inputFields = new Object[] {"Όνομα Προϊόντος", vfNameField,
+				"Κέρδος", profitField,
+				"Κωδικός", kef5CodeField};
+		_desiredProfit = new JTextField(5);
+
+
 
 		_addXmlButton            = addXmlButton;
 		_deleteXmlButton         = deleteXmlButton;
@@ -78,6 +87,7 @@ public class Controller implements ActionListener,TableModelListener {
 		addXmlButtonListener();
 		deleteXmlButtonListener();
 		editXmlButtonListener();
+		addMouseListener();
 	}
 
 	private void showMessageDialog(String msg,String title,int type){
@@ -181,6 +191,50 @@ public class Controller implements ActionListener,TableModelListener {
         });
 
     }
+
+    private void addMouseListener(){
+		_table.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent mouseEvent) {
+				if( mouseEvent.getClickCount() ==2
+						&& _table.getSelectedColumn() == 5){
+					if(_addXmlButton.isVisible()){
+						return;
+					}
+
+
+					String name =(String) model.getValueAt(_table.getSelectedRow(),0);
+					_editFields = new Object[] {"Δώστε το επιθυμιτό κέρδος σε χρήματα  για το προϊόν: "+name,_desiredProfit};
+					int result = JOptionPane.showConfirmDialog(null, _editFields,
+							"Κέρδος", JOptionPane.OK_CANCEL_OPTION);
+					if(result == JOptionPane.OK_OPTION ){
+						//TODO check for bad input
+						double desProf =
+								Double.parseDouble(_desiredProfit.getText().replace(",","."));
+
+						int i;
+						Vector<VFVectorEntry> vec = model.getVector().getVec();
+						for(i=0; i < model.getVector().getSize(); ++i){
+							VFVectorEntry vectorEntry =vec.elementAt(i);
+							if (vectorEntry.getVfName().equals(name) ){
+								//updates actual profit and final price on vector
+								vectorEntry.updateActualProfit(desProf);
+								int row    =_table.getSelectedRow();
+
+								_table.setValueAt(vectorEntry.getActualProfit(),row,5);
+								_table.setValueAt(vectorEntry.getVfFinalPrice(),row,4);
+
+								break;
+							}
+						}
+					}
+				}
+
+
+
+
+			}});
+	}
+
 
     private void updateButtonListener(){
 		_updateButton.addActionListener(e -> {
@@ -314,7 +368,7 @@ public class Controller implements ActionListener,TableModelListener {
 	public void tableChanged(TableModelEvent e) {
 		int row = e.getFirstRow();
 		int column = e.getColumn();
-        int BOOLEAN_COLUMN = 5;
+        int BOOLEAN_COLUMN = 6;
         if (column == BOOLEAN_COLUMN) {
 			//TableModel model    = (TableModel) e.getSource();
 			String vf_name      = (String) model.getValueAt(row,0);

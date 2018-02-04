@@ -20,6 +20,8 @@ public class VFVectorEntry {
     String  kef5_code;
     double  kef5_price;
 
+    double actual_profit;
+
     public String toString(){
 
         return vf_name+" "+vf_origin+" "+vf_mm+" "+" "+vf_number+" "+vf_packing+" "+vf_quantity+" "+vf_price
@@ -29,6 +31,25 @@ public class VFVectorEntry {
 
     public boolean getIsUpdateNeeded(){
         return isUpdateNeeded;
+    }
+    public String getVfName(){
+        return vf_name;
+    }
+
+    public void updateActualProfit(double actProf){
+        //TODO round up final price
+        double price_with_taxes = ((vf_price*vf_tax*0.01)+vf_price);
+        vf_final_price          = price_with_taxes+actProf;
+        actual_profit           = actProf;
+
+    }
+
+    public double getActualProfit(){
+        return actual_profit;
+    }
+
+    public double getVfFinalPrice(){
+        return vf_final_price;
     }
 
     public String getTracerEntry() {

@@ -49,8 +49,10 @@ public class VFHashMap {
         vec.get(i).vf_final_price =(price_with_taxes*profit)+price_with_taxes;
 
         //round  number using 2 decimals
-        vec.get(i).vf_final_price =Math.round((vec.get(i).vf_final_price) *100);
-        vec.get(i).vf_final_price =vec.get(i).vf_final_price /100;
+        vec.get(i).vf_final_price = Math.round((vec.get(i).vf_final_price) *100);
+        vec.get(i).vf_final_price = vec.get(i).vf_final_price /100;
+        double actual_profit      = Math.round((vec.get(i).vf_final_price-price_with_taxes)*100);
+        vec.get(i).actual_profit  = actual_profit/100;
     }
     /*
     * TODO:test this method

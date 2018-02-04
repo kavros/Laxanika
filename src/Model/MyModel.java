@@ -69,6 +69,7 @@ public class MyModel extends DefaultTableModel {
 				data.getVec().get(i).vf_price,
 				data.getVec().get(i).kef5_price,
 				data.getVec().get(i).vf_final_price,
+				data.getVec().get(i).actual_profit,
 				false
 		};
 
