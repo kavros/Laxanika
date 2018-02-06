@@ -102,7 +102,7 @@ public class Controller implements ActionListener,TableModelListener {
 		JOptionPane.showMessageDialog(null,msg,title,type);
 	}
 
-	private void setMainTableVisble(){
+	private void setMainTableVisible(){
 
 
         //if table is not empty,remove all rows of table.
@@ -177,7 +177,7 @@ public class Controller implements ActionListener,TableModelListener {
             if (result == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fileChooser.getSelectedFile();
                 fileName = selectedFile.getAbsolutePath();
-                setMainTableVisble();
+                setMainTableVisible();
             }
         });
 
@@ -208,7 +208,7 @@ public class Controller implements ActionListener,TableModelListener {
 					if(_addXmlButton.isVisible()){
 						return;
 					}
-
+                    _desiredProfit.setText("");
 
 					String name =(String) model.getValueAt(_table.getSelectedRow(),0);
 					_editFields = new Object[] {"Δώστε το επιθυμιτό κέρδος σε χρήματα  για το προϊόν: "+name,_desiredProfit};
@@ -255,7 +255,7 @@ public class Controller implements ActionListener,TableModelListener {
                                 "παράθηρο ","Λάθος ενέργεια",JOptionPane.ERROR_MESSAGE);
                     }
                     fileName = droppedFiles.get(0).getAbsolutePath();
-                    setMainTableVisble();
+                    setMainTableVisible();
                     /*
                     for (File file : droppedFiles) {
                         fileName = file.getAbsolutePath();
