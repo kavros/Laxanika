@@ -371,18 +371,26 @@ public class Controller implements ActionListener,TableModelListener {
 		_deleteXmlButton.addActionListener(e -> {
             if(_table.getSelectedRow() != -1 ){
 
-                XMLModifier xml = new XMLModifier();
+            	String selected_vf_name =(String) model.getValueAt(_table.getSelectedRow(),0);
+                int dialogButton = JOptionPane.YES_NO_OPTION;
+				int dialogResult = JOptionPane.showConfirmDialog(
+						null,
+						"Θέλετε να διαγράψετε το προϊόν: "+selected_vf_name,
+						"Διαγραφή", dialogButton);
 
-                String selected_vf_name =(String) model.getValueAt(_table.getSelectedRow(),0);
-                VFHashMapValues val = model.getVFHashMap().remove(selected_vf_name);
-                model.removeRow(_table.getSelectedRow());
-                xml.deleteXMLNode(selected_vf_name);
+				if(dialogResult == 0) {
+					XMLModifier xml = new XMLModifier();
+					VFHashMapValues val = model.getVFHashMap().remove(selected_vf_name);
+					model.removeRow(_table.getSelectedRow());
+					xml.deleteXMLNode(selected_vf_name);
 
-                showMessageDialog(
-                        "Το προιόν : "+selected_vf_name+" "+val.toString()+" διαγράφηκε επιτυχώς\n",
-                        "Επιτυχής Διαγραφή",
-                        JOptionPane.INFORMATION_MESSAGE
-                );
+					showMessageDialog(
+							"Το προιόν : "+selected_vf_name+" "+val.toString()+" διαγράφηκε επιτυχώς\n",
+							"Επιτυχής Διαγραφή",
+							JOptionPane.INFORMATION_MESSAGE
+					);
+				}
+
             }else{
                 showMessageDialog(
                         "Παρακαλώ επιλέξετε την γραμμή που θέλετε να διαγράψετε!\n",
