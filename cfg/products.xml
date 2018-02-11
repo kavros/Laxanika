@@ -3,7 +3,7 @@
 
     <element>
         <name>ΑΓΚΙΝΑΡΕΣ</name>
-        <profit>0.25</profit>
+        <profit>0.3</profit>
         <kef5Code>250</kef5Code>
     </element>
    
@@ -33,7 +33,7 @@
 	
 	<element>
         <name>ΑΝΘΟΙ</name>
-        <profit>0.3</profit>
+        <profit>0.25</profit>
         <kef5Code>318</kef5Code>
     </element>
 	
@@ -669,5 +669,15 @@
       <name>ΑΝΙΘΟΣ</name>
       <profit>0.35</profit>
       <kef5Code>368</kef5Code>
+   </element>
+<element>
+      <name>ΦΑΣΟΛΙΑ ΓΙΓΑΝΤΕΣ</name>
+      <profit>0.25</profit>
+      <kef5Code>000320</kef5Code>
+   </element>
+<element>
+      <name>ΤΟΜΑΤΕΣ (TORRY)</name>
+      <profit>0.25</profit>
+      <kef5Code>2092</kef5Code>
    </element>
 </products>
