@@ -41,17 +41,20 @@ ignore it                                                                    (do
 -edit profits or kef5code at hashTable using double click.          (done)
 -fix function editXMLNode from class XMLModifier                    (done)
 -build jar.                                                         (done)
+-add warning message when user try to delete something from list.   (done)
 
 
 -add configuration file that user gives the paths for database.xml and products.xml
 -print table on paper.
--make GUI good looking.
--add warning message when user try to delete something from list.
+-make cell bold if new price is higher than current price.
+-make cell with  name of the product bigger.
 
+
+-make GUI good looking.
 -add JUnit tests for most of the classes.
 -add class that handles double number,money.(fix round)
--check date
--make column numbers enum
+-check input file date.
+-make column numbers enum.
 -find the right way to handle exceptions.
 -refactor code.
 -add documentation for every class and function.
