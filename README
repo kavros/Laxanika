@@ -34,18 +34,24 @@ ignore it                                                                    (do
 -if fruit or vegetable is not on kefalaio database print error message.      (done)
 -add a Junit test.                                                  (done)
 -trace changes on kefalaio.                                         (done)
+-add "configurable profit profit implementation".                   (done)
+-drag&drop                                                          (done)
+-fix function addProductToVector to show dialog in case of exception(done)
+-handle the case that user gives as input wrong files.              (done)
 
 
-
+-edit profits or kef5code at hashTable using double click.
+-fix function editXMLNode from class XMLModifier
+-print table on paper.
 -configurations files paths has to be dynamic (first create jar).
--add JUnit tests for most of the classes.
--find the right way to handle exceptions.
-
--profit column.
--History table.
-
-
 -make GUI good looking.
+-add warning message when user try to delete something from list.
+
+-add JUnit tests for most of the classes.
+-add class that handles double number,money.(fix round)
+-check date
+-make column numbers enum
+-find the right way to handle exceptions.
 -refactor code.
 -add documentation for every class and function.
 
@@ -55,7 +61,7 @@ ignore it                                                                    (do
 ########%####
 #Error Cases#
 #############
--User opens a wrong file.                                            !!
+
 
 
 ##########
@@ -63,7 +69,7 @@ ignore it                                                                    (do
 ##########
 -check that all products on excel  there are inside of the VFVector.(how?) !!!
 -find wireless price tags or print labels.
-
+-is it useful to change the price at column kef5 price when user updates kef5 price ?
 
 ###########
 #Education#
@@ -71,6 +77,22 @@ ignore it                                                                    (do
 -Spring & Hibernate course.
 -Intellij design gui tutorial.
 -
+
+#########################
+#Featute Implementations#
+#########################
+-History table.
+
+---Useful query--
+IF NOT EXISTS (SELECT *
+                FROM   INFORMATION_SCHEMA.TABLES
+                WHERE  TABLE_NAME = 'vf_prices_history'
+                       AND TABLE_SCHEMA = 'dbo')
+             BEGIN
+                 CREATE  TABLE VF_PRICES_HISTORY(KEF5CODE VARCHAR(50),PRICE1 SMALLMONEY, PRICE2 SMALLMONEY,PRICE3 SMALLMONEY);
+             END
+
+
 
 ###################
 #Instalation steps#
