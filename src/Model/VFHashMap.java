@@ -54,9 +54,7 @@ public class VFHashMap {
         double actual_profit      = Math.round((vec.get(i).vf_final_price-price_with_taxes)*100);
         vec.get(i).actual_profit  = actual_profit/100;
     }
-    /*
-    * TODO:test this method
-    * */
+
     public void updateKef5Codes(Vector<VFVectorEntry> vec,int i) {
 
 
@@ -64,9 +62,11 @@ public class VFHashMap {
         vec.get(i).kef5_code =vf_map.get(vf_name).getKef5Code();
 
     }
+
     public VFHashMapValues get(String name){
         return vf_map.get(name);
     }
+
     @Override
     public String toString() {
         return vf_map.toString();
