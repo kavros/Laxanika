@@ -1,6 +1,8 @@
 package Model;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+
+import javax.swing.*;
 import java.io.File;
 
 public class PdfParser {
@@ -38,7 +40,12 @@ public class PdfParser {
             }
             if(isReading ){
                 //System.out.println(line);
-                addProductToVector(line,vector);
+                try {
+                    addProductToVector(line, vector);
+                }catch (Exception e){
+                    JOptionPane.showMessageDialog(null,"Tο φόρτωμα του αρχείου παρουσίασε πρόβλημα\n" +
+                            "παρακαλώ επαληθεύσετε οτι τα δεδομένα είναι σωστά.","Διαφορετική μορφή κειμένου στο αρχείου",JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
 
@@ -75,6 +82,7 @@ public class PdfParser {
             laxaniko.vf_mm      = "ΜΑΤ ";
         }else{
             throw new Exception("Error: function addProductToVector on PdfParser failed");
+
         }
 
 

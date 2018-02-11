@@ -146,8 +146,7 @@ public class View {
 											kef5CodeField,
 											addXmlButton,
 											deleteXmlButton,
-				  							editXmlButton,
-											table,splitPane);
+				  							table,splitPane);
 
         filterButton.addActionListener(controller);
 		table.getModel().addTableModelListener(controller);

@@ -28,6 +28,8 @@ import Model.*;
  *
  */
 public class Controller implements ActionListener,TableModelListener {
+	boolean editListMode;
+	boolean priceMode;
 
     private JTextField searchTermTextField;// = new JTextField(26);
 	private JMenuItem openMi;
@@ -46,7 +48,6 @@ public class Controller implements ActionListener,TableModelListener {
 	private JTextField _desiredProfit;
 	private JButton  _addXmlButton;
 	private JButton  _deleteXmlButton;
-	private JButton  _editXmlButton;
     JSplitPane _mainPane;
 	private String   fileName = null;
 
@@ -61,7 +62,6 @@ public class Controller implements ActionListener,TableModelListener {
 					  JTextField kef5CodeField,
 					  JButton  addXmlButton,
 					  JButton  deleteXmlButton,
-					  JButton  editXmlButton,
                       JTable table,
                       JSplitPane mainPane ) {
 		super();
@@ -85,15 +85,16 @@ public class Controller implements ActionListener,TableModelListener {
 
 		_addXmlButton            = addXmlButton;
 		_deleteXmlButton         = deleteXmlButton;
-		_editXmlButton           = editXmlButton;
 
 		_mainPane                =mainPane;
+
+		priceMode=editListMode=false;
+
 		//init actions listeners
 		JMenuActionListener();
 		updateButtonListener();
 		addXmlButtonListener();
 		deleteXmlButtonListener();
-		editXmlButtonListener();
 		addMouseListener();
         addDragAndDropListener();
 	}
@@ -111,13 +112,17 @@ public class Controller implements ActionListener,TableModelListener {
             model.reCreateVector();
             model.setRowCount(0);
         }
+		editListMode=false;
+        priceMode    = true;
 
         //update vector with pdf data.
 		PdfParser reader = new PdfParser();
         try {
 			reader.parsePdfFile(fileName, model.getVector());
 		}catch (Exception e){
-        	System.out.println(Arrays.toString(e.getStackTrace()));
+			showMessageDialog("Δεν είναι δυνατή η φόρτωση του αρχείου.\n"
+									,"Αποτυχία φόρτωσης αρχείου",JOptionPane.ERROR_MESSAGE);
+			return;
 		}
 
 
@@ -145,7 +150,6 @@ public class Controller implements ActionListener,TableModelListener {
 
         _addXmlButton.setVisible(false);
         _deleteXmlButton.setVisible(false);
-        _editXmlButton.setVisible(false);
 
         //updates every entry on vector
         //with the right value for kef5code and final price.
@@ -182,7 +186,8 @@ public class Controller implements ActionListener,TableModelListener {
         });
 
         editListMi.addActionListener(e -> {
-
+			editListMode =true;
+			priceMode    = false;
             model.setRowCount(0);
 
             //make necessary components invisible
@@ -194,7 +199,6 @@ public class Controller implements ActionListener,TableModelListener {
             model.updateModelWithHash();
 
             _addXmlButton.setVisible(true);
-            _editXmlButton.setVisible(true);
             _deleteXmlButton.setVisible(true);
         });
 
@@ -203,44 +207,112 @@ public class Controller implements ActionListener,TableModelListener {
     private void addMouseListener(){
 		_table.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent mouseEvent) {
-				if( mouseEvent.getClickCount() ==2
-						&& _table.getSelectedColumn() == 5){
-					if(_addXmlButton.isVisible()){
-						return;
+				if(mouseEvent.getClickCount() == 2) {
+					if ( _table.getSelectedColumn() == 5){
+						editProfit();
+					}else if (editListMode && _table.getSelectedColumn() == 1) {
+						editProfitPercentage();
+					} else if (editListMode && _table.getSelectedColumn() == 2) {
+						editKef5Code();
 					}
-                    _desiredProfit.setText("");
 
-					String name =(String) model.getValueAt(_table.getSelectedRow(),0);
-					_editFields = new Object[] {"Δώστε το επιθυμιτό κέρδος σε χρήματα  για το προϊόν: "+name,_desiredProfit};
-					int result = JOptionPane.showConfirmDialog(null, _editFields,
-							"Κέρδος", JOptionPane.OK_CANCEL_OPTION);
-					if(result == JOptionPane.OK_OPTION ){
-						//TODO check for bad input
-						double desProf =
-								Double.parseDouble(_desiredProfit.getText().replace(",","."));
+				}
 
-						int i;
-						Vector<VFVectorEntry> vec = model.getVector().getVec();
-						for(i=0; i < model.getVector().getSize(); ++i){
-							VFVectorEntry vectorEntry =vec.elementAt(i);
-							if (vectorEntry.getVfName().equals(name) ){
-								//updates actual profit and final price on vector
-								vectorEntry.updateActualProfit(desProf);
-								int row    =_table.getSelectedRow();
 
-								_table.setValueAt(vectorEntry.getActualProfit(),row,5);
-								_table.setValueAt(vectorEntry.getVfFinalPrice(),row,4);
+			}});
+	}
 
-								break;
-							}
-						}
+	private void editKef5Code(){
+		XMLModifier xml= new XMLModifier();
+		String kef5Code =(String) model.getValueAt(_table.getSelectedRow(),2);
+		String name =(String) model.getValueAt(_table.getSelectedRow(),0);
+		double profit  = (double)model.getValueAt(_table.getSelectedRow(),1);
+		JTextField newKef5Code = new JTextField();
+
+		_editFields = new Object[] {"Δώστε τον νεο κωδικό για το προϊόν: "+name,newKef5Code};
+		int result = JOptionPane.showConfirmDialog(null, _editFields,
+				"Εισαγωγή νέου κωδικού", JOptionPane.OK_CANCEL_OPTION);
+		if(result == JOptionPane.OK_OPTION ){
+			//TODO check if code is valid.(on kefalaio,not empty).Update hashmap
+
+            //edit hashMap.
+			model.getVFHashMap().put(name,profit,newKef5Code.getText());
+            //edit jTable row.
+			int row = _table.getSelectedRow();
+            _table.setValueAt(newKef5Code.getText(),row,2);
+            //edit xml file.
+			xml.editXMLNode(kef5Code,newKef5Code.getText(),"kef5Code");
+
+		}
+
+
+	}
+
+	private void editProfitPercentage(){
+		XMLModifier xml= new XMLModifier();
+
+		String name =(String) model.getValueAt(_table.getSelectedRow(),0);
+        String  kef5Code  = (String)model.getValueAt(_table.getSelectedRow(),2);
+		JTextField newProfitPercentage = new JTextField();
+
+		_editFields = new Object[] {"Δώστε τον νεο ποσοστό κέρδους για το προϊόν: "+name,newProfitPercentage};
+		int result = JOptionPane.showConfirmDialog(null, _editFields,
+				"Εισαγωγή νέου Ποσοστού Κέρδους", JOptionPane.OK_CANCEL_OPTION);
+
+		if(result == JOptionPane.OK_OPTION ){
+			//TODO check if profit is valid and update hashMap
+			String newProfit =  newProfitPercentage.getText().replace(",",".");
+            //edit hashMap.
+            model.getVFHashMap().put(name,Double.parseDouble(newProfit),kef5Code);
+
+            //edit xml file.
+			xml.editXMLNode(name,newProfit,"profit");
+            //edit jTable row.
+			int row = _table.getSelectedRow();
+			_table.setValueAt(Double.parseDouble(newProfit),row,1);
+		}
+
+
+	}
+
+	private void editProfit(){
+		if(_addXmlButton.isVisible()){
+			return;
+		}
+		_desiredProfit.setText("");
+
+		String name =(String) model.getValueAt(_table.getSelectedRow(),0);
+		_editFields = new Object[] {"Δώστε το επιθυμιτό κέρδος σε χρήματα  για το προϊόν: "+name,_desiredProfit};
+		int result = JOptionPane.showConfirmDialog(null, _editFields,
+				"Κέρδος", JOptionPane.OK_CANCEL_OPTION);
+		if(result == JOptionPane.OK_OPTION ){
+			String desiredProfitVal =_desiredProfit.getText().replace(",",".");
+			try {
+				double desProf =Double.parseDouble(desiredProfitVal);
+				int i;
+				Vector<VFVectorEntry> vec = model.getVector().getVec();
+				for(i=0; i < model.getVector().getSize(); ++i){
+					VFVectorEntry vectorEntry =vec.elementAt(i);
+					if (vectorEntry.getVfName().equals(name) ){
+						//updates actual profit and final price on vector
+						vectorEntry.updateActualProfit(desProf);
+						int row    =_table.getSelectedRow();
+
+						_table.setValueAt(vectorEntry.getActualProfit(),row,5);
+						_table.setValueAt(vectorEntry.getVfFinalPrice(),row,4);
+
+						break;
 					}
 				}
 
 
+			}catch(NumberFormatException e){
+				showMessageDialog("Το επιθυμυτό κερδος δεν είναι σωστό.\n Παρακαλώ προσπαθήστε ξανά.",
+						"Λάθος είσοδος",JOptionPane.ERROR_MESSAGE);
+			}
 
 
-			}});
+		}
 	}
 
 	private void addDragAndDropListener(){
@@ -322,9 +394,7 @@ public class Controller implements ActionListener,TableModelListener {
         });
 	}
 
-	private void editXmlButtonListener(){
-		_editXmlButton.addActionListener(e -> _editXmlButton.setVisible(false));
-	}
+
 
 	private void addXmlButtonListener(){
 		_addXmlButton.addActionListener(e -> {

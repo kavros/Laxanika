@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<products>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><products>
 
     <element>
         <name>ΑΓΚΙΝΑΡΕΣ</name>
@@ -184,7 +183,7 @@
 	
     <element>
         <name>ΜΠΑΡΜΠΟΥΝΕΣ</name>
-        <profit>0.3</profit>
+        <profit>0.30</profit>
         <kef5Code>2084</kef5Code>
     </element>
 	

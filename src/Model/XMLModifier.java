@@ -64,7 +64,7 @@ public class XMLModifier {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document document;
-            document = documentBuilder.parse("C:\\Users\\Alexis\\IdeaProjects\\Laxanika\\cfg\\products.xml");
+            document = documentBuilder.parse("cfg\\products.xml");
 
 
             Element root = document.getDocumentElement();
@@ -107,26 +107,59 @@ public class XMLModifier {
         return  true;
     }
 
-
-
-    public  void modifyXMLNode(String  vf_name,String newVfName){
+    /**
+     * editXMLNode("TOMATES" ,0.35,"profit") ->change profit for "TOMATES"  to 0.35
+     * editXMLNode("TOMATES" ,"TOMATES1" ,"profit") ->change name for "TOMATES"  to "TOMATES" (done)
+     * editXMLNode("2100" ,"2108" ,"kef5Code") ->change kef5Code from "2100"  to "2108" Problima: yparxoun proionta me ton idio kwdiko
+     * @param targetVal
+     * @param newVal
+     * @param tag
+     * @return
+     */
+    public  boolean editXMLNode(String  targetVal,String newVal,String tag){
+        //tag can have three possible values : name,kef5Code,profit.
+        if( (!tag.equals("name") ) && (!tag.equals("kef5Code")) && (!tag.equals("profit")) ){
+            return false;
+        }
+        boolean isNewValAssigned = false;
         try {
-            String filepath = "C:\\Users\\Alexis\\IdeaProjects\\Laxanika\\cfg\\products.xml";
+            String filepath = "cfg\\products.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);
 
-            NodeList nodes = doc.getElementsByTagName("name");
-            Node targetNode;
+            NodeList nodes = doc.getElementsByTagName("element");
+            Node nNode;
 
-            for(int i=0; i < nodes.getLength();++i){
-
-                targetNode =nodes.item(i);
-                if(targetNode.getTextContent().equals(vf_name)){
-                    targetNode.setTextContent(newVfName);
-                    break;
+            for(int temp=0; temp<nodes.getLength(); ++temp){
+                nNode=nodes.item(temp);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement       = (Element) nNode;
+                    String name = eElement.getElementsByTagName("name").item(0).getTextContent();
+                    String profit = eElement.getElementsByTagName("profit").item(0).getTextContent();
+                    String kef5Code = eElement.getElementsByTagName("kef5Code").item(0).getTextContent();
+                    //System.out.println(name);
+                    if(tag.equals("name") && name.equals(targetVal )){
+                        eElement.getElementsByTagName("name").item(0).setTextContent(newVal);
+                    }else if(tag.equals("kef5Code") && kef5Code.equals(targetVal) ){
+                        eElement.getElementsByTagName("kef5Code").item(0).setTextContent(newVal);
+                    }else if(tag.equals("profit") && name.equals(targetVal) ){
+                        eElement.getElementsByTagName("profit").item(0).setTextContent(newVal);
+                    }
                 }
             }
+
+            /*for(int i=0; i < nodes.getLength();++i){
+
+                targetNode =nodes.item(i);
+                if(targetNode.getTextContent().equals(targetVal)){
+                    System.out.println(targetNode.getTextContent()+"=="+targetVal);
+
+                    targetNode.setTextContent(newVal);
+                    isNewValAssigned =true;
+                    break;
+                }
+            }*/
 
             // write the content into xml file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -141,10 +174,15 @@ public class XMLModifier {
             System.err.println("Method modifyXML at class XMLModifier has failed ");
             e.printStackTrace();
         }
+
+        return isNewValAssigned;
     }
 
+
+
+
     public void deleteXMLNode(String vf_name){
-        modifyXMLNode(vf_name,"DELETED");
+        editXMLNode(vf_name,"DELETED","name");
     }
 
 

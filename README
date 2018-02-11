@@ -38,12 +38,13 @@ ignore it                                                                    (do
 -drag&drop                                                          (done)
 -fix function addProductToVector to show dialog in case of exception(done)
 -handle the case that user gives as input wrong files.              (done)
+-edit profits or kef5code at hashTable using double click.          (done)
+-fix function editXMLNode from class XMLModifier                    (done)
+-build jar.                                                         (done)
 
 
--edit profits or kef5code at hashTable using double click.
--fix function editXMLNode from class XMLModifier
+-add configuration file that user gives the paths for database.xml and products.xml
 -print table on paper.
--configurations files paths has to be dynamic (first create jar).
 -make GUI good looking.
 -add warning message when user try to delete something from list.
 
