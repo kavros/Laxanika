@@ -22,7 +22,7 @@ public class View {
 		JTextField productProfit   = new JTextField(10);
 		JTextField productKef5Code = new JTextField(10);*/
 
-
+		JButton printButton = new JButton("Εκτύπωση");
 		JButton filterButton = new JButton("Εύρεση");
 		JButton updateButton = new JButton("Ενημέρωση Κεφαλαίου");
 		JTable table ;//= new JTable();
@@ -97,10 +97,12 @@ public class View {
 		searchTermTextField.setVisible(false);
 		updateButton.setVisible(false);
 		filterButton.setVisible(false);
+		printButton.setVisible(false);
 
 		ctrlPane.add(searchTermTextField);
 		ctrlPane.add(filterButton);
 		ctrlPane.add(updateButton);
+		ctrlPane.add(printButton);
 
 		ctrlPane.add(addXmlButton);
 		ctrlPane.add(editXmlButton);
@@ -146,7 +148,7 @@ public class View {
 											kef5CodeField,
 											addXmlButton,
 											deleteXmlButton,
-				  							table,splitPane);
+				  							table,splitPane,printButton);
 
         filterButton.addActionListener(controller);
 		table.getModel().addTableModelListener(controller);

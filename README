@@ -42,10 +42,10 @@ ignore it                                                                    (do
 -fix function editXMLNode from class XMLModifier                    (done)
 -build jar.                                                         (done)
 -add warning message when user try to delete something from list.   (done)
+-print table on paper.                                              (done)
 
 
 -add configuration file that user gives the paths for database.xml and products.xml
--print table on paper.
 -make cell bold if new price is higher than current price.
 -make cell with  name of the product bigger.
 

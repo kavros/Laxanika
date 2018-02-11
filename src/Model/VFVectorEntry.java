@@ -32,6 +32,23 @@ public class VFVectorEntry {
     public boolean getIsUpdateNeeded(){
         return isUpdateNeeded;
     }
+
+    public String getKef5_code() {
+        return kef5_code;
+    }
+
+    public String getVf_origin() {
+        return vf_origin;
+    }
+
+    public String getVf_mm() {
+        return vf_mm;
+    }
+
+    public String getVf_number() {
+        return vf_number;
+    }
+
     public String getVfName(){
         return vf_name;
     }

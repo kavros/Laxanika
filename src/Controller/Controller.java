@@ -9,10 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -21,6 +22,7 @@ import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import Model.*;
+import Model.Printer;
 
 
 /**
@@ -48,8 +50,10 @@ public class Controller implements ActionListener,TableModelListener {
 	private JTextField _desiredProfit;
 	private JButton  _addXmlButton;
 	private JButton  _deleteXmlButton;
-    JSplitPane _mainPane;
+    private JButton  _printButton;
+	JSplitPane _mainPane;
 	private String   fileName = null;
+
 
 	public Controller(JTextField searchTermTextField,
 					  JMenuItem openM,
@@ -63,7 +67,8 @@ public class Controller implements ActionListener,TableModelListener {
 					  JButton  addXmlButton,
 					  JButton  deleteXmlButton,
                       JTable table,
-                      JSplitPane mainPane ) {
+                      JSplitPane mainPane,
+                      JButton  printButton) {
 		super();
 		this.searchTermTextField = searchTermTextField;
 		openMi                   = openM;
@@ -89,6 +94,7 @@ public class Controller implements ActionListener,TableModelListener {
 		_mainPane                =mainPane;
 
 		priceMode=editListMode=false;
+        _printButton =printButton;
 
 		//init actions listeners
 		JMenuActionListener();
@@ -97,8 +103,38 @@ public class Controller implements ActionListener,TableModelListener {
 		deleteXmlButtonListener();
 		addMouseListener();
         addDragAndDropListener();
+        addPrintButtonListener();
 	}
 
+	private void addPrintButtonListener(){
+        _printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Printer printer = new Printer();
+                String text="";
+                Vector<VFVectorEntry> vector = model.getVector().getVec();
+                for(int i = 0; i < vector.size(); ++i){
+                    VFVectorEntry entry = vector.get(i);
+                   text +=  entry.getVfName() +" "+
+                            entry.getVf_origin()+" "+
+                            entry.getVf_number()+" "+
+                            entry.getVfFinalPrice()+"\n";
+                }
+                printer.setDoc(text);
+                PrinterJob job = PrinterJob.getPrinterJob();
+                job.setPrintable(printer);
+                boolean ok = job.printDialog();
+                if (ok) {
+                    try {
+                        job.print();
+                    } catch (PrinterException ex) {
+                        /* The job did not successfully complete */
+                    }
+                }
+            }
+        });
+
+    }
 	private void showMessageDialog(String msg,String title,int type){
 		JOptionPane.showMessageDialog(null,msg,title,type);
 	}
@@ -147,6 +183,7 @@ public class Controller implements ActionListener,TableModelListener {
         searchTermTextField.setVisible(true);
         _updateButton.setVisible(true);
         _filterButton.setVisible(true);
+        _printButton.setVisible(true);
 
         _addXmlButton.setVisible(false);
         _deleteXmlButton.setVisible(false);
@@ -200,6 +237,7 @@ public class Controller implements ActionListener,TableModelListener {
 
             _addXmlButton.setVisible(true);
             _deleteXmlButton.setVisible(true);
+            _printButton.setVisible(false);
         });
 
     }
