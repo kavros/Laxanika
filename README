@@ -43,11 +43,14 @@ ignore it                                                                    (do
 -build jar.                                                         (done)
 -add warning message when user try to delete something from list.   (done)
 -print table on paper.                                              (done)
+-make cell with  name of the product bigger.                        (done)
+-bug prints 2 times vf_number at extracted pdf.                     (fixed)
+
 
 
 -add configuration file that user gives the paths for database.xml and products.xml
 -make cell bold if new price is higher than current price.
--make cell with  name of the product bigger.
+
 
 
 -make GUI good looking.
@@ -74,6 +77,7 @@ ignore it                                                                    (do
 -check that all products on excel  there are inside of the VFVector.(how?) !!!
 -find wireless price tags or print labels.
 -is it useful to change the price at column kef5 price when user updates kef5 price ?
+-change PdfParser in order to be more generic so it can handle files like "wrong text format.pdf"
 
 ###########
 #Education#
