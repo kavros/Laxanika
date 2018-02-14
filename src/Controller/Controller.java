@@ -201,10 +201,11 @@ public class Controller implements ActionListener,TableModelListener {
 
         //fix columns names
         model.setColumnIdentifiers(Constants.VF_TABLE_HEADER);
+		_table.getColumnModel().getColumn(0).setPreferredWidth(200);
 
         //add rows to the model
 		for(int i = 0; i < model.getVector().getSize(); ++i){
-		    model.addRow(model.getVectorRow(i));
+			model.addRow(model.getVectorRow(i));
         }
 	}
 
