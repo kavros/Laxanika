@@ -36,6 +36,7 @@ public class Controller implements ActionListener,TableModelListener {
     private JTextField searchTermTextField;// = new JTextField(26);
 	private JMenuItem openMi;
 	private JMenuItem editListMi;
+	private JMenuItem _exitMi;
 	private MyModel model;
 
 	private JButton _filterButton;
@@ -68,7 +69,8 @@ public class Controller implements ActionListener,TableModelListener {
 					  JButton  deleteXmlButton,
                       JTable table,
                       JSplitPane mainPane,
-                      JButton  printButton) {
+                      JButton  printButton,
+                      JMenuItem exitMi) {
 		super();
 		this.searchTermTextField = searchTermTextField;
 		openMi                   = openM;
@@ -87,7 +89,7 @@ public class Controller implements ActionListener,TableModelListener {
 		_desiredProfit = new JTextField(5);
 
 
-
+        _exitMi                  = exitMi;
 		_addXmlButton            = addXmlButton;
 		_deleteXmlButton         = deleteXmlButton;
 
@@ -239,6 +241,10 @@ public class Controller implements ActionListener,TableModelListener {
             _addXmlButton.setVisible(true);
             _deleteXmlButton.setVisible(true);
             _printButton.setVisible(false);
+        });
+
+        _exitMi.addActionListener(e->{
+            System.exit(1);
         });
 
     }
