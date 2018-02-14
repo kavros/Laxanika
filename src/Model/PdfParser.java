@@ -43,6 +43,7 @@ public class PdfParser {
                 try {
                     addProductToVector(line, vector);
                 }catch (Exception e){
+                    e.printStackTrace();
                     JOptionPane.showMessageDialog(null,"Tο φόρτωμα του αρχείου παρουσίασε πρόβλημα\n" +
                             "παρακαλώ επαληθεύσετε οτι τα δεδομένα είναι σωστά.","Διαφορετική μορφή κειμένου στο αρχείου",JOptionPane.ERROR_MESSAGE);
                 }
@@ -82,19 +83,16 @@ public class PdfParser {
             laxaniko.vf_mm      = "ΜΑΤ ";
         }else{
             throw new Exception("Error: function addProductToVector on PdfParser failed");
-
         }
-
 
         String[] subLine2 = line[0].split(" ");
         String[] subLine3 = line[1].trim().split(" ");
 
-        //System.out.println(line[0]+" "+line[1]);
-
-        laxaniko.vf_number = subLine2[subLine2.length-1];
-
+        laxaniko.vf_number = subLine2[subLine2.length-1]; //hack in order to extract number.
         laxaniko.vf_name    = line[0].split("-")[0];
-        laxaniko.vf_origin  = line[0].split("-")[1];
+        laxaniko.vf_origin  = (line[0].split("-")[1]).split(" ")[0];
+
+        //System.out.println(laxaniko.vf_origin);
 
         laxaniko.vf_packing = subLine3[0].replace(",",".");
         laxaniko.vf_quantity= Double.parseDouble(subLine3[1].replace(",","."));
