@@ -48,19 +48,19 @@ public class XMLModifier {
             }
         }
         profit = new String(pr);
-
-        double profit_num = Double.parseDouble(profit);
-        if(profit_num > 1){
-            profit_num=profit_num/100;
-        }
-        profit = String.valueOf(profit_num);
-
-        //validate user inputs
-        if(! isInputsValid(vf_name,profit,kef5Code) ){
-            return false;
-        }
-
         try {
+            double profit_num = Double.parseDouble(profit);
+            if(profit_num > 1){
+                profit_num=profit_num/100;
+            }
+            profit = String.valueOf(profit_num);
+
+            //validate user inputs
+            if(! isInputsValid(vf_name,profit,kef5Code) ){
+                return false;
+            }
+
+
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document document;
@@ -100,9 +100,10 @@ public class XMLModifier {
             StreamResult result = new StreamResult("cfg\\products.xml");
             transformer.transform(source, result);
 
-        }catch (Exception e){
+        }catch (Exception e ){
             System.err.println("function addToXML at class XMLModifier has failed");
             e.printStackTrace();
+            return false;
         }
         return  true;
     }

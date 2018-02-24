@@ -469,24 +469,27 @@ public class Controller implements ActionListener,TableModelListener {
                                 _profitField.getText(),
                                 _kef5CodeField.getText()
                                 );
-                //adds info to hash table
+				MessageDialog msg = new MessageDialog();
+                if(isSuccessfullyAdded == false){
+					msg.showMessageDialog(
+							"Η καταχώρηση του προιόντος απέτυχε.\n" +
+									"Τα πεδία κωδικός και κέρδος πρέπει να είναι αριθμός.\n",
+							"Αποτυχής Καταχώρηση",
+							JOptionPane.INFORMATION_MESSAGE
+					);
+					return;
+				}
 
+                //adds info to hash table
                 String a      = _profitField.getText();
                 a= a.replace(",",".");
                 double profit = Double.parseDouble(a);
 
                 model.getVFHashMap().put(_vfNameField.getText(),profit,_kef5CodeField.getText());
-				MessageDialog msg = new MessageDialog();
+
                 if(isSuccessfullyAdded ){
 					msg.showMessageDialog(
                             "Η καταχώρηση του προιόντος έγινε επιτυχώς", "Επιτυχής Καταχώρηση",
-                            JOptionPane.INFORMATION_MESSAGE
-                    );
-                }else{
-					msg.showMessageDialog(
-                            "Η καταχώρηση του προιόντος απέτυχε.\n" +
-                                    "Τα πεδία κωδικός και κέρδος πρέπει να είναι αριθμός.\n",
-                            "Αποτυχής Καταχώρηση",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                 }
