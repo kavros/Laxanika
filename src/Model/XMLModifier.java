@@ -97,7 +97,7 @@ public class XMLModifier {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "3");
 
-            StreamResult result = new StreamResult("C:\\Users\\Alexis\\IdeaProjects\\Laxanika\\cfg\\products.xml");
+            StreamResult result = new StreamResult("cfg\\products.xml");
             transformer.transform(source, result);
 
         }catch (Exception e){
