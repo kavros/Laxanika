@@ -50,6 +50,12 @@ ignore it                                                                    (do
 
 -add configuration file that user gives the paths for database.xml and products.xml
 -make cell bold if new price is higher than current price.
+-fix case that input is empty when we are add products.
+-fix all parseDouble.
+-make all cells bigger.
+
+
+
 
 
 
@@ -114,6 +120,7 @@ IF NOT EXISTS (SELECT *
                                             3)set dbcreator Server Roles.
     1.3)Connect Kefalaio to SQL Server  «Οργάνωση – Σύστημα» run «SQL Server setup».
     1.4)Create company from Kefalaio with sql Server enabled.
+        Οργάνωηση->Εταιρίες -> Νεα εταιρία
 
 2)Configure database.xml
 

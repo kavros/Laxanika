@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><products>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<products>
 
     <element>
         <name>ΑΓΚΙΝΑΡΕΣ</name>
@@ -644,39 +645,51 @@
       <profit>0.3</profit>
       <kef5Code>450.04.04.01</kef5Code>
    </element>
+
     <element>
       <name>ΚΟΥΚΙΑ</name>
       <profit>0.25</profit>
       <kef5Code>309</kef5Code>
    </element>
-<element>
-      <name>DELETED</name>
-      <profit>0.76</profit>
-      <kef5Code>111</kef5Code>
-   </element>
+
 <element>
       <name>ΠΙΠΕΡΙΕΣ ΠΟΡΤΟΚΑΛΙ</name>
       <profit>0.25</profit>
       <kef5Code>348</kef5Code>
    </element>
+
 <element>
       <name>ΑΝΙΘΟ</name>
       <profit>0.3</profit>
       <kef5Code>368</kef5Code>
    </element>
+
 <element>
       <name>ΑΝΙΘΟΣ</name>
       <profit>0.35</profit>
       <kef5Code>368</kef5Code>
    </element>
+
 <element>
       <name>ΦΑΣΟΛΙΑ ΓΙΓΑΝΤΕΣ</name>
       <profit>0.25</profit>
       <kef5Code>000320</kef5Code>
    </element>
-<element>
+
+    <element>
       <name>ΤΟΜΑΤΕΣ (TORRY)</name>
       <profit>0.25</profit>
       <kef5Code>2092</kef5Code>
+   </element>
+
+<element>
+      <name>ΠΙΠΕΡΙΕΣ ΚΟΚΚΙΝΕΣ</name>
+      <profit>0.25</profit>
+      <kef5Code>348</kef5Code>
+   </element>
+<element>
+      <name>ΜΗΛΑ ΦΥΡΙΚΙΑ</name>
+      <profit>0.3</profit>
+      <kef5Code>379</kef5Code>
    </element>
 </products>

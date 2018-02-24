@@ -1,5 +1,6 @@
 package Model;
 
+import javax.swing.*;
 import java.sql.*;
 
 
@@ -43,7 +44,12 @@ public class VFKef5DataBase {
                 ex.printStackTrace();
             }
         }
-
+        if(answer == null){
+            MessageDialog msg=new MessageDialog();
+            msg.showMessageDialog("Το query "+query+" δεν επέστρεψε απάντηση",
+                    "Αποτυχία εύρεσης προιόντος", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
         //fix number format
         if(answer.contains(",")){
             answer = answer.replace(",",".");

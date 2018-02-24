@@ -137,9 +137,8 @@ public class Controller implements ActionListener,TableModelListener {
         });
 
     }
-	private void showMessageDialog(String msg,String title,int type){
-		JOptionPane.showMessageDialog(null,msg,title,type);
-	}
+
+
 
 	private void setMainTableVisible(){
 
@@ -158,7 +157,8 @@ public class Controller implements ActionListener,TableModelListener {
         try {
 			reader.parsePdfFile(fileName, model.getVector());
 		}catch (Exception e){
-			showMessageDialog("Δεν είναι δυνατή η φόρτωση του αρχείου.\n"
+        	MessageDialog msg = new MessageDialog();
+			msg.showMessageDialog("Δεν είναι δυνατή η φόρτωση του αρχείου.\n"
 									,"Αποτυχία φόρτωσης αρχείου",JOptionPane.ERROR_MESSAGE);
 			return;
 		}
@@ -168,8 +168,8 @@ public class Controller implements ActionListener,TableModelListener {
         model.getVector().transformVector();
         ArrayList<String> unknownProductsList = model.getUnknownNames();
         if( ! unknownProductsList.isEmpty() ){
-
-			showMessageDialog(
+			MessageDialog msg = new MessageDialog();
+			msg.showMessageDialog(
 					"Παρακαλώ καταχώρησε στην λίστα τα παρακάτω: "
 							+""+unknownProductsList.toString(), "Error",
                     JOptionPane.ERROR_MESSAGE
@@ -195,7 +195,8 @@ public class Controller implements ActionListener,TableModelListener {
 		try {
 			model.getVector().update(model.getVFHashMap());
 		}catch (SQLException e){
-			showMessageDialog("Απέτυχε η εύρεση των τιμών απο το κεφάλαιο λογω προβλήματος με την SQL.",
+			MessageDialog msg = new MessageDialog();
+			msg.showMessageDialog("Απέτυχε η εύρεση των τιμών απο το κεφάλαιο λογω προβλήματος με την SQL.",
                     "Αποτυχία SQL",JOptionPane.ERROR_MESSAGE);
 		}
 
@@ -352,7 +353,8 @@ public class Controller implements ActionListener,TableModelListener {
 
 
 			}catch(NumberFormatException e){
-				showMessageDialog("Το επιθυμυτό κερδος δεν είναι σωστό.\n Παρακαλώ προσπαθήστε ξανά.",
+				MessageDialog msg = new MessageDialog();
+				msg.showMessageDialog("Το επιθυμυτό κερδος δεν είναι σωστό.\n Παρακαλώ προσπαθήστε ξανά.",
 						"Λάθος είσοδος",JOptionPane.ERROR_MESSAGE);
 			}
 
@@ -368,7 +370,8 @@ public class Controller implements ActionListener,TableModelListener {
                     List<File> droppedFiles = (List<File>)
                             evt.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
                     if(droppedFiles.size() > 1){
-                        showMessageDialog("Το drag & drop λειτουργεί μονο εαν τραβήξουμε ενα αρχειο στο" +
+						MessageDialog msg = new MessageDialog();
+						msg.showMessageDialog("Το drag & drop λειτουργεί μονο εαν τραβήξουμε ενα αρχειο στο" +
                                 "παράθηρο ","Λάθος ενέργεια",JOptionPane.ERROR_MESSAGE);
                     }
                     fileName = droppedFiles.get(0).getAbsolutePath();
@@ -391,7 +394,8 @@ public class Controller implements ActionListener,TableModelListener {
 
             try{
                 products = model.updateKef5Prices();
-				showMessageDialog(
+				MessageDialog msg = new MessageDialog();
+				msg.showMessageDialog(
 						"Ενημερώθηκαν επιτυχώς οι τιμές στο Κεφάλαιο 5 για τα παρακάτω: "
 							+""+products.toString(), "Ενημέρωση Τιμών στο Κεφάλαιο 5",
 							JOptionPane.INFORMATION_MESSAGE
@@ -400,12 +404,15 @@ public class Controller implements ActionListener,TableModelListener {
 				try{
 					tracer.run(model);
 				}catch(Exception ex){
-					showMessageDialog("Απέτυχε η ενημέρωση του txt αρχείου.","Αποτυχία ενημέρωσης txt",JOptionPane.ERROR_MESSAGE);
+
+					msg.showMessageDialog("Απέτυχε η ενημέρωση του txt αρχείου.","Αποτυχία ενημέρωσης txt",JOptionPane.ERROR_MESSAGE);
 				}
 
 
             }catch (SQLException a){
-                showMessageDialog("Απέτυχε η ενημέρωση τιμών λόγω πρόβληματος με την SQL.","Αποτυχία SQL",JOptionPane.ERROR_MESSAGE);
+
+				MessageDialog msg = new MessageDialog();
+				msg.showMessageDialog("Απέτυχε η ενημέρωση τιμών λόγω πρόβληματος με την SQL.","Αποτυχία SQL",JOptionPane.ERROR_MESSAGE);
 
             }
 
@@ -415,7 +422,7 @@ public class Controller implements ActionListener,TableModelListener {
 	private void deleteXmlButtonListener(){
 		_deleteXmlButton.addActionListener(e -> {
             if(_table.getSelectedRow() != -1 ){
-
+				MessageDialog msg = new MessageDialog();
             	String selected_vf_name =(String) model.getValueAt(_table.getSelectedRow(),0);
                 int dialogButton = JOptionPane.YES_NO_OPTION;
 				int dialogResult = JOptionPane.showConfirmDialog(
@@ -429,7 +436,7 @@ public class Controller implements ActionListener,TableModelListener {
 					model.removeRow(_table.getSelectedRow());
 					xml.deleteXMLNode(selected_vf_name);
 
-					showMessageDialog(
+					msg.showMessageDialog(
 							"Το προιόν : "+selected_vf_name+" "+val.toString()+" διαγράφηκε επιτυχώς\n",
 							"Επιτυχής Διαγραφή",
 							JOptionPane.INFORMATION_MESSAGE
@@ -437,7 +444,8 @@ public class Controller implements ActionListener,TableModelListener {
 				}
 
             }else{
-                showMessageDialog(
+				MessageDialog msg = new MessageDialog();
+                msg.showMessageDialog(
                         "Παρακαλώ επιλέξετε την γραμμή που θέλετε να διαγράψετε!\n",
                         "Αποτυχής Διαγραφή",
                         JOptionPane.INFORMATION_MESSAGE
@@ -468,14 +476,14 @@ public class Controller implements ActionListener,TableModelListener {
                 double profit = Double.parseDouble(a);
 
                 model.getVFHashMap().put(_vfNameField.getText(),profit,_kef5CodeField.getText());
-
+				MessageDialog msg = new MessageDialog();
                 if(isSuccessfullyAdded ){
-                    showMessageDialog(
+					msg.showMessageDialog(
                             "Η καταχώρηση του προιόντος έγινε επιτυχώς", "Επιτυχής Καταχώρηση",
                             JOptionPane.INFORMATION_MESSAGE
                     );
                 }else{
-                    showMessageDialog(
+					msg.showMessageDialog(
                             "Η καταχώρηση του προιόντος απέτυχε.\n" +
                                     "Τα πεδία κωδικός και κέρδος πρέπει να είναι αριθμός.\n",
                             "Αποτυχής Καταχώρηση",
@@ -512,7 +520,8 @@ public class Controller implements ActionListener,TableModelListener {
             }
 			model.setDataVector(newData, Constants.VF_TABLE_HEADER);
 		} else {
-			showMessageDialog(
+			MessageDialog msg = new MessageDialog();
+			msg.showMessageDialog(
 					"Search term is empty", "Error",
 					JOptionPane.ERROR_MESSAGE
 			);
