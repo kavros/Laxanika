@@ -5,16 +5,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-/**
- * @author ashraf
- *
- */
-@SuppressWarnings("serial")
 public class MyModel extends DefaultTableModel {
 
 	private VFHashMap vf_rates;
 	private VFVector data;
-
 
 	public MyModel() {
 		vf_rates = new VFHashMap();

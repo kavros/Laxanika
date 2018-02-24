@@ -45,18 +45,13 @@ ignore it                                                                    (do
 -print table on paper.                                              (done)
 -make cell with  name of the product bigger.                        (done)
 -bug prints 2 times vf_number at extracted pdf.                     (fixed)
-
+-fix case that input is empty when we are add products.             (done)
+-make all cells bigger.                                             (done)
+-make letters red if new price is higher than current price.        (done)
 
 
 -add configuration file that user gives the paths for database.xml and products.xml
--make cell bold if new price is higher than current price.
--fix case that input is empty when we are add products.
--fix all parseDouble.
--make all cells bigger.
-
-
-
-
+-handle all exception especially NumberFormatException (Log file)
 
 
 -make GUI good looking.

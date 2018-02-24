@@ -87,8 +87,9 @@ public class View {
 
             }
 		};
-		table.setFont(new Font("Serif", Font.PLAIN, 17));
+		table.setFont(new Font("Serif", Font.PLAIN, 20));
 		table.setModel(model);
+
 
 		// Set the view layout
 		JPanel ctrlPane = new JPanel();
@@ -119,7 +120,7 @@ public class View {
         //tableScrollPane.setVisible(false);
 
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,tableScrollPane, ctrlPane );
-		splitPane.setDividerLocation(700);
+		splitPane.setDividerLocation(850);
 		splitPane.setEnabled(false);
 
 

@@ -33,6 +33,8 @@ public class VFVectorEntry {
         return isUpdateNeeded;
     }
 
+    public double getKef5_price(){return  kef5_price;}
+
     public String getKef5_code() {
         return kef5_code;
     }
