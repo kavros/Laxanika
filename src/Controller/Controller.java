@@ -21,6 +21,9 @@ import java.util.Vector;
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
+
 import Model.*;
 import Model.Printer;
 
@@ -182,9 +185,9 @@ public class Controller implements ActionListener,TableModelListener {
         }
 
         //make necessary components visible
-        searchTermTextField.setVisible(true);
+        //searchTermTextField.setVisible(true);
+        //_filterButton.setVisible(true);
         _updateButton.setVisible(true);
-        _filterButton.setVisible(true);
         _printButton.setVisible(true);
 
         _addXmlButton.setVisible(false);
@@ -202,16 +205,52 @@ public class Controller implements ActionListener,TableModelListener {
 
 
 
-        //fix columns names
+        //add columns names
         model.setColumnIdentifiers(Constants.VF_TABLE_HEADER);
-		_table.getColumnModel().getColumn(0).setPreferredWidth(200);
+        _table.getColumnModel().getColumn(0).setPreferredWidth(200);
 
         //add rows to the model
 		for(int i = 0; i < model.getVector().getSize(); ++i){
 			model.addRow(model.getVectorRow(i));
         }
+        addColorRenderer();
 	}
 
+	private void addColorRenderer(){
+        _table.setDefaultRenderer(Object.class, new TableCellRenderer(){
+            private DefaultTableCellRenderer DEFAULT_RENDERER =  new DefaultTableCellRenderer();
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = DEFAULT_RENDERER.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                //table.setBackground(Color.YELLOW);
+                //table.setSelectionBackground(Color.YELLOW);
+
+                Vector<VFVectorEntry> vec = model.getVector().getVec();
+                Vector<Integer> RowsWithHigherPrices = new Vector();
+
+                for (int i = 0; i < vec.size(); ++i) {
+                    String name = vec.get(i).getVfName();
+                    if (vec.get(i).getVfFinalPrice() > vec.get(i).getKef5_price()) {
+                        for (int j = 0; j < model.getVector().getSize(); ++j) {
+                            Object[] o = model.getVectorRow(j);
+                            if (o[0].equals(name)) {
+                                RowsWithHigherPrices.add(j);
+                            }
+                        }
+
+                    }
+                }
+
+                c.setForeground(Color.black);
+                if(RowsWithHigherPrices.contains(row) && _printButton.isVisible()){
+                    c.setForeground(Color.red);
+                }
+
+                return c;
+            }
+
+        });
+    }
 	private void JMenuActionListener(){
         openMi.addActionListener((ActionEvent e) -> {
 
@@ -396,7 +435,7 @@ public class Controller implements ActionListener,TableModelListener {
                 products = model.updateKef5Prices();
 				MessageDialog msg = new MessageDialog();
 				msg.showMessageDialog(
-						"Ενημερώθηκαν επιτυχώς οι τιμές στο Κεφάλαιο 5 για τα παρακάτω: "
+						"Ενημερώθηκαν επιτυχώς οι τιμές στο Κεφάλαιο 5 για τα παρακάτω: \n"
 							+""+products.toString(), "Ενημέρωση Τιμών στο Κεφάλαιο 5",
 							JOptionPane.INFORMATION_MESSAGE
 				);
@@ -487,12 +526,11 @@ public class Controller implements ActionListener,TableModelListener {
 
                 model.getVFHashMap().put(_vfNameField.getText(),profit,_kef5CodeField.getText());
 
-                if(isSuccessfullyAdded ){
-					msg.showMessageDialog(
-                            "Η καταχώρηση του προιόντος έγινε επιτυχώς", "Επιτυχής Καταχώρηση",
-                            JOptionPane.INFORMATION_MESSAGE
-                    );
-                }
+                msg.showMessageDialog(
+                        "Η καταχώρηση του προιόντος έγινε επιτυχώς", "Επιτυχής Καταχώρηση",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+
             }
             //update gui table
             model.setRowCount(0);
