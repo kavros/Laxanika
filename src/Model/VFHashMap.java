@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Vector;
 
@@ -29,7 +30,15 @@ public class VFHashMap {
 
 
     public boolean isNameValid(String name){
-        return vf_map.containsKey(name);
+        //return vf_map.containsKey(name);
+        Iterator it = vf_map.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            if(pair.getKey().equals(name)){
+                return true;
+            }
+        }
+        return  false;
     }
 
     public void updateModelWithHash(MyModel model){

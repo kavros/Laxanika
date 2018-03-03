@@ -121,9 +121,16 @@ public class Controller implements ActionListener,TableModelListener {
                 for(int i = 0; i < vector.size(); ++i){
                     VFVectorEntry entry = vector.get(i);
                    text +=  entry.getVfName() +" "+
-                            entry.getVf_origin()+" "+
-                            entry.getVf_number()+" "+
+                            entry.getVfOrigin()+" "+
+                            entry.getVfNumber()+" "+
                             entry.getVfFinalPrice()+"\n";
+                   /*text += entry.getVfName() +" "+
+                           entry.getVfOrigin()+" "+
+                           entry.getVfNumber()+" "+
+                           entry.getVfPrice() +"  "+
+                           entry.getKef5Price()+" "+
+                           entry.getVfFinalPrice()+ " "+
+                           entry.getActualProfit()+"\n";*/
                 }
                 printer.setDoc(text);
                 PrinterJob job = PrinterJob.getPrinterJob();
@@ -222,15 +229,13 @@ public class Controller implements ActionListener,TableModelListener {
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 Component c = DEFAULT_RENDERER.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                //table.setBackground(Color.YELLOW);
-                //table.setSelectionBackground(Color.YELLOW);
 
                 Vector<VFVectorEntry> vec = model.getVector().getVec();
                 Vector<Integer> RowsWithHigherPrices = new Vector();
 
                 for (int i = 0; i < vec.size(); ++i) {
                     String name = vec.get(i).getVfName();
-                    if (vec.get(i).getVfFinalPrice() > vec.get(i).getKef5_price()) {
+                    if (vec.get(i).getVfFinalPrice() > vec.get(i).getKef5Price()) {
                         for (int j = 0; j < model.getVector().getSize(); ++j) {
                             Object[] o = model.getVectorRow(j);
                             if (o[0].equals(name)) {
@@ -240,7 +245,6 @@ public class Controller implements ActionListener,TableModelListener {
 
                     }
                 }
-
                 c.setForeground(Color.black);
                 if(RowsWithHigherPrices.contains(row) && _printButton.isVisible()){
                     c.setForeground(Color.red);

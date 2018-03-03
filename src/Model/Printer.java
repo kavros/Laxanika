@@ -49,8 +49,9 @@ public class Printer implements Printable {
     }
 
     private void drawString(Graphics g, String text, int x, int y) {
-        for (String line : text.split("\n"))
+        for (String line : text.split("\n")) {
             g.drawString(line, x, y += g.getFontMetrics().getHeight());
+        }
     }
 
     public int print(Graphics g, PageFormat pf, int page) throws

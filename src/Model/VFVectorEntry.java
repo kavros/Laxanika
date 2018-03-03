@@ -33,23 +33,27 @@ public class VFVectorEntry {
         return isUpdateNeeded;
     }
 
-    public double getKef5_price(){return  kef5_price;}
+    public double getKef5Price(){return  kef5_price;}
 
-    public String getKef5_code() {
+    public String getKef5Code() {
         return kef5_code;
     }
 
-    public String getVf_origin() {
+    public String getVfOrigin() {
         return vf_origin;
     }
 
-    public String getVf_mm() {
+    public String getVfMm() {
         return vf_mm;
     }
 
-    public String getVf_number() {
+    public String getVfNumber() {
         return vf_number;
     }
+
+    public String getValue(){return  vf_value;}
+
+    public double getVfPrice(){return vf_price;}
 
     public String getVfName(){
         return vf_name;
