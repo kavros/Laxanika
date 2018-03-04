@@ -31,6 +31,23 @@ public class PriceHistory {
         public Prices(){
             totalPrices=0;
         }
+
+        @Override
+        public String toString() {
+            if(totalPrices ==1){
+                return  String.valueOf(price1);
+            }else if(totalPrices== 2){
+                return  String.valueOf(price1) +","
+                        + String.valueOf(price2);
+
+            }else if(totalPrices == 3){
+                return  String.valueOf(price1) +","
+                        +String.valueOf(price2)+","
+                        +String.valueOf(price3);
+
+            }
+            return null;
+        }
     }
 
     private final String filePath = "history/history.txt";

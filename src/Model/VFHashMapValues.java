@@ -12,7 +12,7 @@ public class VFHashMapValues {
     protected double getProfit(){
         return profit;
     }
-    protected String getKef5Code(){
+    public String getKef5Code(){
         return  kef5Code;
     }
 
