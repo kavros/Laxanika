@@ -23,10 +23,15 @@ public class PdfParser {
         String text = pdfStripper.getText(document);
 
         String[] pdfLines = text.split("\n");
-        boolean isReading = false;
+        boolean isReading = false,isDateFound=false;
         int i;
         for( i=0; i < pdfLines.length;++i){
             String line = pdfLines[i];
+            if(!isDateFound && line.contains("ΗΜΕΡΟΜΗΝΙΑ ΑΠΟΣΤΟΛΗΣ")){
+                vector.setDate(line.split(":")[1].trim());
+                System.out.println(vector.getDate());
+                isDateFound=true;
+            }
             if(line.contains("ΣΧΕΤΙΚΑ ΠΑΡΑΣΤΑΤΙΚΑ")
               ||line.contains("Εκ Μεταφοράς")) {
 

@@ -52,6 +52,8 @@ public class PriceHistory {
 
     private final String filePath = "history/history.txt";
     private Vector<String> history = null;
+    private String date;
+    private String dates;
 
     public PriceHistory(){
         history = new Vector<>();
@@ -67,8 +69,15 @@ public class PriceHistory {
             br = new BufferedReader(fr);
 
             String sCurrentLine;
-
+            int count = 0;
             while ((sCurrentLine = br.readLine()) != null) {
+                //read the first line that contains the dates.
+                if(count == 0){
+                    dates = sCurrentLine;
+                    count++;
+                    continue;
+                }
+                //adds historical entries to the vector.
                 history.add(sCurrentLine);
             }
 
@@ -100,12 +109,32 @@ public class PriceHistory {
         return  history;
     }
 
+    public void setDate(String date){
+        this.date = date;
+    }
+
+    public String getDate(){
+        return date;
+    }
+
     //add the price to the vector.
     //before the call of this function the vector must be initialized using data from file.
     //if there is an entry with the same kef5Code then we keep last 3 prices.
-    public void addPrice(String kef5Code,double price){
+    public void addPrice(String kef5Code,double price) throws Exception{
+
         if(history.isEmpty()){
             readFromFile(); //init vector using data from file.
+        }
+
+        //TODO : check if we have a valid date.
+        //if the date is null or not valid throw exception.
+        if(date == null){
+            throw new Exception("Error: Date is null");
+        }
+
+        //check that date is not included inside the dates array.
+        if(dates!= null && dates.contains(date)){
+            return;//price has been already added to the vector.
         }
 
         boolean hasEntry = false;
@@ -190,6 +219,13 @@ public class PriceHistory {
                 out = new PrintWriter(filePath);
             }
 
+            //update dates and write them to file.
+            if(dates == null || dates.isEmpty()){
+                dates = date;
+            }else if(!dates.contains(date)){
+                dates +=","+date;
+            }
+            out.println(dates);
 
             for(String item:history){
                 out.println(item);

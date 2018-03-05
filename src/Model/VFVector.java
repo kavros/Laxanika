@@ -9,15 +9,23 @@ import java.util.Vector;
 
 public class VFVector {
     private Vector<VFVectorEntry> vec;
+    private String date;
 
     public VFVector(){
         vec = new Vector<>();
     }
+
+    public void setDate(String date){
+        this.date=date;
+    }
+
+    public String getDate(){
+        return date;
+    }
+
     public int getSize(){
         return  vec.size();
     }
-
-
 
     public Vector<VFVectorEntry> getVec() {
         return vec;

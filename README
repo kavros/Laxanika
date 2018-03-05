@@ -50,26 +50,26 @@ ignore it                                                                    (do
 -make letters red if new price is higher than current price.        (done)
 
 
--add configuration file that user gives the paths for database.xml and products.xml
 -handle all exception especially NumberFormatException (Log file)
-
+-price history (check input file date).
+-print smarter (wait for new barcode printer).
+-bug when we change size of window.
 
 -make GUI good looking.
 -add JUnit tests for most of the classes.
--add class that handles double number,money.(fix round)
--check input file date.
--make column numbers enum.
 -find the right way to handle exceptions.
 -refactor code.
 -add documentation for every class and function.
-
-
 
 
 ########%####
 #Error Cases#
 #############
 
+########%####
+# Features  #
+#############
+-place cursor inside the input.
 
 
 ##########

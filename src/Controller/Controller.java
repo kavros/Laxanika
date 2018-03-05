@@ -222,9 +222,21 @@ public class Controller implements ActionListener,TableModelListener {
 		//add rows to the model
 		for (int i = 0; i < model.getVector().getSize(); ++i) {
 			model.addRow(model.getVectorRow(i));
+
+			//update history.
 			VFVectorEntry entry = model.getVector().getVec().get(i);
-			_priceHistory.addPrice(entry.getKef5Code(),entry.getVfFinalPrice());
+			try {
+				_priceHistory.setDate(model.getVector().getDate());
+				//adds prices to the history vector only if the date is not in current dates.
+				_priceHistory.addPrice(entry.getKef5Code(),entry.getVfFinalPrice());
+			} catch (Exception e) {
+				MessageDialog msg  = new MessageDialog();
+				msg.showMessageDialog("Δεν βρέθηκε/καταχωρήθηκε η ημερομηνία του τιμολογίου.",
+						"Ημερομηνία",JOptionPane.ERROR_MESSAGE);
+			}
 		}
+		_priceHistory.writeToFile();
+
 		addColorRenderer();
 	}
 
