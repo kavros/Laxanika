@@ -102,7 +102,6 @@ public class Controller implements ActionListener,TableModelListener {
 
 		priceMode = editListMode = false;
 		_printButton = printButton;
-		_priceHistory = new PriceHistory();
 
 		//init actions listeners
 		JMenuActionListener();
@@ -169,6 +168,7 @@ public class Controller implements ActionListener,TableModelListener {
 		try {
 			reader.parsePdfFile(fileName, model.getVector());
 		} catch (Exception e) {
+			e.printStackTrace();
 			MessageDialog msg = new MessageDialog();
 			msg.showMessageDialog("Δεν είναι δυνατή η φόρτωση του αρχείου.\n"
 					, "Αποτυχία φόρτωσης αρχείου", JOptionPane.ERROR_MESSAGE);
@@ -219,22 +219,24 @@ public class Controller implements ActionListener,TableModelListener {
 		model.setColumnIdentifiers(Constants.VF_TABLE_HEADER);
 		_table.getColumnModel().getColumn(0).setPreferredWidth(200);
 
-		//add rows to the model
+		//initialize history variables
+		String currInvoiceDate = model.getVector().getDate();
+		_priceHistory = new PriceHistory();
+		_priceHistory.setDate(currInvoiceDate);
+		_priceHistory.readFromFile();
+		boolean isDateInHist =_priceHistory.isDateInHistory();
+
 		for (int i = 0; i < model.getVector().getSize(); ++i) {
+			//add rows to the model.
 			model.addRow(model.getVectorRow(i));
 
 			//update history.
-			VFVectorEntry entry = model.getVector().getVec().get(i);
-			try {
-				_priceHistory.setDate(model.getVector().getDate());
-				//adds prices to the history vector only if the date is not in current dates.
-				_priceHistory.addPrice(entry.getKef5Code(),entry.getVfFinalPrice());
-			} catch (Exception e) {
-				MessageDialog msg  = new MessageDialog();
-				msg.showMessageDialog("Δεν βρέθηκε/καταχωρήθηκε η ημερομηνία του τιμολογίου.",
-						"Ημερομηνία",JOptionPane.ERROR_MESSAGE);
+			if(!isDateInHist) {
+				VFVectorEntry entry = model.getVector().getVec().get(i);
+				_priceHistory.addPrice(entry.getKef5Code(), entry.getVfFinalPrice());
 			}
 		}
+
 		_priceHistory.writeToFile();
 
 		addColorRenderer();
@@ -618,7 +620,10 @@ public class Controller implements ActionListener,TableModelListener {
 		String vf_name = (String) model.getValueAt(_table.getSelectedRow(), 0);
 		String kef5Code = model.getVFHashMap().get(vf_name).getKef5Code();
 		PriceHistory.Prices prices = _priceHistory.getPrices(kef5Code);
-		System.out.println(prices);
+		//System.out.println(prices);
+		MessageDialog msg=new MessageDialog();
+		msg.showMessageDialog("Οι παλαιότερες τιμές για το προιoν ειναι: "+prices,"Ιστορικό",
+				JOptionPane.INFORMATION_MESSAGE);
 	}
 
 }

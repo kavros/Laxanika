@@ -52,6 +52,7 @@ ignore it                                                                    (do
 
 -handle all exception especially NumberFormatException (Log file)
 -price history (check input file date).
+-fix bug when we delete from list a product that it is inside the vector.
 -print smarter (wait for new barcode printer).
 -bug when we change size of window.
 
@@ -75,7 +76,7 @@ ignore it                                                                    (do
 ##########
 #TO CHECK#
 ##########
--check that all products on excel  there are inside of the VFVector.(how?) !!!
+-check that all products on pdf  there are inside of the VFVector.(how?) !!!
 -find wireless price tags or print labels.
 -is it useful to change the price at column kef5 price when user updates kef5 price ?
 -change PdfParser in order to be more generic so it can handle files like "wrong text format.pdf"

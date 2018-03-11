@@ -35,15 +35,15 @@ public class PriceHistory {
         @Override
         public String toString() {
             if(totalPrices ==1){
-                return  String.valueOf(price1);
+                return  String.valueOf(price1)+"€";
             }else if(totalPrices== 2){
-                return  String.valueOf(price1) +","
-                        + String.valueOf(price2);
+                return  String.valueOf(price1) +"€,"
+                        + String.valueOf(price2)+"€";
 
             }else if(totalPrices == 3){
-                return  String.valueOf(price1) +","
-                        +String.valueOf(price2)+","
-                        +String.valueOf(price3);
+                return  String.valueOf(price1) +"€,"
+                        +String.valueOf(price2)+"€,"
+                        +String.valueOf(price3)+"€";
 
             }
             return null;
@@ -57,52 +57,8 @@ public class PriceHistory {
 
     public PriceHistory(){
         history = new Vector<>();
-    }
-
-    private void readFromFile(){
-        MessageDialog msg = new MessageDialog();
-        BufferedReader br = null;
-        FileReader fr = null;
-
-        try {
-            fr = new FileReader(filePath);
-            br = new BufferedReader(fr);
-
-            String sCurrentLine;
-            int count = 0;
-            while ((sCurrentLine = br.readLine()) != null) {
-                //read the first line that contains the dates.
-                if(count == 0){
-                    dates = sCurrentLine;
-                    count++;
-                    continue;
-                }
-                //adds historical entries to the vector.
-                history.add(sCurrentLine);
-            }
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        } finally {
-
-            try {
-
-                if (br != null)
-                    br.close();
-
-                if (fr != null)
-                    fr.close();
-
-            } catch (IOException ex) {
-
-                ex.printStackTrace();
-
-            }
-
-        }
-
+        dates = null;
+        date = null;
     }
 
     public Vector<String> getVector(){
@@ -117,24 +73,36 @@ public class PriceHistory {
         return date;
     }
 
+    public String getDates() {return dates;}
+
+    /**
+     * @return true if the given date on invoice is not in history or
+     * false if the given date is already in history or if it is null.
+     */
+    public boolean isDateInHistory() {
+        if(date == null || dates == null){
+            return false;
+        }
+
+        if(dates.contains(date.trim())){
+            return true;
+        }
+
+        return  false;
+    }
+
     //add the price to the vector.
     //before the call of this function the vector must be initialized using data from file.
     //if there is an entry with the same kef5Code then we keep last 3 prices.
-    public void addPrice(String kef5Code,double price) throws Exception{
+    public void addPrice(String kef5Code,double price) {
 
         if(history.isEmpty()){
             readFromFile(); //init vector using data from file.
         }
 
         //TODO : check if we have a valid date.
-        //if the date is null or not valid throw exception.
-        if(date == null){
-            throw new Exception("Error: Date is null");
-        }
-
-        //check that date is not included inside the dates array.
-        if(dates!= null && dates.contains(date)){
-            return;//price has been already added to the vector.
+        if(isDateInHistory()){
+            return;
         }
 
         boolean hasEntry = false;
@@ -199,7 +167,59 @@ public class PriceHistory {
 
     }
 
-    //erase file and write vector data to fille.
+    public void readFromFile(){
+        MessageDialog msg = new MessageDialog();
+        BufferedReader br = null;
+        FileReader fr = null;
+
+        try {
+            fr = new FileReader(filePath);
+            br = new BufferedReader(fr);
+
+            String sCurrentLine;
+            int count = 0;
+            while ((sCurrentLine = br.readLine()) != null) {
+                //read the first line that contains the dates.
+                if(count == 0){
+                    dates = sCurrentLine;
+
+                    count++;
+                    continue;
+                }
+                //skip empty line after dates.
+                if(sCurrentLine.isEmpty()){
+                    continue;
+                }
+
+                //adds historical entries to the vector.
+                history.add(sCurrentLine);
+            }
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            try {
+
+                if (br != null)
+                    br.close();
+
+                if (fr != null)
+                    fr.close();
+
+            } catch (IOException ex) {
+
+                ex.printStackTrace();
+
+            }
+
+        }
+
+    }
+
+    //erase file and write vector data to file.
     public void writeToFile(){
         File f = new File(filePath);
         MessageDialog msg = new MessageDialog();
@@ -222,7 +242,7 @@ public class PriceHistory {
             //update dates and write them to file.
             if(dates == null || dates.isEmpty()){
                 dates = date;
-            }else if(!dates.contains(date)){
+            }else if(!dates.contains(date.trim())){
                 dates +=","+date;
             }
             out.println(dates);

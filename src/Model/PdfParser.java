@@ -27,14 +27,19 @@ public class PdfParser {
         int i;
         for( i=0; i < pdfLines.length;++i){
             String line = pdfLines[i];
-            if(!isDateFound && line.contains("ΗΜΕΡΟΜΗΝΙΑ ΑΠΟΣΤΟΛΗΣ")){
-                vector.setDate(line.split(":")[1].trim());
-                System.out.println(vector.getDate());
-                isDateFound=true;
+            if(i==2 || i == 1){ //date is some times at the second line and some times on third based on input file.
+                if(line.contains("/")) {
+                    line = line.replace("  ", " ");//trim in between double spaces.
+                    String[] array = line.split(" ");
+
+                    String time = array[3];
+                    String date = array[2];
+                    vector.setDate(date + " " + time);
+                }
             }
+
             if(line.contains("ΣΧΕΤΙΚΑ ΠΑΡΑΣΤΑΤΙΚΑ")
               ||line.contains("Εκ Μεταφοράς")) {
-
                 isReading = true;
                 continue;
 
