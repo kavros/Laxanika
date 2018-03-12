@@ -80,6 +80,13 @@ public class MyModel extends DefaultTableModel {
 	}
 
 	public  ArrayList<String > updateKef5Prices() throws SQLException{
+		for ( int i = 0; i < data.getVec().size(); ++i) {
+			VFVectorEntry entry =data.getVec().get(i);
+			if(entry.isUpdateNeeded == true){
+				entry.kef5_price = entry.vf_final_price;
+				setValueAt(entry.getVfFinalPrice(),i,3);
+			}
+		}
 		return data.updateKef5Prices();
 	}
 }
