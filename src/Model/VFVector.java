@@ -114,9 +114,9 @@ public class VFVector {
         for ( i = 0; i < vec.size(); ++i) {
             if (vec.get(i).isUpdateNeeded) {
                 products.add(vec.get(i).vf_name);
-                double newprice = vec.get(i).vf_final_price;
+                double newPrice = vec.get(i).vf_final_price;
                 String kef5Code = vec.get(i).kef5_code;
-                String query = "UPDATE dbo.smast SET sRetailPr =" + newprice + "WHERE sCode=" + "'" + kef5Code + "';";
+                String query = "UPDATE dbo.smast SET sRetailPr =" + newPrice + "WHERE sCode=" + "'" + kef5Code + "';";
                 VFKef5DataBase dataBase = new VFKef5DataBase();
                 dataBase.updateKef5Price(query);
             }
