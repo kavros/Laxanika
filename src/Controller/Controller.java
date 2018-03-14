@@ -35,9 +35,16 @@ import Model.Printer;
  *
  */
 public class Controller implements ActionListener,TableModelListener {
-	boolean editListMode;
-	boolean priceMode;
+	//boolean editListMode;
+	//boolean priceMode;
+	enum CurrentMode{
 
+		editListMode,
+		priceMode,
+		emptyWindow,
+		historyMode
+	}
+	CurrentMode _viewMode;
 	private JTextField searchTermTextField;// = new JTextField(26);
 	private JMenuItem openMi;
 	private JMenuItem editListMi;
@@ -60,6 +67,7 @@ public class Controller implements ActionListener,TableModelListener {
 	JSplitPane _mainPane;
 	private String fileName = null;
 	PriceHistory _priceHistory ;
+	private JMenuItem _viewHistMi;
 
 	public Controller(JTextField searchTermTextField,
 					  JMenuItem openM,
@@ -75,7 +83,8 @@ public class Controller implements ActionListener,TableModelListener {
 					  JTable table,
 					  JSplitPane mainPane,
 					  JButton printButton,
-					  JMenuItem exitMi) {
+					  JMenuItem exitMi,
+					  JMenuItem viewHistMi) {
 		super();
 		this.searchTermTextField = searchTermTextField;
 		openMi = openM;
@@ -99,9 +108,13 @@ public class Controller implements ActionListener,TableModelListener {
 		_deleteXmlButton = deleteXmlButton;
 
 		_mainPane = mainPane;
+		_viewMode = CurrentMode.emptyWindow;
 
-		priceMode = editListMode = false;
+
 		_printButton = printButton;
+		_viewHistMi      =viewHistMi;
+
+		_priceHistory = model.getPriceHistory();
 
 		//init actions listeners
 		JMenuActionListener();
@@ -160,8 +173,9 @@ public class Controller implements ActionListener,TableModelListener {
 			model.reCreateVector();
 			model.setRowCount(0);
 		}
-		editListMode = false;
-		priceMode = true;
+		//editListMode = false;
+		//priceMode = true;
+		_viewMode= CurrentMode.priceMode;
 
 		//update vector with pdf data.
 		PdfParser reader = new PdfParser();
@@ -221,9 +235,8 @@ public class Controller implements ActionListener,TableModelListener {
 
 		//initialize history variables
 		String currInvoiceDate = model.getVector().getDate();
-		_priceHistory = new PriceHistory();
+
 		_priceHistory.setDate(currInvoiceDate);
-		_priceHistory.readFromFile();
 		boolean isDateInHist =_priceHistory.isDateInHistory();
 
 		for (int i = 0; i < model.getVector().getSize(); ++i) {
@@ -291,27 +304,52 @@ public class Controller implements ActionListener,TableModelListener {
 		});
 
 		editListMi.addActionListener(e -> {
-			editListMode = true;
-			priceMode = false;
+			//editListMode = true;
+			//priceMode = false;
+			_viewMode = CurrentMode.editListMode;
+
 			model.setRowCount(0);
 
 			//make necessary components invisible
 			searchTermTextField.setVisible(false);
 			_updateButton.setVisible(false);
 			_filterButton.setVisible(false);
+			_printButton.setVisible(false);
 
 			model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
 			model.updateModelWithHash();
 
 			_addXmlButton.setVisible(true);
 			_deleteXmlButton.setVisible(true);
-			_printButton.setVisible(false);
+
 		});
 
+		_viewHistMi.addActionListener(e->{
+
+			//clear array
+			model.setRowCount(0);
+
+			//make necessary components invisible
+			if(_viewMode == CurrentMode.priceMode) {
+				searchTermTextField.setVisible(false);
+				_updateButton.setVisible(false);
+				_filterButton.setVisible(false);
+				_printButton.setVisible(false);
+			}else if(_viewMode == CurrentMode.editListMode){
+				_addXmlButton.setVisible(false);
+				_deleteXmlButton.setVisible(false);
+			}
+
+			//change mode
+			_viewMode = CurrentMode.historyMode;
+
+			//model.setColumnIdentifiers(Constants.HISTORY_TABLE_HEADER);
+			model.updateModelWithHistory();
+
+		});
 		_exitMi.addActionListener(e -> {
 			System.exit(1);
 		});
-
 	}
 
 	private void addMouseListener() {
@@ -320,11 +358,11 @@ public class Controller implements ActionListener,TableModelListener {
 				if (mouseEvent.getClickCount() == 2) {
 					if (_table.getSelectedColumn() == 5) {
 						editProfit();
-					} else if (editListMode && _table.getSelectedColumn() == 1) {
+					} else if ((_viewMode == CurrentMode.priceMode.editListMode) && _table.getSelectedColumn() == 1) {
 						editProfitPercentage();
-					} else if (editListMode && _table.getSelectedColumn() == 2) {
+					} else if ((_viewMode == CurrentMode.priceMode.editListMode)  && _table.getSelectedColumn() == 2) {
 						editKef5Code();
-					} else if(priceMode && _table.getSelectedColumn() == 0){
+					} else if((_viewMode == CurrentMode.priceMode.priceMode)  && _table.getSelectedColumn() == 0){
 						showHistory();
 					}
 
@@ -534,7 +572,7 @@ public class Controller implements ActionListener,TableModelListener {
 						_kef5CodeField.getText()
 				);
 				MessageDialog msg = new MessageDialog();
-				if (isSuccessfullyAdded == false && editListMode) {
+				if (isSuccessfullyAdded == false && (_viewMode == CurrentMode.priceMode.editListMode) ) {
 					msg.showMessageDialog(
 							"Η καταχώρηση του προιόντος απέτυχε.\n" +
 									"Τα πεδία κωδικός και κέρδος πρέπει να είναι αριθμός.\n",
@@ -551,7 +589,7 @@ public class Controller implements ActionListener,TableModelListener {
 
 				model.getVFHashMap().put(_vfNameField.getText(), profit, _kef5CodeField.getText());
 
-				if(editListMode){
+				if((_viewMode == CurrentMode.priceMode.editListMode) ){
 					msg.showMessageDialog(
 							"Η καταχώρηση του προιόντος έγινε επιτυχώς", "Επιτυχής Καταχώρηση",
 							JOptionPane.INFORMATION_MESSAGE
@@ -559,7 +597,7 @@ public class Controller implements ActionListener,TableModelListener {
 				}
 
 			}
-			if(editListMode) {
+			if((_viewMode == CurrentMode.priceMode.editListMode) ) {
 				//update gui table
 				model.setRowCount(0);
 				model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);

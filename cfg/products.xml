@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<products>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><products>
 
     <element>
         <name>ΑΓΚΙΝΑΡΕΣ</name>
@@ -537,11 +536,7 @@
     </element>
 	
 	
-	<element>
-        <name>ΜΠΑΝΑΝΕΣ</name>
-        <profit>0.3</profit>
-        <kef5Code>400</kef5Code>
-    </element>
+
 	
 	
 	<element>
@@ -691,5 +686,31 @@
       <name>ΜΗΛΑ ΦΥΡΙΚΙΑ</name>
       <profit>0.3</profit>
       <kef5Code>379</kef5Code>
+   </element>
+<element>
+      <name>ΜΗΛΑ JONA COLD</name>
+      <profit>0.3</profit>
+      <kef5Code>279</kef5Code>
+   </element>
+    
+<element>
+      <name>ΜΑΝΤΑΡΙΝΙΑ</name>
+      <profit>0.3</profit>
+      <kef5Code>257</kef5Code>
+   </element>
+<element>
+      <name>ΜΠΑΝΑΝΕΣ</name>
+      <profit>0.3</profit>
+      <kef5Code>400</kef5Code>
+   </element>
+<element>
+      <name>ΤΟΜΑΤΕΣ (ELPIDA)</name>
+      <profit>0.25</profit>
+      <kef5Code>2092</kef5Code>
+   </element>
+<element>
+      <name>ΤΟΜΑΤΙΝΙΑ ΒΕΛΑΝΙΔΙΑ (LOBELLO)</name>
+      <profit>0.25</profit>
+      <kef5Code>2094</kef5Code>
    </element>
 </products>

@@ -59,6 +59,7 @@ public class PriceHistory {
         history = new Vector<>();
         dates = null;
         date = null;
+        readFromFile();
     }
 
     public Vector<String> getVector(){

@@ -51,10 +51,12 @@ public class View {
 		//create and add JMenu items
 		JMenu fileMenu = new JMenu("Αρχείο");
 		JMenu editMenu = new JMenu("Επεξεργασία");
+		JMenu viewMenu = new JMenu("Προβολή");
 
 		JMenuItem openMi = new JMenuItem("Άνοιγμα", iconOpen);
 		JMenuItem exitMi = new JMenuItem("Έξοδος", iconExit);
 		JMenuItem editListMi = new JMenuItem("Λίστας");
+		JMenuItem viewHistMi = new JMenuItem("Ιστορικό");
 		exitMi.setToolTipText("Έξοδος απο την εφαρμογή");
 		editListMi.setToolTipText("Επεξεργασία κωδικών και ποσοστών κέρδους για τα φρούτα και τα λαχανικά");
 
@@ -62,10 +64,14 @@ public class View {
 		fileMenu.add(openMi);
 		fileMenu.addSeparator();
 		fileMenu.add(exitMi);
+		fileMenu.add(viewMenu);
 		menubar.add(fileMenu);
 
 		editMenu.add(editListMi);
 		menubar.add(editMenu);
+
+		viewMenu.add(viewHistMi);
+		menubar.add(viewMenu);
 
 		// Create table model
 		MyModel model = new MyModel();
@@ -149,7 +155,7 @@ public class View {
 											kef5CodeField,
 											addXmlButton,
 											deleteXmlButton,
-				  							table,splitPane,printButton,exitMi);
+				  							table,splitPane,printButton,exitMi,viewHistMi);
 
         filterButton.addActionListener(controller);
 		table.getModel().addTableModelListener(controller);

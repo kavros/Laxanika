@@ -40,7 +40,7 @@ public class Main {
 
 */
 
-    try {
+ /*     try {
 
 
         PriceHistory a = new PriceHistory();
@@ -48,7 +48,7 @@ public class Main {
         a.addPrice("500", 3.60);
         a.addPrice("257", 3.60);
         a.addPrice("259", 3.60);
-/*        a.setDate("16-Μαρ-18");
+      a.setDate("16-Μαρ-18");
         a.addPrice("500", 3.70);
         a.addPrice("500", 3.60);
 
@@ -76,13 +76,15 @@ public class Main {
         prices = a.getPrices("400");
         System.out.println(prices.getTotalPrices());
 
-*/
         a.writeToFile();
     }catch (Exception e){
         e.printStackTrace();
     }
+*/
 
-
+        String a = new String("Τ∆Π00457493 ∆ευ  5/3/18 07:28");
+        String b =a.replace("  "," ");
+        System.out.println(b);
     }
 
 }

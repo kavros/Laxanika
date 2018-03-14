@@ -12,12 +12,19 @@ class PriceHistoryTest {
     @Test
     void readFromFile() {
         PriceHistory a = new PriceHistory();
-        a.addPrice("500",3.90);
-        a.addPrice("500",3.90);
+        try {
 
-        a.addPrice("320",3.90);
-        a.addPrice("420",3.90);
-        a.writeToFile();
+            a.setDate("5/3/18 07:28");
+            a.addPrice("500", 3.90);
+            a.addPrice("500", 3.90);
+
+
+            a.addPrice("320", 3.90);
+            a.addPrice("420", 3.90);
+            a.writeToFile();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Test

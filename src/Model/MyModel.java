@@ -9,8 +9,10 @@ public class MyModel extends DefaultTableModel {
 
 	private VFHashMap vf_rates;
 	private VFVector data;
+	PriceHistory _priceHistory ;
 
 	public MyModel() {
+		_priceHistory=new PriceHistory();
 		vf_rates = new VFHashMap();
 		data = new VFVector();
 	}
@@ -18,6 +20,10 @@ public class MyModel extends DefaultTableModel {
 
 	public VFVector getVector(){
 		return data;
+	}
+
+	public PriceHistory getPriceHistory(){
+		return _priceHistory;
 	}
 
 	/*
@@ -73,6 +79,38 @@ public class MyModel extends DefaultTableModel {
 		vf_rates.updateModelWithHash(this);
 	}
 
+	public void updateModelWithHistory(){
+		VFKef5DataBase dataBase = new VFKef5DataBase();
+		Vector<String> historyVector = _priceHistory.getVector();
+		if(historyVector == null || historyVector.isEmpty()){
+			return;
+		}
+		int totalPrices;
+		setColumnIdentifiers(Constants.HISTORY_TABLE_HEADER);
+		for(int i =0; i < historyVector.size(); i++){
+			try{
+				String kef5Code =historyVector.get(i).split("-")[0];
+				PriceHistory.Prices prices =_priceHistory.getPrices(kef5Code);
+				totalPrices =prices.getTotalPrices();
+				String productName = dataBase.getFromDatabase("select sName  from dbo.smast where sCode="+"'"+kef5Code+"'");
+
+				if( totalPrices == 1){
+					addRow( new Object[]{productName, prices.getPrice1(),"-","-"});
+				}else if( totalPrices == 2){
+					addRow( new Object[]{productName, prices.getPrice1(),prices.getPrice2(),"-"});
+				}else if( totalPrices == 3){
+					addRow( new Object[]{productName, prices.getPrice1(),prices.getPrice2(),prices.getPrice3()});
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+
+
+	}
+
 	public void reCreateVector(){
 		data = null;
 		data = new VFVector();
@@ -83,6 +121,7 @@ public class MyModel extends DefaultTableModel {
 		for ( int i = 0; i < data.getVec().size(); ++i) {
 			VFVectorEntry entry =data.getVec().get(i);
 			if(entry.isUpdateNeeded == true){
+
 				entry.kef5_price = entry.vf_final_price;
 				setValueAt(entry.getVfFinalPrice(),i,3);
 			}
