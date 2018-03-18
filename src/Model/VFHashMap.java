@@ -80,4 +80,8 @@ public class VFHashMap {
     public String toString() {
         return vf_map.toString();
     }
+
+    public HashMap<String,VFHashMapValues> getVFMap(){
+        return vf_map;
+    }
 }

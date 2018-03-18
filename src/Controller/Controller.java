@@ -12,12 +12,12 @@ import java.awt.event.MouseEvent;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.File;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
+import java.util.HashMap;
 
 
 import javax.swing.*;
@@ -35,8 +35,6 @@ import Model.Printer;
  *
  */
 public class Controller implements ActionListener,TableModelListener {
-	//boolean editListMode;
-	//boolean priceMode;
 	enum CurrentMode{
 
 		editListMode,
@@ -45,7 +43,7 @@ public class Controller implements ActionListener,TableModelListener {
 		historyMode
 	}
 	CurrentMode _viewMode;
-	private JTextField searchTermTextField;// = new JTextField(26);
+	private JTextField _searchTermTextField;// = new JTextField(26);
 	private JMenuItem openMi;
 	private JMenuItem editListMi;
 	private JMenuItem _exitMi;
@@ -86,7 +84,7 @@ public class Controller implements ActionListener,TableModelListener {
 					  JMenuItem exitMi,
 					  JMenuItem viewHistMi) {
 		super();
-		this.searchTermTextField = searchTermTextField;
+		this._searchTermTextField = searchTermTextField;
 		openMi = openM;
 		this.model = model;
 		_table = table;
@@ -116,6 +114,10 @@ public class Controller implements ActionListener,TableModelListener {
 
 		_priceHistory = model.getPriceHistory();
 
+
+		_searchTermTextField.setVisible(true);
+		_filterButton.setVisible(true);
+
 		//init actions listeners
 		JMenuActionListener();
 		updateButtonListener();
@@ -124,6 +126,7 @@ public class Controller implements ActionListener,TableModelListener {
 		addMouseListener();
 		addDragAndDropListener();
 		addPrintButtonListener();
+
 	}
 
 	private void addPrintButtonListener() {
@@ -210,7 +213,7 @@ public class Controller implements ActionListener,TableModelListener {
 		}
 
 		//make necessary components visible
-		//searchTermTextField.setVisible(true);
+		//_searchTermTextField.setVisible(true);
 		//_filterButton.setVisible(true);
 		_updateButton.setVisible(true);
 		_printButton.setVisible(true);
@@ -311,9 +314,9 @@ public class Controller implements ActionListener,TableModelListener {
 			model.setRowCount(0);
 
 			//make necessary components invisible
-			searchTermTextField.setVisible(false);
+
 			_updateButton.setVisible(false);
-			_filterButton.setVisible(false);
+
 			_printButton.setVisible(false);
 
 			model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
@@ -331,9 +334,9 @@ public class Controller implements ActionListener,TableModelListener {
 
 			//make necessary components invisible
 			if(_viewMode == CurrentMode.priceMode) {
-				searchTermTextField.setVisible(false);
+
 				_updateButton.setVisible(false);
-				_filterButton.setVisible(false);
+
 				_printButton.setVisible(false);
 			}else if(_viewMode == CurrentMode.editListMode){
 				_addXmlButton.setVisible(false);
@@ -609,33 +612,83 @@ public class Controller implements ActionListener,TableModelListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(_viewMode == CurrentMode.editListMode){
+			//data is inside vf_rates
+		}else if(_viewMode == CurrentMode.priceMode){
+			//data  -> data
+		}else if(_viewMode == CurrentMode.historyMode){
+			//data -> priceHistory
+		}
+		String searchTerm = _searchTermTextField.getText();
+		if (searchTerm != null && !"".equals(searchTerm) && (_table.getRowCount() != 0)) {
+			
+			Object[][] newData = new Object[model.getRowCount()][];
+			Object[][] data = new Object[0][];
+			if(_viewMode == CurrentMode.editListMode){
+				//data is inside vf_rates
+				HashMap<String,VFHashMapValues> vf_map = model.getVFHashMap().getVFMap();
+				data = new Object[model.getRowCount()][];
+				int cnt =0;
+				for (Map.Entry<String, VFHashMapValues> a : vf_map.entrySet()) {
+					data[cnt] = new Object[]{a.getKey(),a.getValue().getProfit(), a.getValue().getKef5Code()};
+					cnt++;
+				}
+			}else if(_viewMode == CurrentMode.priceMode){
+				data = new Object[model.getVector().getSize()][];
+				for (int i = 0; i < model.getVector().getSize(); ++i) {
+					data[i] = model.getVectorRow(i);
+				}
+			}else if(_viewMode == CurrentMode.historyMode){
+				//data -> priceHistory
+				data = model.getHistoryTable();
+			}
 
-		String searchTerm = searchTermTextField.getText();
-		if (searchTerm != null && !"".equals(searchTerm)) {
-			Object[][] newData = new Object[model.getVector().getSize()][];
+
 			int idx = 0;
-			for (int i = 0; i < model.getVector().getSize(); ++i) {
-				Object[] o = model.getVectorRow(i);
-				if ("*".equals(searchTerm.trim())) {
+			for(int i = 0; i <data.length; i++){
+				Object[] o =  data[i];
+				if("*".equals(searchTerm.trim())){
 					newData[idx++] = o;
-				} else {
+				}else{
+					String productName = (String)o[0];
 
-					if (String.valueOf(o[0]).startsWith(searchTerm.toUpperCase().trim())) {
+					if(productName.trim().startsWith(searchTerm.trim())){
+
 						newData[idx++] = o;
+
 					}
 				}
 			}
-			model.setDataVector(newData, Constants.VF_TABLE_HEADER);
+
+			if(_viewMode == CurrentMode.editListMode){
+				model.setDataVector(newData,Constants.PRODUCTS_TABLE_HEADER);
+			}else if(_viewMode == CurrentMode.priceMode){
+				model.setDataVector(newData,Constants.VF_TABLE_HEADER);
+				_table.getColumnModel().getColumn(0).setPreferredWidth(200);
+			}else if(_viewMode == CurrentMode.historyMode){
+				model.setDataVector(newData,Constants.HISTORY_TABLE_HEADER);
+			}
+
+
 		} else {
 			MessageDialog msg = new MessageDialog();
 			msg.showMessageDialog(
-					"Search term is empty", "Error",
+					"Δεν βρέθηκαν αποτελέσματα", "Error",
 					JOptionPane.ERROR_MESSAGE
 			);
 		}
 
 	}
 
+	public Object[][] getTableData (JTable table) {
+		MyModel dtm = (MyModel) table.getModel();
+		int nRow = dtm.getRowCount(), nCol = dtm.getColumnCount();
+		Object[][] tableData = new Object[nRow][nCol];
+		for (int i = 0 ; i < nRow ; i++)
+			for (int j = 0 ; j < nCol ; j++)
+				tableData[i][j] = dtm.getValueAt(i,j);
+		return tableData;
+	}
 	public void tableChanged(TableModelEvent e) {
 		int row = e.getFirstRow();
 		int column = e.getColumn();

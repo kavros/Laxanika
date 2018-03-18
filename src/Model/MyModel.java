@@ -7,19 +7,25 @@ import java.util.Vector;
 
 public class MyModel extends DefaultTableModel {
 
-	private VFHashMap vf_rates;
-	private VFVector data;
+	private VFHashMap _vf_rates;
+	private VFVector _data;
 	PriceHistory _priceHistory ;
+
+	//search data
+	private Object[][] _historyTable;
+	private Object[][] _productsTable;
+	private Object[][] _newPricesTable;
+
 
 	public MyModel() {
 		_priceHistory=new PriceHistory();
-		vf_rates = new VFHashMap();
-		data = new VFVector();
+		_vf_rates = new VFHashMap();
+		_data = new VFVector();
 	}
 
 
 	public VFVector getVector(){
-		return data;
+		return _data;
 	}
 
 	public PriceHistory getPriceHistory(){
@@ -31,9 +37,9 @@ public class MyModel extends DefaultTableModel {
 	* */
 	public ArrayList<String> getUnknownNames(){
 	    ArrayList<String> notValidNames=new ArrayList<>();
-        Vector<VFVectorEntry> vec = data.getVec();
-        for(int i=0; i < data.getSize(); ++i){
-            boolean isNameValid =vf_rates.isNameValid(vec.get(i).vf_name);
+        Vector<VFVectorEntry> vec = _data.getVec();
+        for(int i = 0; i < _data.getSize(); ++i){
+            boolean isNameValid = _vf_rates.isNameValid(vec.get(i).vf_name);
             if(!isNameValid){
                 notValidNames.add(vec.get(i).vf_name);
             }
@@ -43,16 +49,16 @@ public class MyModel extends DefaultTableModel {
     }
 
 	public VFHashMap getVFHashMap() {
-		return vf_rates;
+		return _vf_rates;
 	}
 
 	public Object[] getVectorRow(int i){
 
-		//find profit value from hashmap
+		//find profit value from hashMap
 		double profit;
 		VFHashMapValues a = null;
 		try {
-			a = vf_rates.get(data.getVec().get(i).vf_name);
+			a = _vf_rates.get(_data.getVec().get(i).vf_name);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -64,22 +70,23 @@ public class MyModel extends DefaultTableModel {
 
 		//
 		return  new Object[]{
-				data.getVec().get(i).vf_name,
+				_data.getVec().get(i).vf_name,
 				String.valueOf(profit)+"%",
-				data.getVec().get(i).vf_price,
-				data.getVec().get(i).kef5_price,
-				data.getVec().get(i).vf_final_price,
-				data.getVec().get(i).actual_profit,
+				_data.getVec().get(i).vf_price,
+				_data.getVec().get(i).kef5_price,
+				_data.getVec().get(i).vf_final_price,
+				_data.getVec().get(i).actual_profit,
 				false
 		};
 
 	}
 
 	public void updateModelWithHash(){
-		vf_rates.updateModelWithHash(this);
+		_vf_rates.updateModelWithHash(this);
 	}
 
 	public void updateModelWithHistory(){
+		_historyTable =new Object[_priceHistory.getVector().size()][];
 		VFKef5DataBase dataBase = new VFKef5DataBase();
 		Vector<String> historyVector = _priceHistory.getVector();
 		if(historyVector == null || historyVector.isEmpty()){
@@ -93,13 +100,19 @@ public class MyModel extends DefaultTableModel {
 				PriceHistory.Prices prices =_priceHistory.getPrices(kef5Code);
 				totalPrices =prices.getTotalPrices();
 				String productName = dataBase.getFromDatabase("select sName  from dbo.smast where sCode="+"'"+kef5Code+"'");
-
+				Object[] entry;
 				if( totalPrices == 1){
-					addRow( new Object[]{productName, prices.getPrice1(),"-","-"});
+					entry = new Object[]{productName, prices.getPrice1(),"-","-"};
+					addRow( entry);
+					_historyTable[i] =entry;
 				}else if( totalPrices == 2){
-					addRow( new Object[]{productName, prices.getPrice1(),prices.getPrice2(),"-"});
+					entry = new Object[]{productName, prices.getPrice1(),prices.getPrice2(),"-"};
+					addRow( entry);
+					_historyTable[i] =entry;
 				}else if( totalPrices == 3){
-					addRow( new Object[]{productName, prices.getPrice1(),prices.getPrice2(),prices.getPrice3()});
+					entry =new Object[]{productName, prices.getPrice1(),prices.getPrice2(),prices.getPrice3()};
+					addRow(entry);
+					_historyTable[i] =entry;
 				}
 
 			} catch (SQLException e) {
@@ -107,25 +120,26 @@ public class MyModel extends DefaultTableModel {
 			}
 
 		}
-
-
 	}
 
+	public Object[][] getHistoryTable(){
+		return  _historyTable;
+	}
 	public void reCreateVector(){
-		data = null;
-		data = new VFVector();
+		_data = null;
+		_data = new VFVector();
 
 	}
 
 	public  ArrayList<String > updateKef5Prices() throws SQLException{
-		for ( int i = 0; i < data.getVec().size(); ++i) {
-			VFVectorEntry entry =data.getVec().get(i);
+		for (int i = 0; i < _data.getVec().size(); ++i) {
+			VFVectorEntry entry = _data.getVec().get(i);
 			if(entry.isUpdateNeeded == true){
 
 				entry.kef5_price = entry.vf_final_price;
 				setValueAt(entry.getVfFinalPrice(),i,3);
 			}
 		}
-		return data.updateKef5Prices();
+		return _data.updateKef5Prices();
 	}
 }

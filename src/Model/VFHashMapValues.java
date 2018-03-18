@@ -9,7 +9,7 @@ public class VFHashMapValues {
         this.kef5Code=kef5Code;
     }
     VFHashMapValues(){}
-    protected double getProfit(){
+    public double getProfit(){
         return profit;
     }
     public String getKef5Code(){
