@@ -612,16 +612,9 @@ public class Controller implements ActionListener,TableModelListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(_viewMode == CurrentMode.editListMode){
-			//data is inside vf_rates
-		}else if(_viewMode == CurrentMode.priceMode){
-			//data  -> data
-		}else if(_viewMode == CurrentMode.historyMode){
-			//data -> priceHistory
-		}
 		String searchTerm = _searchTermTextField.getText();
 		if (searchTerm != null && !"".equals(searchTerm) && (_table.getRowCount() != 0)) {
-			
+
 			Object[][] newData = new Object[model.getRowCount()][];
 			Object[][] data = new Object[0][];
 			if(_viewMode == CurrentMode.editListMode){

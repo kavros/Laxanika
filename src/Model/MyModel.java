@@ -100,6 +100,7 @@ public class MyModel extends DefaultTableModel {
 				PriceHistory.Prices prices =_priceHistory.getPrices(kef5Code);
 				totalPrices =prices.getTotalPrices();
 				String productName = dataBase.getFromDatabase("select sName  from dbo.smast where sCode="+"'"+kef5Code+"'");
+				productName = greekChars(productName);
 				Object[] entry;
 				if( totalPrices == 1){
 					entry = new Object[]{productName, prices.getPrice1(),"-","-"};
@@ -141,5 +142,61 @@ public class MyModel extends DefaultTableModel {
 			}
 		}
 		return _data.updateKef5Prices();
+	}
+
+	private String greekChars(String str) {
+
+		StringBuilder str2 = new StringBuilder(str);
+
+		for (int i = 0; i < str2.length(); i++) {
+			switch (str2.charAt(i)) {
+				case 'A':
+					str2.setCharAt(i, 'Α');
+					break;
+				case 'B':
+					str2.setCharAt(i, 'Β');
+					break;
+				case 'E':
+					str2.setCharAt(i, 'Ε');
+					break;
+				case 'H':
+					str2.setCharAt(i, 'Η');
+					break;
+				case 'I':
+					str2.setCharAt(i, 'Ι');
+					break;
+				case 'K':
+					str2.setCharAt(i, 'Κ');
+					break;
+				case 'M':
+					str2.setCharAt(i, 'Μ');
+					break;
+				case 'N':
+					str2.setCharAt(i, 'Ν');
+					break;
+				case 'O':
+					str2.setCharAt(i, 'Ο');
+					break;
+				case 'P':
+					str2.setCharAt(i, 'Ρ');
+					break;
+				case 'T':
+					str2.setCharAt(i, 'Τ');
+					break;
+				case 'X':
+					str2.setCharAt(i, 'Χ');
+					break;
+				case 'Y':
+					str2.setCharAt(i, 'Υ');
+					break;
+				case 'Z':
+					str2.setCharAt(i, 'Ζ');
+					break;
+
+			}
+
+		}
+		str = str2.toString();
+		return str;
 	}
 }

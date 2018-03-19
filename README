@@ -48,13 +48,20 @@ ignore it                                                                    (do
 -fix case that input is empty when we are add products.             (done)
 -make all cells bigger.                                             (done)
 -make letters red if new price is higher than current price.        (done)
-
+-update kef5 prices on table when user updates kef5.                (done)
+-implementation  of price history (check input file date).          (done)
+-display history table.                                             (done)
+-search feature does not working on history because some greek letter
+are in english.                                                     (fixed)
 
 -handle all exception especially NumberFormatException (Log file)
--price history (check input file date).
 -fix bug when we delete from list a product that it is inside the vector.
 -print smarter (wait for new barcode printer).
+-print labels ( all or selected).
 -bug when we change size of window.
+
+
+
 
 -make GUI good looking.
 -add JUnit tests for most of the classes.
