@@ -35,14 +35,14 @@ import Model.Printer;
  *
  */
 public class Controller implements ActionListener,TableModelListener {
-	enum CurrentMode{
+	public enum CurrentMode{
 
 		editListMode,
 		priceMode,
 		emptyWindow,
 		historyMode
 	}
-	CurrentMode _viewMode;
+	public static CurrentMode _viewMode = CurrentMode.emptyWindow;;
 	private JTextField _searchTermTextField;// = new JTextField(26);
 	private JMenuItem openMi;
 	private JMenuItem editListMi;
@@ -106,7 +106,7 @@ public class Controller implements ActionListener,TableModelListener {
 		_deleteXmlButton = deleteXmlButton;
 
 		_mainPane = mainPane;
-		_viewMode = CurrentMode.emptyWindow;
+
 
 
 		_printButton = printButton;
@@ -115,8 +115,8 @@ public class Controller implements ActionListener,TableModelListener {
 		_priceHistory = model.getPriceHistory();
 
 
-		_searchTermTextField.setVisible(true);
-		_filterButton.setVisible(true);
+		_searchTermTextField.setVisible(false);
+		_filterButton.setVisible(false);
 
 		//init actions listeners
 		JMenuActionListener();
@@ -126,7 +126,6 @@ public class Controller implements ActionListener,TableModelListener {
 		addMouseListener();
 		addDragAndDropListener();
 		addPrintButtonListener();
-
 	}
 
 	private void addPrintButtonListener() {
@@ -165,7 +164,6 @@ public class Controller implements ActionListener,TableModelListener {
 		});
 
 	}
-
 
 	private void setMainTableVisible() {
 
@@ -217,6 +215,8 @@ public class Controller implements ActionListener,TableModelListener {
 		//_filterButton.setVisible(true);
 		_updateButton.setVisible(true);
 		_printButton.setVisible(true);
+		_searchTermTextField.setVisible(true);
+		_filterButton.setVisible(true);
 
 		_addXmlButton.setVisible(false);
 		_deleteXmlButton.setVisible(false);
@@ -314,9 +314,9 @@ public class Controller implements ActionListener,TableModelListener {
 			model.setRowCount(0);
 
 			//make necessary components invisible
-
+			_searchTermTextField.setVisible(true);
+			_filterButton.setVisible(true);
 			_updateButton.setVisible(false);
-
 			_printButton.setVisible(false);
 
 			model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
@@ -334,15 +334,14 @@ public class Controller implements ActionListener,TableModelListener {
 
 			//make necessary components invisible
 			if(_viewMode == CurrentMode.priceMode) {
-
 				_updateButton.setVisible(false);
-
 				_printButton.setVisible(false);
 			}else if(_viewMode == CurrentMode.editListMode){
 				_addXmlButton.setVisible(false);
 				_deleteXmlButton.setVisible(false);
 			}
-
+			_searchTermTextField.setVisible(true);
+			_filterButton.setVisible(true);
 			//change mode
 			_viewMode = CurrentMode.historyMode;
 

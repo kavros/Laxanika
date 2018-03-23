@@ -50,7 +50,6 @@ public class PriceHistory {
         }
     }
 
-    private final String filePath = "history/history.txt";
     private Vector<String> history = null;
     private String date;
     private String dates;
@@ -174,7 +173,7 @@ public class PriceHistory {
         FileReader fr = null;
 
         try {
-            fr = new FileReader(filePath);
+            fr = new FileReader(Constants.getHistoryFilePath());
             br = new BufferedReader(fr);
 
             String sCurrentLine;
@@ -222,7 +221,7 @@ public class PriceHistory {
 
     //erase file and write vector data to file.
     public void writeToFile(){
-        File f = new File(filePath);
+        File f = new File(Constants.getHistoryFilePath());
         MessageDialog msg = new MessageDialog();
 
         if(history == null || history.isEmpty()){
@@ -234,10 +233,10 @@ public class PriceHistory {
         PrintWriter out = null;
         try {
             if (f.exists() && !f.isDirectory()) {
-                out = new PrintWriter(new FileOutputStream(new File(filePath), false));
+                out = new PrintWriter(new FileOutputStream(new File(Constants.getHistoryFilePath()), false));
             } else {
 
-                out = new PrintWriter(filePath);
+                out = new PrintWriter(Constants.getHistoryFilePath());
             }
 
             //update dates and write them to file.

@@ -7,14 +7,14 @@ import java.util.Vector;
 
 public class MyModel extends DefaultTableModel {
 
-	private VFHashMap _vf_rates;
-	private VFVector _data;
-	PriceHistory _priceHistory ;
+	private VFHashMap _vf_rates;	//data structure that holds all the groceries.			(ALL PRODUCTS)
+	private VFVector _data;			//data structure that holds new products from invoice.	(NEW PRODUCTS-INVOICE)
+	PriceHistory _priceHistory ;	//data structure that holds prices.						(PRICE HISTORY)
 
 	//search data
-	private Object[][] _historyTable;
-	private Object[][] _productsTable;
-	private Object[][] _newPricesTable;
+	private Object[][] _historyTable;		//history data as it show up at JTable.
+	private Object[][] _productsTable;		//all the products as it show up at JTable.
+	private Object[][] _newProductsTable; 	//new products as it show up at JTable.
 
 
 	public MyModel() {
@@ -124,8 +124,17 @@ public class MyModel extends DefaultTableModel {
 	}
 
 	public Object[][] getHistoryTable(){
-		return  _historyTable;
+		return _historyTable;
 	}
+
+	public Object[][] getProductsTable(){
+		return  _productsTable;
+	}
+
+	public Object[][] getNewProductsTable(){
+		return  _newProductsTable;
+	}
+
 	public void reCreateVector(){
 		_data = null;
 		_data = new VFVector();
