@@ -6,6 +6,7 @@ public class Constants {
 	private static final String _databaseCredentialsFilePath = "cfg\\database.xml";
 	private static final String _productsFilePath = "cfg\\products.xml";
 	private static final String _historyFilePath  = "history\\history.txt";
+	private static final String _historyDatabaseFilePath = "cfg\\history.xml";
 
 	//JTable columns
 	public static final Object[] VF_TABLE_HEADER = { "Προιόν","Ποσοστό Κέρδους" ,"Τιμή Χονδρικής",
@@ -23,8 +24,11 @@ public class Constants {
 		return _productsFilePath;
 	}
 
-	public static String getDatabaseFilePath(){
+	public static String getCredentialsFilePath(){
 		return _databaseCredentialsFilePath;
 	}
 
+	public static String getHistoryDatabaseFilePath() {
+		return _historyDatabaseFilePath;
+	}
 }

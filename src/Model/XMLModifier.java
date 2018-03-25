@@ -64,7 +64,7 @@ public class XMLModifier {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document document;
-            document = documentBuilder.parse("cfg\\products.xml");
+            document = documentBuilder.parse(Constants.getProductsFilePath());
 
 
             Element root = document.getDocumentElement();
@@ -97,7 +97,7 @@ public class XMLModifier {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "3");
 
-            StreamResult result = new StreamResult("cfg\\products.xml");
+            StreamResult result = new StreamResult(Constants.getProductsFilePath());
             transformer.transform(source, result);
 
         }catch (Exception e ){
@@ -124,7 +124,7 @@ public class XMLModifier {
         }
         boolean isNewValAssigned = false;
         try {
-            String filepath = "cfg\\products.xml";
+            String filepath = Constants.getProductsFilePath();
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);

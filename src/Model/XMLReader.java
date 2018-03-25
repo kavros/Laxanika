@@ -29,7 +29,7 @@ public class XMLReader {
         DatabaseEntry dbEntry = new DatabaseEntry();
         try {
 
-            File fXmlFile = new File("cfg\\database.xml");
+            File fXmlFile = new File(Constants.getCredentialsFilePath());
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
@@ -65,11 +65,9 @@ public class XMLReader {
 
         HashMap<String, VFHashMapValues>   map    = new  HashMap< > ();
 
-
-
         try {
             String vfName ;
-            File fXmlFile = new File("cfg\\products.xml");
+            File fXmlFile = new File(Constants.getProductsFilePath());
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
