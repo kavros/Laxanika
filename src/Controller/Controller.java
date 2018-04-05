@@ -67,6 +67,8 @@ public class Controller implements ActionListener,TableModelListener {
 	PriceHistory _priceHistory ;
 	private JMenuItem _viewHistMi;
 
+    History hist ;
+
 	public Controller(JTextField searchTermTextField,
 					  JMenuItem openM,
 					  JMenuItem editListMi,
@@ -112,12 +114,13 @@ public class Controller implements ActionListener,TableModelListener {
 		_printButton = printButton;
 		_viewHistMi      =viewHistMi;
 
-		_priceHistory = model.getPriceHistory();
+		//_priceHistory = model.getPriceHistory();
 
 
 		_searchTermTextField.setVisible(false);
 		_filterButton.setVisible(false);
 
+        hist =model.getHistory();
 		//init actions listeners
 		JMenuActionListener();
 		updateButtonListener();
@@ -238,22 +241,13 @@ public class Controller implements ActionListener,TableModelListener {
 
 		//initialize history variables
 		String currInvoiceDate = model.getVector().getDate();
-
-		_priceHistory.setDate(currInvoiceDate);
-		boolean isDateInHist =_priceHistory.isDateInHistory();
-
-		for (int i = 0; i < model.getVector().getSize(); ++i) {
+        for (int i = 0; i < model.getVector().getSize(); ++i) {
 			//add rows to the model.
 			model.addRow(model.getVectorRow(i));
+        }
 
-			//update history.
-			if(!isDateInHist) {
-				VFVectorEntry entry = model.getVector().getVec().get(i);
-				_priceHistory.addPrice(entry.getKef5Code(), entry.getVfFinalPrice());
-			}
-		}
-
-		_priceHistory.writeToFile();
+		//update history
+		hist.updateHistoryDatabase(model.getVector(),currInvoiceDate.trim());
 
 		addColorRenderer();
 	}
@@ -342,6 +336,7 @@ public class Controller implements ActionListener,TableModelListener {
 			}
 			_searchTermTextField.setVisible(true);
 			_filterButton.setVisible(true);
+
 			//change mode
 			_viewMode = CurrentMode.historyMode;
 
@@ -701,11 +696,17 @@ public class Controller implements ActionListener,TableModelListener {
 	public void showHistory(){
 
 		String vf_name = (String) model.getValueAt(_table.getSelectedRow(), 0);
-		String kef5Code = model.getVFHashMap().get(vf_name).getKef5Code();
-		PriceHistory.Prices prices = _priceHistory.getPrices(kef5Code);
+        String kef5Code = model.getVFHashMap().get(vf_name).getKef5Code();
+		String pr = null;
+		for(int i =0; i < hist.getHistoryVector().size(); i++){
+		    if(hist.getHistoryVector().elementAt(i).getKef5Code().equals(kef5Code)){
+		        pr =hist.getHistoryVector().elementAt(i).toString2();
+            }
+        }
+
 		//System.out.println(prices);
 		MessageDialog msg=new MessageDialog();
-		msg.showMessageDialog("Οι παλαιότερες τιμές για το προιoν ειναι: "+prices,"Ιστορικό",
+		msg.showMessageDialog("Οι παλαιότερες τιμές για το προιoν ειναι: "+pr,"Ιστορικό",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 

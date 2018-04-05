@@ -9,7 +9,7 @@ public class MyModel extends DefaultTableModel {
 
 	private VFHashMap _vf_rates;	//data structure that holds all the groceries.			(ALL PRODUCTS)
 	private VFVector _data;			//data structure that holds new products from invoice.	(NEW PRODUCTS-INVOICE)
-	PriceHistory _priceHistory ;	//data structure that holds prices.						(PRICE HISTORY)
+	private History _history;
 
 	//search data
 	private Object[][] _historyTable;		//history data as it show up at JTable.
@@ -18,9 +18,10 @@ public class MyModel extends DefaultTableModel {
 
 
 	public MyModel() {
-		_priceHistory=new PriceHistory();
 		_vf_rates = new VFHashMap();
 		_data = new VFVector();
+		_history = new History();
+		_history.readDatabase();
 	}
 
 
@@ -28,8 +29,8 @@ public class MyModel extends DefaultTableModel {
 		return _data;
 	}
 
-	public PriceHistory getPriceHistory(){
-		return _priceHistory;
+	public History getHistory(){
+		return _history;
 	}
 
 	/*
@@ -86,40 +87,24 @@ public class MyModel extends DefaultTableModel {
 	}
 
 	public void updateModelWithHistory(){
-		_historyTable =new Object[_priceHistory.getVector().size()][];
-		VFKef5DataBase dataBase = new VFKef5DataBase();
-		Vector<String> historyVector = _priceHistory.getVector();
+
+		_history.clearHistory();
+		_history.readDatabase();
+		_historyTable =new Object[_history.getHistoryVector().size()][];
+		Vector<History.HistoryNode> historyVector = _history.getHistoryVector();
 		if(historyVector == null || historyVector.isEmpty()){
 			return;
 		}
 		int totalPrices;
 		setColumnIdentifiers(Constants.HISTORY_TABLE_HEADER);
 		for(int i =0; i < historyVector.size(); i++){
-			try{
-				String kef5Code =historyVector.get(i).split("-")[0];
-				PriceHistory.Prices prices =_priceHistory.getPrices(kef5Code);
-				totalPrices =prices.getTotalPrices();
-				String productName = dataBase.getFromDatabase("select sName  from dbo.smast where sCode="+"'"+kef5Code+"'");
-				productName = greekChars(productName);
-				Object[] entry;
-				if( totalPrices == 1){
-					entry = new Object[]{productName, prices.getPrice1(),"-","-"};
-					addRow( entry);
-					_historyTable[i] =entry;
-				}else if( totalPrices == 2){
-					entry = new Object[]{productName, prices.getPrice1(),prices.getPrice2(),"-"};
-					addRow( entry);
-					_historyTable[i] =entry;
-				}else if( totalPrices == 3){
-					entry =new Object[]{productName, prices.getPrice1(),prices.getPrice2(),prices.getPrice3()};
-					addRow(entry);
-					_historyTable[i] =entry;
-				}
+			History.HistoryNode vectorEntry = historyVector.get(i);
+			String productName = vectorEntry.getName();
+			productName= greekChars(productName);
 
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-
+			Object[] objectEntry = new Object[]{productName, vectorEntry.getPrice1(), vectorEntry.getPrice2(), vectorEntry.getPrice3()};
+			_historyTable[i] = objectEntry;
+			addRow(objectEntry);
 		}
 	}
 

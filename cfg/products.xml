@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><products>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<products>
 
     <element>
         <name>ΑΓΚΙΝΑΡΕΣ</name>
@@ -712,5 +713,10 @@
       <name>ΤΟΜΑΤΙΝΙΑ ΒΕΛΑΝΙΔΙΑ (LOBELLO)</name>
       <profit>0.25</profit>
       <kef5Code>2094</kef5Code>
+   </element>
+<element>
+      <name>ΦΑΣΟΛΙΑ ΑΠΟΣΤΟΛΑΚΙ</name>
+      <profit>0.28</profit>
+      <kef5Code>269</kef5Code>
    </element>
 </products>
