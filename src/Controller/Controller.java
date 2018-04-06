@@ -64,7 +64,6 @@ public class Controller implements ActionListener,TableModelListener {
 	private JButton _printButton;
 	JSplitPane _mainPane;
 	private String fileName = null;
-	PriceHistory _priceHistory ;
 	private JMenuItem _viewHistMi;
 
     History hist ;
