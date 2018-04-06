@@ -346,11 +346,13 @@ public class History {
                 addHistoryNodeToDatabase(
                         new HistoryNode(
                                 entry.vf_name,entry.kef5_code,timestamp,a,
-                                "",0,"",0)
+                                "",0.0f,"",0.0f)
                                         );
             }
             isProductInHistory =false;
         }
+        clearHistory();
+        readDatabase();
     }
 
     public void readDatabase(){
