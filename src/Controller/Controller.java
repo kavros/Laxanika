@@ -29,11 +29,6 @@ import javax.swing.table.TableCellRenderer;
 import Model.*;
 import Model.Printer;
 
-
-/**
- * @author ashraf
- *
- */
 public class Controller implements ActionListener,TableModelListener {
 	public enum CurrentMode{
 
@@ -65,6 +60,7 @@ public class Controller implements ActionListener,TableModelListener {
 	JSplitPane _mainPane;
 	private String fileName = null;
 	private JMenuItem _viewHistMi;
+	private JButton _printLabelsButton;
 
     History hist ;
 
@@ -83,7 +79,8 @@ public class Controller implements ActionListener,TableModelListener {
 					  JSplitPane mainPane,
 					  JButton printButton,
 					  JMenuItem exitMi,
-					  JMenuItem viewHistMi) {
+					  JMenuItem viewHistMi,
+					  JButton printLabelsButton) {
 		super();
 		this._searchTermTextField = searchTermTextField;
 		openMi = openM;
@@ -113,11 +110,9 @@ public class Controller implements ActionListener,TableModelListener {
 		_printButton = printButton;
 		_viewHistMi      =viewHistMi;
 
-		//_priceHistory = model.getPriceHistory();
-
-
 		_searchTermTextField.setVisible(false);
 		_filterButton.setVisible(false);
+		_printLabelsButton = printLabelsButton;
 
         hist =model.getHistory();
 		//init actions listeners
@@ -128,42 +123,48 @@ public class Controller implements ActionListener,TableModelListener {
 		addMouseListener();
 		addDragAndDropListener();
 		addPrintButtonListener();
+		addPrintLabelsButtonListener();
+	}
+
+	private void addPrintLabelsButtonListener(){
+		_printLabelsButton.addActionListener(e -> {
+			LabelPrinter labelPrinter = new LabelPrinter();
+			labelPrinter.printLabels(model.getVector().getVec());
+
+        });
 	}
 
 	private void addPrintButtonListener() {
-		_printButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Printer printer = new Printer();
-				String text = "";
-				Vector<VFVectorEntry> vector = model.getVector().getVec();
-				for (int i = 0; i < vector.size(); ++i) {
-					VFVectorEntry entry = vector.get(i);
-					text += entry.getVfName() + " " +
-							entry.getVfOrigin() + " " +
-							entry.getVfNumber() + " " +
-							entry.getVfFinalPrice() + "\n";
-                   /*text += entry.getVfName() +" "+
-                           entry.getVfOrigin()+" "+
-                           entry.getVfNumber()+" "+
-                           entry.getVfPrice() +"  "+
-                           entry.getKef5Price()+" "+
-                           entry.getVfFinalPrice()+ " "+
-                           entry.getActualProfit()+"\n";*/
-				}
-				printer.setDoc(text);
-				PrinterJob job = PrinterJob.getPrinterJob();
-				job.setPrintable(printer);
-				boolean ok = job.printDialog();
-				if (ok) {
-					try {
-						job.print();
-					} catch (PrinterException ex) {
-						/* The job did not successfully complete */
-					}
-				}
-			}
-		});
+		_printButton.addActionListener(e -> {
+            Printer printer = new Printer();
+            String text = "";
+            Vector<VFVectorEntry> vector = model.getVector().getVec();
+            for (int i = 0; i < vector.size(); ++i) {
+                VFVectorEntry entry = vector.get(i);
+                text += entry.getVfName() + " " +
+                        entry.getVfOrigin() + " " +
+                        entry.getVfNumber() + " " +
+                        entry.getVfFinalPrice() + "\n";
+						/*text += entry.getVfName() +" "+
+						entry.getVfOrigin()+" "+
+						entry.getVfNumber()+" "+
+						entry.getVfPrice() +"  "+
+						entry.getKef5Price()+" "+
+						entry.getVfFinalPrice()+ " "+
+						entry.getActualProfit()+"\n";*/
+            }
+            printer.setDoc(text);
+            PrinterJob job = PrinterJob.getPrinterJob();
+            job.setPrintable(printer);
+            boolean ok = job.printDialog();
+            if (ok) {
+                try {
+                    job.print();
+                } catch (PrinterException ex) {
+                    /* The job did not successfully complete */
+                }
+            }
+        });
 
 	}
 
@@ -217,8 +218,10 @@ public class Controller implements ActionListener,TableModelListener {
 		//_filterButton.setVisible(true);
 		_updateButton.setVisible(true);
 		_printButton.setVisible(true);
+
 		_searchTermTextField.setVisible(true);
 		_filterButton.setVisible(true);
+		_printLabelsButton.setVisible(true);
 
 		_addXmlButton.setVisible(false);
 		_deleteXmlButton.setVisible(false);
@@ -311,6 +314,7 @@ public class Controller implements ActionListener,TableModelListener {
 			_filterButton.setVisible(true);
 			_updateButton.setVisible(false);
 			_printButton.setVisible(false);
+			_printLabelsButton.setVisible(false);
 
 			model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
 			model.updateModelWithHash();
@@ -329,6 +333,7 @@ public class Controller implements ActionListener,TableModelListener {
 			if(_viewMode == CurrentMode.priceMode) {
 				_updateButton.setVisible(false);
 				_printButton.setVisible(false);
+				_printLabelsButton.setVisible(false);
 			}else if(_viewMode == CurrentMode.editListMode){
 				_addXmlButton.setVisible(false);
 				_deleteXmlButton.setVisible(false);
