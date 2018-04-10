@@ -54,8 +54,7 @@ public class Printer implements Printable {
         }
     }
 
-    public int print(Graphics g, PageFormat pf, int page) throws
-            PrinterException {
+    public int print(Graphics g, PageFormat pf, int page) throws  PrinterException {
 
         if (page > 0) { /* We have only one page, and 'page' is zero-based */
             return NO_SUCH_PAGE;
