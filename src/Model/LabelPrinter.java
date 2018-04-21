@@ -20,6 +20,11 @@ public class LabelPrinter {
             f.setCurrentDirectory(new File
                     (System.getProperty("user.home") + System.getProperty("file.separator")+ "Desktop"));
             f.showSaveDialog(null);
+
+            if(f.getSelectedFile() == null){
+                return;
+            }
+
             FileOutputStream out = new FileOutputStream(new File(f.getSelectedFile()+"\\"+"labels.docx"));
 
             //create paragraph
@@ -37,22 +42,32 @@ public class LabelPrinter {
     }
 
     private void createLabel(VFVectorEntry entry,XWPFParagraph paragraph,int number) {
+        VFKef5DataBase database =new VFKef5DataBase();
+        String query = "select sRetailPr  from dbo.smast where sCode="+'\''+entry.getKef5Code()+'\'';
 
+        String price = null;
+        try {
+            price = database.getFromDatabase(query);
+            price.replace(",",".");
+        }catch (Exception e){
+            MessageDialog msg=new MessageDialog();
+            msg.showMessageDialog("Το query "+query+" δεν επέστρεψε απάντηση",
+                    "Αποτυχία εύρεσης προιόντος", JOptionPane.ERROR_MESSAGE);
+        }
         //Set Bold an Italic
         XWPFRun paragraphOneRunOne = paragraph.createRun();
-        //paragraphOneRunOne.setBold(true);
+        paragraphOneRunOne.setBold(true);
         //paragraphOneRunOne.setItalic(true);
 
-        paragraphOneRunOne.setFontSize(36);
-
+        paragraphOneRunOne.setFontSize(40);
         paragraphOneRunOne.setText(entry.getVfName()+" "+entry.getVfOrigin());
         paragraphOneRunOne.addBreak();
 
         //Set text Position
         XWPFRun paragraphOneRunTwo = paragraph.createRun();
-        paragraphOneRunTwo.setFontSize(36);
-        paragraphOneRunTwo.setText(entry.getVfFinalPrice()+"€");
-        //paragraphOneRunTwo.setTextPosition(100);
+        paragraphOneRunTwo.setFontSize(70);
+        paragraphOneRunTwo.setBold(true);
+        paragraphOneRunTwo.setText(price+"€");
         paragraphOneRunTwo.addBreak();
 
         //Set Strike through and Font Size and Subscript
@@ -62,7 +77,7 @@ public class LabelPrinter {
         paragraphOneRunThree.addBreak();
 
         XWPFRun paragraphOneRunFour = paragraph.createRun();
-        paragraphOneRunFour.setFontSize(36);
+        paragraphOneRunFour.setFontSize(12);
         paragraphOneRunFour.setText("");
         paragraphOneRunFour.addBreak();
         if(number%3==0){
