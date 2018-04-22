@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Laxanika:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a9328e39-4fa2-4caa-81d3-814e46bec8c9" name="Default" comment="make">
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/LICENSE.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/NOTICE.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/RELEASE-NOTES.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/allclasses-frame.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/allclasses-noframe.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/constant-values.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/deprecated-list.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/help-doc.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/index-all.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/index.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/Log.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/LogConfigurationException.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/LogFactory.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/LogSource.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/class-use/Log.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/class-use/LogConfigurationException.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/class-use/LogFactory.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/class-use/LogSource.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/AvalonLogger.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/Jdk13LumberjackLogger.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/Jdk14Logger.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/Log4JLogger.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/LogFactoryImpl.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/LogKitLogger.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/NoOpLog.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/ServletContextCleaner.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/SimpleLog.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/WeakHashtable.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/class-use/AvalonLogger.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/class-use/Jdk13LumberjackLogger.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/class-use/Jdk14Logger.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/class-use/Log4JLogger.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/class-use/LogFactoryImpl.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/class-use/LogKitLogger.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/class-use/NoOpLog.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/class-use/ServletContextCleaner.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/class-use/SimpleLog.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/class-use/WeakHashtable.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/package-frame.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/package-summary.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/package-tree.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/impl/package-use.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/package-frame.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/package-summary.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/package-tree.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/org/apache/commons/logging/package-use.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/overview-frame.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/overview-summary.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/overview-tree.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/package-list" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/resources/background.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/resources/tab.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/resources/titlebar.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/resources/titlebar_end.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/serialized-form.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/apidocs/stylesheet.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/commons-logging-1.2-javadoc.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/commons-logging-1.2/commons-logging-1.2.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Test/TableFilterDemo.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/VegetablesFruits.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cfg/history.xml" afterPath="$PROJECT_DIR$/cfg/history.xml" />
+      <change beforePath="$PROJECT_DIR$/cfg/products.xml" afterPath="$PROJECT_DIR$/cfg/products.xml" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" afterPath="$PROJECT_DIR$/src/Main/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/Test/XMLModifierTest.java" afterPath="$PROJECT_DIR$/src/Test/XMLModifierTest.java" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Laxanika$GUIMain.coverage" NAME="GUIMain Coverage Results" MODIFIED="1521381551197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Main.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="History.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/History.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5848">
+              <caret line="357" column="30" lean-forward="false" selection-start-line="357" selection-start-column="30" selection-end-line="357" selection-end-column="30" />
+              <folding>
+                <element signature="method#toString#0;class#History#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1870">
+              <caret line="137" column="45" lean-forward="false" selection-start-line="137" selection-start-column="45" selection-end-line="137" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/View.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VFKef5DataBase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/VFKef5DataBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/MyModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LabelPrinter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/LabelPrinter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GUIMain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/GUIMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>SQL</find>
+      <find>Sys</find>
+      <find>269</find>
+      <find>Strea</find>
+      <find>kef5Code</find>
+      <find>ΠΑΤΑΤΕΣ</find>
+      <find>31/3/18</find>
+      <find>345</find>
+      <find>2085</find>
+      <find>2090</find>
+      <find>2092</find>
+      <find>ΤΟΜΑΤΙΝ</find>
+      <find>showHistory</find>
+      <find>_history</find>
+      <find>13/3/18</find>
+      <find>13/3</find>
+      <find>ΣΠΑΝΑΚΙ</find>
+      <find>321</find>
+      <find>clearHistory</find>
+      <find>26/3/18</find>
+      <find>30/3/18</find>
+      <find>παλα</find>
+      <find>print</find>
+      <find>_printButton</find>
+      <find>tracer</find>
+      <find>_updateButton</find>
+      <find>_printLabelsButton</find>
+      <find>_priceHistory</find>
+      <find>getVec</find>
+      <find>main</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/JUnit/XMLModifierTest.groovy" />
+        <option value="$PROJECT_DIR$/src/JUnit/XMLModifierTest.java" />
+        <option value="$PROJECT_DIR$/src/META-INF/PRINTER_MANIFERST.MF" />
+        <option value="$PROJECT_DIR$/src/Test/META-INF/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/src/Test/HelloWorldPrinter.java" />
+        <option value="$PROJECT_DIR$/src/Test/Printer.java" />
+        <option value="$PROJECT_DIR$/src/Model/MessageDialog.java" />
+        <option value="$PROJECT_DIR$/src/Model/MyTableCellRenderer.java" />
+        <option value="$PROJECT_DIR$/src/JUnit/PriceHistoryTest2.java" />
+        <option value="$PROJECT_DIR$/cfg/products.xml" />
+        <option value="$PROJECT_DIR$/src/Model/VFVectorEntry.java" />
+        <option value="$PROJECT_DIR$/src/JUnit/PriceHistoryTest.java" />
+        <option value="$PROJECT_DIR$/src/Model/PdfParser.java" />
+        <option value="$PROJECT_DIR$/src/Model/VFVector.java" />
+        <option value="$PROJECT_DIR$/src/Model/VFHashMap.java" />
+        <option value="$PROJECT_DIR$/src/Model/VFHashMapValues.java" />
+        <option value="$PROJECT_DIR$/README" />
+        <option value="$PROJECT_DIR$/src/Test/JTableFilterDemo.java" />
+        <option value="$PROJECT_DIR$/ReadMe.md" />
+        <option value="$PROJECT_DIR$/src/Test/TableFilterDemo.java" />
+        <option value="$PROJECT_DIR$/history/history.txt" />
+        <option value="$PROJECT_DIR$/src/Model/PriceHistory.java" />
+        <option value="$PROJECT_DIR$/cfg/database.xml" />
+        <option value="$PROJECT_DIR$/src/Model/Constants.java" />
+        <option value="$PROJECT_DIR$/src/Model/XMLReader.java" />
+        <option value="$PROJECT_DIR$/src/Model/XMLModifier.java" />
+        <option value="$PROJECT_DIR$/src/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/Model/History.java" />
+        <option value="$PROJECT_DIR$/src/View/View.java" />
+        <option value="$PROJECT_DIR$/src/Model/Printer.java" />
+        <option value="$PROJECT_DIR$/src/Test/BookTest.java" />
+        <option value="$PROJECT_DIR$/src/Model/MyModel.java" />
+        <option value="$PROJECT_DIR$/cfg/history.xml" />
+        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Test/FontStyle.java" />
+        <option value="$PROJECT_DIR$/src/Model/LabelPrinter.java" />
+        <option value="$PROJECT_DIR$/src/Model/VFKef5DataBase.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/poi-3.17/ooxml-lib/xmlbeans-2.6.0.jar!/" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15136719" />
+    <property name="project.structure.side.proportion" value="0.14930016" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build.tools" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="laxanika" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="JUnit" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alexis\IdeaProjects\Laxanika\cfg" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+      <recent name="Model.XMLModifier" />
+      <recent name="groovy.util.GroovyTestCase" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alexis\IdeaProjects\Laxanika\pdf" />
+      <recent name="C:\Users\Alexis\IdeaProjects\Laxanika\src\Test\META-INF" />
+      <recent name="C:\Users\Alexis\IdeaProjects\Laxanika\src\Test" />
+      <recent name="C:\Users\Alexis\IdeaProjects\Laxanika" />
+      <recent name="C:\Users\Alexis\IdeaProjects\Laxanika\src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.GUIMain">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="BookTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Test.BookTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Laxanika" />
+      <envs />
+    </configuration>
+    <configuration name="FontStyle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Test.FontStyle" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Laxanika" />
+      <envs />
+    </configuration>
+    <configuration name="GUIMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Main.GUIMain" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Laxanika" />
+      <envs />
+    </configuration>
+    <configuration name="HelloWorldPrinter" type="Application" factoryName="Application" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Test.HelloWorldPrinter" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Laxanika" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Main.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Laxanika" />
+      <envs />
+    </configuration>
+    <configuration name="TableFilterDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Test.TableFilterDemo" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Laxanika" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration name="Unnamed" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Laxanika" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Laxanika3" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list size="7">
+      <item index="0" class="java.lang.String" itemvalue="Application.HelloWorldPrinter" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.Unnamed" />
+      <item index="2" class="java.lang.String" itemvalue="Application.GUIMain" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="4" class="java.lang.String" itemvalue="Application.TableFilterDemo" />
+      <item index="5" class="java.lang.String" itemvalue="Application.BookTest" />
+      <item index="6" class="java.lang.String" itemvalue="Application.FontStyle" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.GUIMain" />
+        <item index="1" class="java.lang.String" itemvalue="Application.FontStyle" />
+        <item index="2" class="java.lang.String" itemvalue="Application.BookTest" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="4" class="java.lang.String" itemvalue="Application.TableFilterDemo" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9328e39-4fa2-4caa-81d3-814e46bec8c9" name="Default" comment="" />
+      <created>1518245500225</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1518245500225</updated>
+    </task>
+    <task id="LOCAL-00001" summary="updates README.">
+      <created>1518343154990</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1518343154990</updated>
+    </task>
+    <task id="LOCAL-00002" summary="removed TODO">
+      <created>1518343902556</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1518343902556</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added new products.">
+      <created>1518344633305</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1518344633305</updated>
+    </task>
+    <task id="LOCAL-00004" summary="implemented feature for modification of profits and kef5Code from GUI.&#10;modified jdbc library in order to prevent runTime error from Laxanika.jar &#10;added error message in case that input file is unsupported.&#10;updated products.xml , README.&#10;removed unused edit Button from Controller class.">
+      <created>1518358277392</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1518358277392</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added warning message when user try to delete something from the list.">
+      <created>1518359500065</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1518359500065</updated>
+    </task>
+    <task id="LOCAL-00006" summary="updated README">
+      <created>1518359522754</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1518359522754</updated>
+    </task>
+    <task id="LOCAL-00007" summary="implemented a button that prints useful informations about JTable.">
+      <created>1518370162530</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1518370162530</updated>
+    </task>
+    <task id="LOCAL-00008" summary="input files.">
+      <created>1518546608854</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1518546608854</updated>
+    </task>
+    <task id="LOCAL-00009" summary="input pdf file for 14/02.">
+      <created>1518631062465</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1518631062465</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fixed bug that some vf_origin holds vf_number.">
+      <created>1518633267860</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1518633267860</updated>
+    </task>
+    <task id="LOCAL-00011" summary="makes size of column with product name bigger.">
+      <created>1518633401657</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1518633401657</updated>
+    </task>
+    <task id="LOCAL-00012" summary="updated ReadMe">
+      <created>1518633517067</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1518633517067</updated>
+    </task>
+    <task id="LOCAL-00013" summary="implemented code code for file-&gt;exit.">
+      <created>1518634223026</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1518634223026</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added dialog message in case that product is not in database.&#10;added Class &quot;MessageDialog&quot; in order print messages using this class.&#10;change column name at Constants.&#10;updated Controller in order to use class MessageDialog.&#10;updated README.&#10;added 2 product at products.xml.">
+      <created>1519460348636</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1519460348636</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fixed bug when we add xml node.">
+      <created>1519460811999</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1519460811999</updated>
+    </task>
+    <task id="LOCAL-00016" summary="handling number format exception.">
+      <created>1519461665072</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1519461665072</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added colors on jtable.&#10;removed comments from MyModel.java.&#10;added getKef5_price function at VFVectorEntry.java.&#10;changed size for splitpane and font size.&#10;updated readme.">
+      <created>1519470633635</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1519470633635</updated>
+    </task>
+    <task id="LOCAL-00018" summary="added red color if we have higher price.">
+      <created>1519666894170</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1519666894170</updated>
+    </task>
+    <task id="LOCAL-00019" summary="added code in comments related to print button.&#10;changes on function isNameValid.&#10;added getters at VFVectorEntry.&#10;added class PriceHistory.&#10;added Junit  test for PriceHistory.">
+      <created>1520093868678</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1520093868678</updated>
+    </task>
+    <task id="LOCAL-00020" summary="changes on the way that handling unknown fruits and vegetables at Controller.&#10;work in progress for price history class.">
+      <created>1520188704978</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1520188704978</updated>
+    </task>
+    <task id="LOCAL-00021" summary="implemented history addon but it is not ready for the production.">
+      <created>1520258816773</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1520258816773</updated>
+    </task>
+    <task id="LOCAL-00022" summary="implemented first version of price history feature.&#10;updated readme.">
+      <created>1520796385468</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1520796385468</updated>
+    </task>
+    <task id="LOCAL-00023" summary="renamed local variable.">
+      <created>1520876628893</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1520876628893</updated>
+    </task>
+    <task id="LOCAL-00024" summary="updates kef5prices on jTable.">
+      <created>1520879354460</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1520879354460</updated>
+    </task>
+    <task id="LOCAL-00025" summary="implemented history feature v1.1.">
+      <created>1521054382980</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1521054382980</updated>
+    </task>
+    <task id="LOCAL-00026" summary="working on searchField feature.">
+      <created>1521389631036</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1521389631036</updated>
+    </task>
+    <task id="LOCAL-00027" summary="implement search feature&#10;update history.txt">
+      <created>1521484224290</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1521484224290</updated>
+    </task>
+    <task id="LOCAL-00028" summary="update readme">
+      <created>1521485482177</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1521485482177</updated>
+    </task>
+    <task id="LOCAL-00029" summary="rename from README">
+      <created>1521485728738</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1521485728738</updated>
+    </task>
+    <task id="LOCAL-00030" summary="multiple changes.&#10;added getters and comments on MyModel class.&#10;make search invisible at the start of program.&#10;save all file paths at class Constants.">
+      <created>1521829542210</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1521829542210</updated>
+    </task>
+    <task id="LOCAL-00031" summary="make configurations file paths global.">
+      <created>1521993243208</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1521993243208</updated>
+    </task>
+    <task id="LOCAL-00032" summary="implements code for history module (issue #10)">
+      <created>1522920057179</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1522920057179</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fix problem with null prices.">
+      <created>1523008026369</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1523008026369</updated>
+    </task>
+    <task id="LOCAL-00034" summary="removes old history code.">
+      <created>1523010907025</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1523010907025</updated>
+    </task>
+    <task id="LOCAL-00035" summary="removes old history folder.">
+      <created>1523011017972</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1523011017972</updated>
+    </task>
+    <task id="LOCAL-00036" summary="implement code that prints the labels">
+      <created>1523380764200</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1523380764200</updated>
+    </task>
+    <task id="LOCAL-00037" summary="add code for printing labels feature.">
+      <created>1523381148351</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1523381148351</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="PriceHistoryTest - 2018.02.28 at 22h 11m 34s.xml">
+      <configuration name="PriceHistoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PriceHistoryTest - 2018.02.28 at 22h 11m 55s.xml">
+      <configuration name="PriceHistoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PriceHistoryTest - 2018.03.06 at 21h 47m 47s.xml">
+      <configuration name="PriceHistoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PriceHistoryTest - 2018.03.06 at 21h 48m 44s.xml">
+      <configuration name="PriceHistoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PriceHistoryTest - 2018.03.06 at 21h 49m 33s.xml">
+      <configuration name="PriceHistoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PriceHistoryTest - 2018.03.06 at 21h 50m 27s.xml">
+      <configuration name="PriceHistoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PriceHistoryTest - 2018.03.06 at 21h 50m 43s.xml">
+      <configuration name="PriceHistoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PriceHistoryTest - 2018.03.06 at 21h 50m 56s.xml">
+      <configuration name="PriceHistoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PriceHistoryTest - 2018.03.06 at 21h 51m 10s.xml">
+      <configuration name="PriceHistoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PriceHistoryTest - 2018.03.06 at 21h 52m 22s.xml">
+      <configuration name="PriceHistoryTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6619497" sideWeight="0.47049925" order="7" side_tool="true" content_ui="tabs" x="0" y="250" width="1366" height="228" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21320346" sideWeight="0.5295008" order="2" side_tool="false" content_ui="tabs" x="343" y="260" width="679" height="208" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32683983" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1913767" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24375" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.49394855" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32034633" sideWeight="0.4556391" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32683983" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="implemented code code for file-&gt;exit." />
+    <MESSAGE value="added dialog message in case that product is not in database.&#10;added Class &quot;MessageDialog&quot; in order print messages using this class.&#10;change column name at Constants.&#10;updated Controller in order to use class MessageDialog.&#10;updated README.&#10;added 2 product at products.xml." />
+    <MESSAGE value="fixed bug when we add xml node." />
+    <MESSAGE value="handling number format exception." />
+    <MESSAGE value="added colors on jtable.&#10;removed comments from MyModel.java.&#10;added getKef5_price function at VFVectorEntry.java.&#10;changed size for splitpane and font size.&#10;updated readme." />
+    <MESSAGE value="added red color if we have higher price." />
+    <MESSAGE value="added code in comments related to print button.&#10;changes on function isNameValid.&#10;added getters at VFVectorEntry.&#10;added class PriceHistory.&#10;added Junit  test for PriceHistory." />
+    <MESSAGE value="changes on the way that handling unknown fruits and vegetables at Controller.&#10;work in progress for price history class." />
+    <MESSAGE value="implemented history addon but it is not ready for the production." />
+    <MESSAGE value="implemented first version of price history feature.&#10;updated readme." />
+    <MESSAGE value="renamed local variable." />
+    <MESSAGE value="updates kef5prices on jTable." />
+    <MESSAGE value="implemented history feature v1.1." />
+    <MESSAGE value="working on searchField feature." />
+    <MESSAGE value="implement search feature&#10;update history.txt" />
+    <MESSAGE value="update readme" />
+    <MESSAGE value="rename from README" />
+    <MESSAGE value="multiple changes.&#10;added getters and comments on MyModel class.&#10;make search invisible at the start of program.&#10;save all file paths at class Constants." />
+    <MESSAGE value="make configurations file paths global." />
+    <MESSAGE value="implements code for history module (issue #10)" />
+    <MESSAGE value="fix problem with null prices." />
+    <MESSAGE value="removes old history code." />
+    <MESSAGE value="removes old history folder." />
+    <MESSAGE value="implement code that prints the labels" />
+    <MESSAGE value="add code for printing labels feature." />
+    <option name="LAST_COMMIT_MESSAGE" value="add code for printing labels feature." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Model/XMLModifier.java</url>
+          <line>169</line>
+          <properties />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="23" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/JUnit/XMLModifierTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/HashMap.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/table/DefaultTableModel.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/String.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/src.zip!/java/lang/String.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/src.zip!/javax/swing/table/DefaultTableModel.java" />
+    <entry file="file://$PROJECT_DIR$/src/Model/VFHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="45" column="103" lean-forward="false" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/19_MARCH_2018.txt" />
+    <entry file="file://$PROJECT_DIR$/ReadMe.md" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/src.zip!/javax/swing/RowFilter.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/src.zip!/javax/swing/JTable.java" />
+    <entry file="file://$PROJECT_DIR$/src/Test/TableFilterDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="473" column="23" lean-forward="false" selection-start-line="473" selection-start-column="23" selection-end-line="473" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/PdfParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-895">
+          <caret line="29" column="95" lean-forward="false" selection-start-line="29" selection-start-column="95" selection-end-line="29" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/stackoverflow/ModifyXMLFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/VFHashMapValues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/history/history.txt" />
+    <entry file="file://$PROJECT_DIR$/src/Model/VFVectorEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="75" column="18" lean-forward="false" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfg/database.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/PriceHistory.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/org/w3c/dom/Element.java" />
+    <entry file="file://$PROJECT_DIR$/cfg/products.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6256">
+          <caret line="368" column="21" lean-forward="false" selection-start-line="368" selection-start-column="21" selection-end-line="368" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/src.zip!/java/util/Vector.java" />
+    <entry file="file://$PROJECT_DIR$/src/Model/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="81" lean-forward="false" selection-start-line="14" selection-start-column="81" selection-end-line="14" selection-end-column="81" />
+          <folding>
+            <element signature="e#796#797#0" expanded="false" />
+            <element signature="e#826#827#0" expanded="false" />
+            <element signature="e#872#873#0" expanded="false" />
+            <element signature="e#903#904#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/XMLReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="60" column="23" lean-forward="false" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JUnit/PriceHistoryTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/Model/XMLModifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="737">
+          <caret line="169" column="50" lean-forward="false" selection-start-line="165" selection-start-column="9" selection-end-line="169" selection-end-column="50" />
+          <folding>
+            <element signature="method#addXMLNode#0;class#XMLModifier#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="737">
+          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/src.zip!/java/awt/print/PrinterJob.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/src.zip!/java/awt/Graphics.java" />
+    <entry file="file://$PROJECT_DIR$/results/7_APRIL_2018.txt" />
+    <entry file="file://$PROJECT_DIR$/results/9_FEBRUARY_2018.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-974">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/9_APRIL_2018.txt" />
+    <entry file="file://$PROJECT_DIR$/src/Test/BookTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/Model/VFVector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.sql/java/sql/DriverManager.java" />
+    <entry file="jar://$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/jre8/sqljdbc42.jar!/com/microsoft/sqlserver/jdbc/SQLServerConnection.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="993">
+          <caret line="2788" column="0" lean-forward="false" selection-start-line="2788" selection-start-column="0" selection-end-line="2788" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/poi-3.17/poi-ooxml-3.17.jar!/org/apache/poi/xwpf/usermodel/XWPFDocument.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="103" column="11" lean-forward="false" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Printer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Tracer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/FontStyle.java" />
+    <entry file="file://$PROJECT_DIR$/cfg/history.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="379" column="21" lean-forward="false" selection-start-line="379" selection-start-column="21" selection-end-line="379" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/History.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5848">
+          <caret line="357" column="30" lean-forward="false" selection-start-line="357" selection-start-column="30" selection-end-line="357" selection-end-column="30" />
+          <folding>
+            <element signature="method#toString#0;class#History#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="137" column="45" lean-forward="false" selection-start-line="137" selection-start-column="45" selection-end-line="137" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/MyModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TODO_OLD">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1579">
+          <caret line="104" column="30" lean-forward="false" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/GUIMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/VFKef5DataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/LabelPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor>
+            <show-content>
+              <type id="artifact" />
+              <type id="library" />
+            </show-content>
+          </artifact-editor>
+          <last-edited>Laxanika:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.14930016" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.14930016" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Laxanika</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.14930016" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>poi-3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.14930016" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
