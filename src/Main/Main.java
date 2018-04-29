@@ -82,9 +82,19 @@ public class Main {
     }
 */
 
-        String a = new String("Τ∆Π00457493 ∆ευ  5/3/18 07:28");
+        /*String a = new String("Τ∆Π00457493 ∆ευ  5/3/18 07:28");
         String b =a.replace("  "," ");
-        System.out.println(b);
+        System.out.println(b);*/
+        History hist =  new History();
+       History.HistoryNode a =new History().new HistoryNode("TOMATES","2092","10/03/18",1.6f,"11/03/18",1.7f,"12/03/18",1.8f);
+        hist.readDatabase();
+
+        hist.addHistoryNodeToDatabase(a);
+        String aa ="";
+        if(aa.isEmpty()){
+            System.out.println("ADADA");
+        }
+
     }
 
 }
