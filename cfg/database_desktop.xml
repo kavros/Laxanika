@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<database>
+    <username>kef</username>
+    <password>gLWLectR123</password>
+    <dbURL>jdbc:sqlserver://DESKTOP-4K5L7KE;databaseName=Cmp006</dbURL>
+</database>
