@@ -82,7 +82,7 @@ public class TableFilterDemo extends JPanel {
 
         // When selection changes, provide user with row numbers for
         // both view and model.
-        table.getSelectionModel().addListSelectionListener(
+        /*table.getSelectionModel().addListSelectionListener(
                 new ListSelectionListener() {
                     public void valueChanged(ListSelectionEvent event) {
                         int viewRow = table.getSelectedRow();
@@ -96,7 +96,7 @@ public class TableFilterDemo extends JPanel {
                         }
                     }
                 });
-
+*/
         // Create the scroll pane and add the table to it.
         JScrollPane scrollPane = new JScrollPane(table);
 
@@ -161,10 +161,12 @@ public class TableFilterDemo extends JPanel {
                 { "Philip", "Milne", "Pool", new Integer(10), new Boolean(false) }, };
 
         public int getColumnCount() {
+            System.out.println("getColumnCount");
             return columnNames.length;
         }
 
         public int getRowCount() {
+            System.out.println("getRowCount");
             return data.length;
         }
 
@@ -173,6 +175,7 @@ public class TableFilterDemo extends JPanel {
         }
 
         public Object getValueAt(int row, int col) {
+            System.out.println("getValueAt");
             return data[row][col];
         }
 
@@ -181,14 +184,14 @@ public class TableFilterDemo extends JPanel {
          * each cell. If we didn't implement this method, then the last column would
          * contain text ("true"/"false"), rather than a check box.
          */
-        public Class getColumnClass(int c) {
+        /*public Class getColumnClass(int c) {
             return getValueAt(0, c).getClass();
-        }
+        }*/
 
         /*
          * Don't need to implement this method unless your table's editable.
          */
-        public boolean isCellEditable(int row, int col) {
+        /*public boolean isCellEditable(int row, int col) {
             // Note that the data/cell address is constant,
             // no matter where the cell appears onscreen.
             if (col < 2) {
@@ -196,12 +199,12 @@ public class TableFilterDemo extends JPanel {
             } else {
                 return true;
             }
-        }
+        }*/
 
         /*
          * Don't need to implement this method unless your table's data can change.
          */
-        public void setValueAt(Object value, int row, int col) {
+        /*public void setValueAt(Object value, int row, int col) {
             if (DEBUG) {
                 System.out.println("Setting value at " + row + "," + col + " to "
                         + value + " (an instance of " + value.getClass() + ")");
@@ -228,7 +231,7 @@ public class TableFilterDemo extends JPanel {
                 System.out.println();
             }
             System.out.println("--------------------------");
-        }
+        }*/
     }
 
     /**

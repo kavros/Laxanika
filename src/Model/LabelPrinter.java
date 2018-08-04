@@ -1,91 +1,137 @@
 package Model;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Vector;
 
-import org.apache.poi.xwpf.usermodel.*;
+import java.awt.*;
+import java.awt.print.PageFormat;
+    import java.awt.print.Printable;
+import java.awt.print.PrinterException;
 
-import javax.swing.*;
+public class LabelPrinter implements Printable {
+    private String doc;
+    private LabelPosition[] labelPositions;
+    private int totalLabelsPerPage;
+    private int columns;
+    private int rows;
 
-public class LabelPrinter {
 
-    public void printLabels(Vector<VFVectorEntry> vector){
-        try {
-            //Blank Document
-            XWPFDocument document = new XWPFDocument();
+    public LabelPrinter(){
 
-            //Write the Document in file system
-            JFileChooser f = new JFileChooser();
-            f.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            f.setCurrentDirectory(new File
-                    (System.getProperty("user.home") + System.getProperty("file.separator")+ "Desktop"));
-            f.showSaveDialog(null);
+        totalLabelsPerPage = 8;
+        rows = 4*8;
+        columns = 2*8;
 
-            if(f.getSelectedFile() == null){
-                return;
-            }
-
-            FileOutputStream out = new FileOutputStream(new File(f.getSelectedFile()+"\\"+"labels.docx"));
-
-            //create paragraph
-            XWPFParagraph paragraph = document.createParagraph();
-            paragraph.setAlignment(ParagraphAlignment.CENTER);
-            for (int i =0; i < vector.size(); i++){
-                createLabel(vector.elementAt(i),paragraph,i+1);
-            }
-
-            document.write(out);
-            out.close();
-        }catch (Exception e){
-            e.printStackTrace();
+        labelPositions =  new LabelPosition[8];
+        for(int i=0; i < totalLabelsPerPage; i++){
+            labelPositions[i] = new LabelPosition();
         }
     }
 
-    private void createLabel(VFVectorEntry entry,XWPFParagraph paragraph,int number) {
-        VFKef5DataBase database =new VFKef5DataBase();
-        String query = "select sRetailPr  from dbo.smast where sCode="+'\''+entry.getKef5Code()+'\'';
+    public void setDoc(String text){
+        doc = text;
+    }
 
-        String price = null;
-        try {
-            price = database.getFromDatabase(query);
-            price.replace(",",".");
-        }catch (Exception e){
-            MessageDialog msg=new MessageDialog();
-            msg.showMessageDialog("Το query "+query+" δεν επέστρεψε απάντηση",
-                    "Αποτυχία εύρεσης προιόντος", JOptionPane.ERROR_MESSAGE);
+    private void drawString(Graphics g, String text, int x, int y) {
+
+        for (String line : text.split("\n")) {
+            g.drawString(line, x, y += g.getFontMetrics().getHeight());
         }
-        //Set Bold an Italic
-        XWPFRun paragraphOneRunOne = paragraph.createRun();
-        paragraphOneRunOne.setBold(true);
-        //paragraphOneRunOne.setItalic(true);
+    }
 
-        paragraphOneRunOne.setFontSize(40);
-        paragraphOneRunOne.setText(entry.getVfName()+" "+entry.getVfOrigin());
-        paragraphOneRunOne.addBreak();
+    void initLabelsPositions(double width , double height)
+    {
 
-        //Set text Position
-        XWPFRun paragraphOneRunTwo = paragraph.createRun();
-        paragraphOneRunTwo.setFontSize(70);
-        paragraphOneRunTwo.setBold(true);
-        paragraphOneRunTwo.setText(price+"€");
-        paragraphOneRunTwo.addBreak();
+        labelPositions[0].x = (int)width/columns;
+        labelPositions[0].y = (int) ((height/rows)) ;
 
-        //Set Strike through and Font Size and Subscript
-        XWPFRun paragraphOneRunThree = paragraph.createRun();
-        paragraphOneRunThree.setFontSize(11);
-        paragraphOneRunThree.setText(entry.getVfNumber());
-        paragraphOneRunThree.addBreak();
+        labelPositions[1].x = (int) ((width/columns));
+        labelPositions[1].y = (int)( (10*(height/rows ))) ;
 
-        XWPFRun paragraphOneRunFour = paragraph.createRun();
-        paragraphOneRunFour.setFontSize(12);
-        paragraphOneRunFour.setText("");
-        paragraphOneRunFour.addBreak();
-        if(number%3==0){
-            paragraphOneRunFour.addBreak(BreakType.PAGE);
-        }
+        labelPositions[2].x = (int) ((width/columns));
+        labelPositions[2].y = (int)((18*(height/rows)) );
+
+        labelPositions[3].x = (int) ((width/columns));
+        labelPositions[3].y = (int) ((26*(height/rows)));
 
 
+        labelPositions[4].x = (int) (9 *(width/columns));
+        labelPositions[4].y = (int)((height/rows));
+
+        labelPositions[5].x = (int) (9 *(width/columns));
+        labelPositions[5].y = (int)( (10*(height/rows )) ) ;
+
+        labelPositions[6].x = (int) (9 *(width/columns));
+        labelPositions[6].y = (int)( (18*(height/rows))  );
+
+        labelPositions[7].x = (int) (9 *(width/columns));
+        labelPositions[7].y = (int)( (26*(height/rows)) );
 
     }
 
+    @Override
+    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+
+        String[] labels = doc.split("\n");
+
+        int totalPages = 0;
+        if (labels.length <= 8) {
+            totalPages = 1;
+        } else {
+            totalPages = (labels.length / 8) + 1;
+        }
+
+        if (pageIndex > totalPages-1) { /* We have only one page, and 'page' is zero-based */
+            return NO_SUCH_PAGE;
+        }
+
+        Graphics2D g2d = (Graphics2D) graphics;
+        initLabelsPositions(pageFormat.getImageableWidth(), pageFormat.getImageableHeight());
+
+        g2d.setPaint(Color.black);
+
+        for (int i = 0; i < labels.length; i++) { //for every label
+            int currLabelPos = i%8;
+            if((i / 8) == pageIndex) { //change page every 8 labels
+                String[] label =labels[i].split("%");
+
+                for (int line=0 ; line< label.length; line++ ) { //for every line of the current label
+
+                    if(line == label.length -1){ //last line
+
+                        g2d.setFont(new Font("Serif", Font.PLAIN | Font.BOLD, 8));
+
+                    }else if (label[line].contains("€")){ //line with price
+
+                        g2d.setFont(new Font("Serif", Font.PLAIN| Font.BOLD , 40));
+                        g2d.drawString(label[line],
+                                labelPositions[currLabelPos].x+ (int)(pageFormat.getImageableWidth()/8),
+                                labelPositions[currLabelPos].y += g2d.getFontMetrics().getHeight()
+                        );
+                        continue;
+                    }else{ //
+                        g2d.setFont(new Font("Serif", Font.PLAIN| Font.BOLD, 28));
+                        if(label[line].length()  > 12){ //cut product name inorder to fit inside the label.
+                            label[line] = label[line].substring(0,12);
+                        }
+                    }
+
+                    g2d.drawString(label[line],
+                                    labelPositions[currLabelPos].x+(int)(pageFormat.getImageableWidth()/16),
+                                    labelPositions[currLabelPos].y += g2d.getFontMetrics().getHeight()
+                                    );
+                }
+            }
+        }
+
+
+        /* tell the caller that this page is part of the printed document */
+        return PAGE_EXISTS;
+    }
+    class LabelPosition{
+        int x;
+        int y;
+
+        @Override
+        public String toString(){
+            return x +" "+ y;
+        }
+    }
 }

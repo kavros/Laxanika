@@ -128,10 +128,33 @@ public class Controller implements ActionListener,TableModelListener {
 
 	private void addPrintLabelsButtonListener(){
 		_printLabelsButton.addActionListener(e -> {
-			LabelPrinter labelPrinter = new LabelPrinter();
-			labelPrinter.printLabels(model.getVector().getVec());
 
-        });
+			LabelPrinter labelPrinter = new LabelPrinter();
+			String labels = "";
+			Vector<VFVectorEntry> vector = model.getVector().getVec();
+			for (int i = 0; i < vector.size(); ++i) {
+				VFVectorEntry entry = vector.get(i);
+				labels+=entry.getVfName()+"%"+
+						entry.getVfOrigin() + "%" +
+						entry.getVfFinalPrice()+"€"+ "%"+
+						entry.getVfNumber() + "\n";
+			}
+
+			labelPrinter.setDoc(labels);
+			PrinterJob job = PrinterJob.getPrinterJob();
+			job.setPrintable(labelPrinter);
+			boolean ok = job.printDialog();
+
+			if (ok) {
+				try {
+					job.print();
+				} catch (PrinterException ex) {
+					/* The job did not successfully complete */
+					ex.printStackTrace();
+				}
+			}
+
+		});
 	}
 
 	private void addPrintButtonListener() {
