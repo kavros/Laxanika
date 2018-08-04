@@ -719,4 +719,19 @@
       <profit>0.28</profit>
       <kef5Code>269</kef5Code>
    </element>
+<element>
+      <name>ΠΕΠΟΝΙΑ</name>
+      <profit>0.3</profit>
+      <kef5Code>370</kef5Code>
+   </element>
+<element>
+      <name>ΤΟΜΑΤΕΣ (ADMIRO)</name>
+      <profit>0.25</profit>
+      <kef5Code>2092</kef5Code>
+   </element>
+<element>
+      <name>ΒΕΡΥΚΟΚΑ</name>
+      <profit>0.3</profit>
+      <kef5Code>299</kef5Code>
+   </element>
 </products>
