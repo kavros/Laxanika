@@ -48,11 +48,16 @@ public class View {
 		JButton  addXmlButton      	= new JButton("Καταχώρηση",iconAdd);
 		JButton  deleteXmlButton	= new JButton("Διαγραφή",iconDelete);
 		JButton  editXmlButton 		= new JButton("Επεξεργασία",iconEdit);
+		JButton newLabel	   		= new JButton("Νέα Ταμπέλα",iconAdd);
+		JButton deleteLabel			= new JButton("Διαγραφή Ταμπέλας",iconDelete);
+		JButton printCustomLabels	= new JButton("Εκτύπωση");
+
 
 		//create and add JMenu items
 		JMenu fileMenu = new JMenu("Αρχείο");
 		JMenu editMenu = new JMenu("Επεξεργασία");
 		JMenu viewMenu = new JMenu("Προβολή");
+		JMenu createMenu = new JMenu("Δημιουργία");
 
 		JMenuItem openMi = new JMenuItem("Άνοιγμα", iconOpen);
 		JMenuItem exitMi = new JMenuItem("Έξοδος", iconExit);
@@ -60,14 +65,17 @@ public class View {
 		JMenuItem viewHistMi = new JMenuItem("Ιστορικό");
 		exitMi.setToolTipText("Έξοδος απο την εφαρμογή");
 		editListMi.setToolTipText("Επεξεργασία κωδικών και ποσοστών κέρδους για τα φρούτα και τα λαχανικά");
+		JMenuItem newLabelsMi = new JMenuItem("Ταμπελών");
 
 
 		fileMenu.add(openMi);
 		fileMenu.addSeparator();
 		fileMenu.add(exitMi);
 		fileMenu.add(viewMenu);
-		menubar.add(fileMenu);
+		createMenu.add(newLabelsMi);
 
+		menubar.add(fileMenu);
+		menubar.add(createMenu);
 		editMenu.add(editListMi);
 		menubar.add(editMenu);
 
@@ -107,6 +115,7 @@ public class View {
 		filterButton.setVisible(false);
 		printButton.setVisible(false);
 		printLabelsButton.setVisible(false);
+		printCustomLabels.setVisible(false);
 
 		ctrlPane.add(searchTermTextField);
 		ctrlPane.add(filterButton);
@@ -116,10 +125,15 @@ public class View {
 		ctrlPane.add(addXmlButton);
 		ctrlPane.add(editXmlButton);
 		ctrlPane.add(deleteXmlButton);
+		ctrlPane.add(newLabel);
+		ctrlPane.add(deleteLabel);
+		ctrlPane.add(printCustomLabels);
+
 		addXmlButton.setVisible(false);
 		editXmlButton.setVisible(false);
 		deleteXmlButton.setVisible(false);
-
+		newLabel.setVisible(false);
+		deleteLabel.setVisible(false);
 
 		JScrollPane tableScrollPane = new JScrollPane(table);
 		tableScrollPane.setPreferredSize(new Dimension(1000, 600));
@@ -146,8 +160,10 @@ public class View {
 		JTextField profitField = new JTextField(15);
 		JTextField kef5CodeField = new JTextField(15);
 
-
-
+		JTextField labelName 	= new JTextField(30);
+		JTextField labelPrice 	= new JTextField(5);
+		JTextField labelCode  	= new JTextField(30);
+		JTextField labelOrigin 	= new JTextField(30);
 
         // Create controller
         Controller controller = new Controller(searchTermTextField,
@@ -157,7 +173,14 @@ public class View {
 											kef5CodeField,
 											addXmlButton,
 											deleteXmlButton,
-				  							table,splitPane,printButton,exitMi,viewHistMi,printLabelsButton);
+				  							table,splitPane,
+											printButton,exitMi,
+											viewHistMi,printLabelsButton,
+											newLabelsMi,
+											newLabel,deleteLabel,
+											labelName,labelPrice,
+											labelCode,printCustomLabels,
+											labelOrigin);
 
         filterButton.addActionListener(controller);
 		table.getModel().addTableModelListener(controller);

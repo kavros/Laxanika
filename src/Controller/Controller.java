@@ -35,7 +35,8 @@ public class Controller implements ActionListener,TableModelListener {
 		editListMode,
 		priceMode,
 		emptyWindow,
-		historyMode
+		historyMode,
+		PrintCustomLabels
 	}
 	public static CurrentMode _viewMode = CurrentMode.emptyWindow;;
 	private JTextField _searchTermTextField;// = new JTextField(26);
@@ -60,9 +61,18 @@ public class Controller implements ActionListener,TableModelListener {
 	JSplitPane _mainPane;
 	private String fileName = null;
 	private JMenuItem _viewHistMi;
-	private JButton _printLabelsButton;
-
+	private JMenuItem _newLabelsMi;
+	private JButton _printLabels;
+	private JButton _addLabel;
+	private JButton _deleteLabel;
+	private Object[]  _labelFields;
     History hist ;
+	JTextField _labelName;
+	JTextField _labelPrice;
+	JTextField _labelCode;
+	JTextField _labelOrigin;
+	JButton _printCustomLabels;
+
 
 	public Controller(JTextField searchTermTextField,
 					  JMenuItem openM,
@@ -80,7 +90,15 @@ public class Controller implements ActionListener,TableModelListener {
 					  JButton printButton,
 					  JMenuItem exitMi,
 					  JMenuItem viewHistMi,
-					  JButton printLabelsButton) {
+					  JButton printLabelsButton,
+					  JMenuItem newLabelsMi,
+					  JButton addLabel,
+					  JButton deleteLabel,
+					  JTextField labelName,
+					  JTextField labelPrice,
+					  JTextField labelCode,
+					  JButton printCustomLabels,
+					  JTextField labelOrigin) {
 		super();
 		this._searchTermTextField = searchTermTextField;
 		openMi = openM;
@@ -97,7 +115,8 @@ public class Controller implements ActionListener,TableModelListener {
 				"Κέρδος", profitField,
 				"Κωδικός", kef5CodeField};
 		_desiredProfit = new JTextField(5);
-
+		_labelFields = new Object[]{"Όνομα",labelName,"Προέλευση",labelOrigin,"Τιμή",labelPrice,"Κωδικός Τιμολογίου",labelCode};
+		_printCustomLabels = printCustomLabels;
 
 		_exitMi = exitMi;
 		_addXmlButton = addXmlButton;
@@ -105,14 +124,20 @@ public class Controller implements ActionListener,TableModelListener {
 
 		_mainPane = mainPane;
 
-
+		_newLabelsMi = newLabelsMi;
 
 		_printButton = printButton;
 		_viewHistMi      =viewHistMi;
 
 		_searchTermTextField.setVisible(false);
 		_filterButton.setVisible(false);
-		_printLabelsButton = printLabelsButton;
+		_printLabels = printLabelsButton;
+		_addLabel=addLabel;
+		_deleteLabel=deleteLabel;
+		_labelName = labelName;
+		_labelPrice = labelPrice;
+		_labelCode =labelCode;
+		_labelOrigin = labelOrigin;
 
         hist =model.getHistory();
 		//init actions listeners
@@ -124,10 +149,90 @@ public class Controller implements ActionListener,TableModelListener {
 		addDragAndDropListener();
 		addPrintButtonListener();
 		addPrintLabelsButtonListener();
+		addLabelsListener();
+	}
+
+	private void deactivateButtons()
+	{
+		_searchTermTextField.setVisible(false);
+		_filterButton.setVisible(false);
+		_updateButton.setVisible(false);
+		_printButton.setVisible(false);
+		_printLabels.setVisible(false);
+		_addXmlButton.setVisible(false);
+		_deleteXmlButton.setVisible(false);
+		_addLabel.setVisible(false);
+		_deleteLabel.setVisible(false);
+		_printCustomLabels.setVisible(false);
+	}
+	private void addLabelsListener()
+	{
+		_newLabelsMi.addActionListener(e -> {
+			_viewMode  = CurrentMode.PrintCustomLabels;
+
+			deactivateButtons();
+
+			_addLabel.setVisible(true);
+			_deleteLabel.setVisible(true);
+			_printCustomLabels.setVisible(true);
+
+			model.setRowCount(0);
+			model.setColumnIdentifiers(new Object[]{""});
+
+		});
+
+		_addLabel.addActionListener(e-> {
+			int result = JOptionPane.showConfirmDialog(null, _labelFields,
+					"Εισαγωγή Προϊόντος", JOptionPane.OK_CANCEL_OPTION);
+			if (result == JOptionPane.OK_OPTION) {
+				model.setColumnIdentifiers(Constants.LABELS_TABLE_HEADER);
+				model.addRow(new Object[]{_labelName.getText().toUpperCase(),_labelOrigin.getText().toUpperCase(),
+										 _labelPrice.getText().toUpperCase(),_labelCode.getText().toUpperCase()});
+
+			}
+
+		});
+
+		_deleteLabel.addActionListener(e -> {
+			model.removeRow(_table.getSelectedRow());
+		});
+
+		_printCustomLabels.addActionListener(e->{
+			String labelsContent = "";
+			for(int i=0; i < model.getRowCount(); i++){
+				String labelName = (String)model.getValueAt(i,0);
+				String labelOrigin = (String)model.getValueAt(i,1);
+				String labelPrice = (String)model.getValueAt(i,2);
+				if(!labelPrice.isEmpty()){
+					labelPrice+="€";
+				}
+				String labelCode = (String)model.getValueAt(i,3);
+
+				labelsContent+=labelName+"%"+labelOrigin+"%"+labelPrice+"%"+labelCode+"\n";
+			}
+			labelsContent = labelsContent.toUpperCase();
+
+			LabelPrinter labelPrinter = new LabelPrinter();
+
+			labelPrinter.setDoc(labelsContent);
+			PrinterJob job = PrinterJob.getPrinterJob();
+			job.setPrintable(labelPrinter);
+			boolean ok = job.printDialog();
+
+			if (ok) {
+				try {
+					job.print();
+				} catch (PrinterException ex) {
+					/* The job did not successfully complete */
+					ex.printStackTrace();
+				}
+			}
+
+		});
 	}
 
 	private void addPrintLabelsButtonListener(){
-		_printLabelsButton.addActionListener(e -> {
+		_printLabels.addActionListener(e -> {
 
 			LabelPrinter labelPrinter = new LabelPrinter();
 			String labels = "";
@@ -237,17 +342,15 @@ public class Controller implements ActionListener,TableModelListener {
 		}
 
 		//make necessary components visible
-		//_searchTermTextField.setVisible(true);
-		//_filterButton.setVisible(true);
+		deactivateButtons();
 		_updateButton.setVisible(true);
 		_printButton.setVisible(true);
 
 		_searchTermTextField.setVisible(true);
 		_filterButton.setVisible(true);
-		_printLabelsButton.setVisible(true);
+		_printLabels.setVisible(true);
 
-		_addXmlButton.setVisible(false);
-		_deleteXmlButton.setVisible(false);
+
 
 		//updates every entry on vector
 		//with the right value for kef5code and final price.
@@ -331,13 +434,12 @@ public class Controller implements ActionListener,TableModelListener {
 			_viewMode = CurrentMode.editListMode;
 
 			model.setRowCount(0);
+			deactivateButtons();
 
 			//make necessary components invisible
 			_searchTermTextField.setVisible(true);
 			_filterButton.setVisible(true);
-			_updateButton.setVisible(false);
-			_printButton.setVisible(false);
-			_printLabelsButton.setVisible(false);
+
 
 			model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
 			model.updateModelWithHash();
@@ -352,15 +454,8 @@ public class Controller implements ActionListener,TableModelListener {
 			//clear array
 			model.setRowCount(0);
 
-			//make necessary components invisible
-			if(_viewMode == CurrentMode.priceMode) {
-				_updateButton.setVisible(false);
-				_printButton.setVisible(false);
-				_printLabelsButton.setVisible(false);
-			}else if(_viewMode == CurrentMode.editListMode){
-				_addXmlButton.setVisible(false);
-				_deleteXmlButton.setVisible(false);
-			}
+			deactivateButtons();
+
 			_searchTermTextField.setVisible(true);
 			_filterButton.setVisible(true);
 
@@ -581,7 +676,6 @@ public class Controller implements ActionListener,TableModelListener {
 
 		});
 	}
-
 
 	private void addXmlButtonListener() {
 		_addXmlButton.addActionListener(e -> {
