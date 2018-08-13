@@ -100,7 +100,7 @@ public class LabelPrinter implements Printable {
 
                     }else if (label[line].contains("€")){ //line with price
 
-                        g2d.setFont(new Font("Serif", Font.PLAIN| Font.BOLD , 40));
+                        g2d.setFont(new Font("Serif", Font.PLAIN| Font.BOLD , 45));
                         g2d.drawString(label[line],
                                 labelPositions[currLabelPos].x+ (int)(pageFormat.getImageableWidth()/8),
                                 labelPositions[currLabelPos].y += g2d.getFontMetrics().getHeight()
