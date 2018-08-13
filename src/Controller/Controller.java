@@ -262,9 +262,10 @@ public class Controller implements ActionListener,TableModelListener {
 								JOptionPane.ERROR_MESSAGE);
 						ex.printStackTrace();
 					}
+
 					labels += entry.getVfName() + "%" +
 							entry.getVfOrigin() + "%" +
-							price + "€" + "%" +
+							String.format(	"%.2f",price ) + "€" + "%" +
 							entry.getVfNumber() + "\n";
 				}
 
