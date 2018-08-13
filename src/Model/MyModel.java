@@ -127,14 +127,16 @@ public class MyModel extends DefaultTableModel {
 	}
 
 	public  ArrayList<String > updateKef5Prices() throws SQLException{
-		for (int i = 0; i < _data.getVec().size(); ++i) {
+		//the commented code generate problems with trace files at results directory.
+		/*for (int i = 0; i < _data.getVec().size(); ++i) {
 			VFVectorEntry entry = _data.getVec().get(i);
-			/*if(entry.isUpdateNeeded == true){
+
+			if(entry.isUpdateNeeded == true){
 
 				entry.kef5_price = entry.vf_final_price;
 				setValueAt(entry.getVfFinalPrice(),i,3);
-			}*/
-		}
+			}
+		}*/
 		return _data.updateKef5Prices();
 	}
 

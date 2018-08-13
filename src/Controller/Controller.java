@@ -234,16 +234,31 @@ public class Controller implements ActionListener,TableModelListener {
 	private void addPrintLabelsButtonListener(){
 		_printLabels.addActionListener(e -> {
 
-			LabelPrinter labelPrinter = new LabelPrinter();
-			String labels = "";
-			Vector<VFVectorEntry> vector = model.getVector().getVec();
-			for (int i = 0; i < vector.size(); ++i) {
-				VFVectorEntry entry = vector.get(i);
-				labels+=entry.getVfName()+"%"+
-						entry.getVfOrigin() + "%" +
-						entry.getVfFinalPrice()+"€"+ "%"+
-						entry.getVfNumber() + "\n";
-			}
+				LabelPrinter labelPrinter = new LabelPrinter();
+				String labels = "";
+				VFKef5DataBase dataBase = new VFKef5DataBase();
+				Vector<VFVectorEntry> vector = model.getVector().getVec();
+
+				for (int i = 0; i < vector.size(); ++i) {
+					VFVectorEntry entry = vector.get(i);
+					String query = "select sRetailPr  from dbo.smast where sCode=" + "'" + entry.getKef5Code() + "'" + ";";
+					Double price = null;
+					try{
+						price = Double.parseDouble(dataBase.getFromDatabase(query));
+					}catch (Exception ex){
+						MessageDialog msg = new MessageDialog();
+						msg.showMessageDialog(
+								"Δεν βρέθηκαν τιμή για το προϊόν "+ entry.getVfName(), "Error",
+								JOptionPane.ERROR_MESSAGE);
+						ex.printStackTrace();
+					}
+					labels += entry.getVfName() + "%" +
+							entry.getVfOrigin() + "%" +
+							price + "€" + "%" +
+							entry.getVfNumber() + "\n";
+				}
+
+
 
 			labelPrinter.setDoc(labels);
 			PrinterJob job = PrinterJob.getPrinterJob();
