@@ -92,13 +92,15 @@ public class View {
 				switch (column) {
 					case 6:
 						return Boolean.class;
+					case 7:
+						return Boolean.class;
 					default:
 						return String.class;
 				}
 			}
 			@Override
 			public boolean isCellEditable(int row, int column) {
-                return column == 6;//editXmlButton.isVisible() || column >= 5;
+                return (column == 6 || column == 7);//editXmlButton.isVisible() || column >= 5;
 
             }
 		};

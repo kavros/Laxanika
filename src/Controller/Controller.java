@@ -241,6 +241,10 @@ public class Controller implements ActionListener,TableModelListener {
 
 				for (int i = 0; i < vector.size(); ++i) {
 					VFVectorEntry entry = vector.get(i);
+
+					if(entry.getIsPrintNeeded()== false){
+						continue;
+					}
 					String query = "select sRetailPr  from dbo.smast where sCode=" + "'" + entry.getKef5Code() + "'" + ";";
 					Double price = null;
 					try{
@@ -812,11 +816,14 @@ public class Controller implements ActionListener,TableModelListener {
 				tableData[i][j] = dtm.getValueAt(i,j);
 		return tableData;
 	}
+
 	public void tableChanged(TableModelEvent e) {
 		int row = e.getFirstRow();
 		int column = e.getColumn();
-		int BOOLEAN_COLUMN = 6;
-		if (column == BOOLEAN_COLUMN) {
+		int BOOLEAN_COLUMN_FOR_KEF5_UPDATES = 6;
+		int BOOLEAN_COLUMN_FOR_LABELS=7;
+
+		if (column == BOOLEAN_COLUMN_FOR_KEF5_UPDATES) {
 			//TableModel model    = (TableModel) e.getSource();
 			String vf_name = (String) model.getValueAt(row, 0);
 			Boolean checked = (Boolean) model.getValueAt(row, column);
@@ -825,8 +832,28 @@ public class Controller implements ActionListener,TableModelListener {
 			if (!isUpdateDone) {
 				System.err.println("Error: Vegetable or fruit name does not in vector can not updated !");
 			}
+		}else if(column == BOOLEAN_COLUMN_FOR_LABELS) {
+			String vf_name = (String) model.getValueAt(row, 0);
+			Boolean val = (Boolean) model.getValueAt(row, column);
+			Vector<VFVectorEntry> vec = model.getVector().getVec();
+			boolean found = false;
+			for(int i =0; i < vec.size(); ++i) {
+				if(vec.get(i).getVfName().equals(vf_name)){
+					vec.get(i).setPrintNeeded(val);
+					found = true;
+					//System.out.println(vec.get(i).getIsPrintNeeded());
+					//System.out.println(vec.get(i).getVfName());
+
+				}
+				if(found){
+					break;
+				}
+			}
+
+
 
 		}
+
 	}
 
 	public void showHistory(){

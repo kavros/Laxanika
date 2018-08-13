@@ -17,6 +17,10 @@ public class VFVectorEntry {
     double vf_final_price;
 
     boolean isUpdateNeeded;
+
+
+
+    boolean isPrintNeeded;
     String  kef5_code;
     double  kef5_price;
 
@@ -94,5 +98,13 @@ public class VFVectorEntry {
                 +"Παλιά τιμή στο Kefalaio 5: "+kef5_price+"\n"
                 +"Νέα τιμή στο Kefalaio 5: "+vf_final_price;
 
+    }
+
+    public boolean getIsPrintNeeded() {
+        return isPrintNeeded;
+    }
+
+    public void setPrintNeeded(boolean printNeeded) {
+        isPrintNeeded = printNeeded;
     }
 }
