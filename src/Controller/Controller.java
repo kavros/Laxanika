@@ -182,6 +182,12 @@ public class Controller implements ActionListener,TableModelListener {
 		});
 
 		_addLabel.addActionListener(e-> {
+
+			_labelCode.setText("");
+			_labelName.setText("");
+			_labelOrigin.setText("");
+			_labelPrice.setText("");
+
 			int result = JOptionPane.showConfirmDialog(null, _labelFields,
 					"Εισαγωγή Προϊόντος", JOptionPane.OK_CANCEL_OPTION);
 			if (result == JOptionPane.OK_OPTION) {
