@@ -69,8 +69,8 @@ public class MyModel extends DefaultTableModel {
 
 		profit = profit *100;
 
-		//
 		return  new Object[]{
+				false,
 				_data.getVec().get(i).vf_name,
 				String.valueOf(profit)+"%",
 				_data.getVec().get(i).vf_price,
@@ -79,6 +79,7 @@ public class MyModel extends DefaultTableModel {
 				_data.getVec().get(i).actual_profit,
 				false
 		};
+
 
 	}
 

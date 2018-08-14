@@ -25,6 +25,7 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.text.StyledEditorKit;
 
 import Model.*;
 import Model.Printer;
@@ -38,6 +39,7 @@ public class Controller implements ActionListener,TableModelListener {
 		historyMode,
 		PrintCustomLabels
 	}
+
 	public static CurrentMode _viewMode = CurrentMode.emptyWindow;;
 	private JTextField _searchTermTextField;// = new JTextField(26);
 	private JMenuItem openMi;
@@ -72,7 +74,6 @@ public class Controller implements ActionListener,TableModelListener {
 	JTextField _labelCode;
 	JTextField _labelOrigin;
 	JButton _printCustomLabels;
-
 
 	public Controller(JTextField searchTermTextField,
 					  JMenuItem openM,
@@ -371,9 +372,6 @@ public class Controller implements ActionListener,TableModelListener {
 		deactivateButtons();
 		_updateButton.setVisible(true);
 		_printButton.setVisible(true);
-
-		_searchTermTextField.setVisible(true);
-		_filterButton.setVisible(true);
 		_printLabels.setVisible(true);
 
 
@@ -391,13 +389,14 @@ public class Controller implements ActionListener,TableModelListener {
 
 		//add columns names
 		model.setColumnIdentifiers(Constants.VF_TABLE_HEADER);
-		_table.getColumnModel().getColumn(0).setPreferredWidth(200);
+		_table.getColumnModel().getColumn(1).setPreferredWidth(200);
 
 		//initialize history variables
 		String currInvoiceDate = model.getVector().getDate();
         for (int i = 0; i < model.getVector().getSize(); ++i) {
 			//add rows to the model.
 			model.addRow(model.getVectorRow(i));
+
         }
 
 		//update history
@@ -416,13 +415,13 @@ public class Controller implements ActionListener,TableModelListener {
 
 				Vector<VFVectorEntry> vec = model.getVector().getVec();
 				Vector<Integer> RowsWithHigherPrices = new Vector();
-
 				for (int i = 0; i < vec.size(); ++i) {
 					String name = vec.get(i).getVfName();
 					if (vec.get(i).getVfFinalPrice() > vec.get(i).getKef5Price()) {
 						for (int j = 0; j < model.getVector().getSize(); ++j) {
 							Object[] o = model.getVectorRow(j);
-							if (o[0].equals(name)) {
+							if (o[1].equals(name)) {
+
 								RowsWithHigherPrices.add(j);
 							}
 						}
@@ -466,7 +465,6 @@ public class Controller implements ActionListener,TableModelListener {
 			_searchTermTextField.setVisible(true);
 			_filterButton.setVisible(true);
 
-
 			model.setColumnIdentifiers(Constants.PRODUCTS_TABLE_HEADER);
 			model.updateModelWithHash();
 
@@ -488,7 +486,7 @@ public class Controller implements ActionListener,TableModelListener {
 			//change mode
 			_viewMode = CurrentMode.historyMode;
 
-			//model.setColumnIdentifiers(Constants.HISTORY_TABLE_HEADER);
+			model.setColumnIdentifiers(Constants.HISTORY_TABLE_HEADER);
 			model.updateModelWithHistory();
 
 		});
@@ -501,13 +499,13 @@ public class Controller implements ActionListener,TableModelListener {
 		_table.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent mouseEvent) {
 				if (mouseEvent.getClickCount() == 2) {
-					if (_table.getSelectedColumn() == 5) {
+					if (_table.getSelectedColumn() == 6) {
 						editProfit();
 					} else if ((_viewMode == CurrentMode.priceMode.editListMode) && _table.getSelectedColumn() == 1) {
 						editProfitPercentage();
 					} else if ((_viewMode == CurrentMode.priceMode.editListMode)  && _table.getSelectedColumn() == 2) {
 						editKef5Code();
-					} else if((_viewMode == CurrentMode.priceMode.priceMode)  && _table.getSelectedColumn() == 0){
+					} else if((_viewMode == CurrentMode.priceMode.priceMode)  && _table.getSelectedColumn() == 1){
 						showHistory();
 					}
 
@@ -575,7 +573,7 @@ public class Controller implements ActionListener,TableModelListener {
 		}
 		_desiredProfit.setText("");
 
-		String name = (String) model.getValueAt(_table.getSelectedRow(), 0);
+		String name = (String) model.getValueAt(_table.getSelectedRow(), 1);
 		_editFields = new Object[]{"Δώστε το επιθυμιτό κέρδος σε χρήματα  για το προϊόν: " + name, _desiredProfit};
 		int result = JOptionPane.showConfirmDialog(null, _editFields,
 				"Κέρδος", JOptionPane.OK_CANCEL_OPTION);
@@ -592,8 +590,8 @@ public class Controller implements ActionListener,TableModelListener {
 						vectorEntry.updateActualProfit(desProf);
 						int row = _table.getSelectedRow();
 
-						_table.setValueAt(vectorEntry.getActualProfit(), row, 5);
-						_table.setValueAt(vectorEntry.getVfFinalPrice(), row, 4);
+						_table.setValueAt(vectorEntry.getActualProfit(), row, 6);
+						_table.setValueAt(vectorEntry.getVfFinalPrice(), row, 5);
 
 						break;
 					}
@@ -827,12 +825,12 @@ public class Controller implements ActionListener,TableModelListener {
 	public void tableChanged(TableModelEvent e) {
 		int row = e.getFirstRow();
 		int column = e.getColumn();
-		int BOOLEAN_COLUMN_FOR_KEF5_UPDATES = 6;
-		int BOOLEAN_COLUMN_FOR_LABELS=7;
+		int BOOLEAN_COLUMN_FOR_KEF5_UPDATES =7;
+		int BOOLEAN_COLUMN_FOR_LABELS=0;
 
 		if (column == BOOLEAN_COLUMN_FOR_KEF5_UPDATES) {
 			//TableModel model    = (TableModel) e.getSource();
-			String vf_name = (String) model.getValueAt(row, 0);
+			String vf_name = (String) model.getValueAt(row, 1);
 			Boolean checked = (Boolean) model.getValueAt(row, column);
 
 			boolean isUpdateDone = model.getVector().updateVectorValueUpdateNeeded(vf_name, checked);
@@ -840,7 +838,7 @@ public class Controller implements ActionListener,TableModelListener {
 				System.err.println("Error: Vegetable or fruit name does not in vector can not updated !");
 			}
 		}else if(column == BOOLEAN_COLUMN_FOR_LABELS) {
-			String vf_name = (String) model.getValueAt(row, 0);
+			String vf_name = (String) model.getValueAt(row, 1);
 			Boolean val = (Boolean) model.getValueAt(row, column);
 			Vector<VFVectorEntry> vec = model.getVector().getVec();
 			boolean found = false;
@@ -865,7 +863,7 @@ public class Controller implements ActionListener,TableModelListener {
 
 	public void showHistory(){
 
-		String vf_name = (String) model.getValueAt(_table.getSelectedRow(), 0);
+		String vf_name = (String) model.getValueAt(_table.getSelectedRow(), 1);
         String kef5Code = model.getVFHashMap().get(vf_name).getKef5Code();
 		String pr = null;
 		for(int i =0; i < hist.getHistoryVector().size(); i++){

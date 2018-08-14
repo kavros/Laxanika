@@ -89,19 +89,26 @@ public class View {
 		table = new JTable(model){
 			@Override
 			public Class getColumnClass(int column) {
-				switch (column) {
-					case 6:
-						return Boolean.class;
-					case 7:
-						return Boolean.class;
-					default:
-						return String.class;
+				if(Controller._viewMode == Controller.CurrentMode.priceMode) {
+					switch (column) {
+						case 0:
+							return Boolean.class;
+						case 7:
+							return Boolean.class;
+						default:
+							return String.class;
+					}
+				}else {
+					return String.class;
 				}
 			}
 			@Override
 			public boolean isCellEditable(int row, int column) {
-                return (column == 6 || column == 7);//editXmlButton.isVisible() || column >= 5;
-
+                if(Controller._viewMode == Controller.CurrentMode.priceMode) {
+					return (column == 7 || column == 0);//editXmlButton.isVisible() || column >= 5;
+				}else {
+					return false;
+				}
             }
 		};
 		table.setFont(new Font("Serif", Font.PLAIN, 20));
