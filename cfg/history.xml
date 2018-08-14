@@ -1,5 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><history>
-<date>8/2/18 06:31</date>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<history>
+<date>10/8/18 06:17</date>
+ <date>8/8/18 06:53</date>
+ <date>9/8/18 11:22</date>
+ <date>13/8/18 10:07</date>
+ <date>8/2/18 06:31</date>
  <date>31/1/18 06:11</date>
  <date>29/1/18 09:25</date>
  <date>14/2/18 08:40</date>
@@ -32,30 +37,30 @@
 <product>
           <name>ΑΓΓΟΥΡΙΑ ΚΝΩΣΣΟΥ</name>
           <kef5Code>2099</kef5Code>
-          <price1 date="5/2/18 08:37">2.4</price1>
-          <price2 date="29/1/18 09:25">1.45</price2>
-          <price3 date="31/1/18 06:11">1.62</price3>
+          <price1 date="31/1/18 06:11">1.62</price1>
+          <price2 date="13/8/18 10:07">1.41</price2>
+          <price3 date="9/8/18 11:22">1.41</price3>
      </product>
 <product>
           <name>ΚΟΥΝΟΥΠΙΔΙ</name>
           <kef5Code>2109</kef5Code>
-          <price1 date="12/4/18 06:22">1.37</price1>
-          <price2 date="16/4/18 07:11">1.37</price2>
-          <price3 date="5/5/18 06:02">2.44</price3>
+          <price1 date="16/4/18 07:11">1.37</price1>
+          <price2 date="5/5/18 06:02">2.44</price2>
+          <price3 date="13/8/18 10:07">1.75</price3>
      </product>
 <product>
           <name>ΛΑΧΑΝΟ ΚΟΚΚΙΝΟ</name>
           <kef5Code>2115</kef5Code>
-          <price1 date="24/2/18 07:17">0.69</price1>
-          <price2 date="29/1/18 09:25">0.69</price2>
-          <price3 date="31/1/18 06:11">0.69</price3>
+          <price1 date="29/1/18 09:25">0.69</price1>
+          <price2 date="31/1/18 06:11">0.69</price2>
+          <price3 date="13/8/18 10:07">0.76</price3>
      </product>
 <product>
           <name>ΣΑΛΑΤΑ ΛΟΛΑ ΠΡΑΣΙΝΗ</name>
           <kef5Code>325</kef5Code>
-          <price1 date="14/2/18 08:40">0.64</price1>
-          <price2 date="29/1/18 09:25">0.64</price2>
-          <price3 date="31/1/18 06:11">0.64</price3>
+          <price1 date="13/8/18 10:07">0.64</price1>
+          <price2 date="9/8/18 11:22">0.64</price2>
+          <price3 date="10/8/18 06:17">0.64</price3>
      </product>
 <product>
           <name>ΑΝΤΙΔΙΑ</name>
@@ -67,37 +72,37 @@
 <product>
           <name>ΜΕΛΙΤΖΑΝΕΣ ΦΛΑΣΚΕΣ</name>
           <kef5Code>2081</kef5Code>
-          <price1 date="5/5/18 06:02">1.48</price1>
-          <price2 date="29/1/18 09:25">1.62</price2>
-          <price3 date="31/1/18 06:11">1.62</price3>
+          <price1 date="13/8/18 10:07">0.92</price1>
+          <price2 date="9/8/18 11:22">0.99</price2>
+          <price3 date="10/8/18 06:17">0.99</price3>
      </product>
 <product>
           <name>ΑΒΟΚΑΝΤΟ</name>
           <kef5Code>190</kef5Code>
-          <price1 date="26/2/18 06:56">3.38</price1>
-          <price2 date="5/2/18 08:37">3.38</price2>
-          <price3 date="29/1/18 09:25">3.38</price3>
+          <price1 date="13/8/18 10:07">3.38</price1>
+          <price2 date="9/8/18 11:22">3.38</price2>
+          <price3 date="8/8/18 06:53">3.38</price3>
      </product>
 <product>
           <name>ΑΧΛΑΔΙΑ ΚΡΥΣΤΑΛΛΙΑ</name>
           <kef5Code>293</kef5Code>
-          <price1 date="26/2/18 06:56">2.5</price1>
-          <price2 date="30/1/18 06:18">2.57</price2>
-          <price3 date="1/2/18 06:52">1.91</price3>
+          <price1 date="30/1/18 06:18">2.57</price1>
+          <price2 date="1/2/18 06:52">1.91</price2>
+          <price3 date="10/8/18 06:17">2.57</price3>
      </product>
 <product>
           <name>ΜΠΑΝΑΝΕΣ</name>
           <kef5Code>400</kef5Code>
-          <price1 date="14/2/18 08:40">1.69</price1>
-          <price2 date="29/1/18 09:25">1.69</price2>
-          <price3 date="31/1/18 06:11">1.69</price3>
+          <price1 date="31/1/18 06:11">1.69</price1>
+          <price2 date="13/8/18 10:07">1.66</price2>
+          <price3 date="9/8/18 11:22">1.66</price3>
      </product>
 <product>
           <name>ΦΡΑΟΥΛΕΣ</name>
           <kef5Code>290</kef5Code>
-          <price1 date="5/5/18 06:02">3.96</price1>
-          <price2 date="14/7/18 06:28">13.13</price2>
-          <price3 date="26/2/18 06:56">5.54</price3>
+          <price1 date="14/7/18 06:28">13.13</price1>
+          <price2 date="26/2/18 06:56">5.54</price2>
+          <price3 date="9/8/18 11:22">7.59</price3>
      </product>
 <product>
           <name>ΤΟΜΑΤΙΝΙΑ</name>
@@ -116,9 +121,9 @@
 <product>
           <name>ΠΑΝΤΖΑΡΙΑ</name>
           <kef5Code>555</kef5Code>
-          <price1 date="1/2/18 06:52">1.14</price1>
-          <price2 date="5/2/18 08:37">1.14</price2>
-          <price3 date="14/2/18 08:40">1.14</price3>
+          <price1 date="5/2/18 08:37">1.14</price1>
+          <price2 date="14/2/18 08:40">1.14</price2>
+          <price3 date="8/8/18 06:53">1.07</price3>
      </product>
 <product>
           <name>ΠΙΠΕΡΙΕΣ ΚΕΡΑΤΟ</name>
@@ -130,9 +135,9 @@
 <product>
           <name>ΣΠΑΝΑΚΙ</name>
           <kef5Code>321</kef5Code>
-          <price1 date="14/2/18 08:40">1.68</price1>
-          <price2 date="29/1/18 09:25">1.68</price2>
-          <price3 date="31/1/18 06:11">1.68</price3>
+          <price1 date="9/8/18 11:22">2.14</price1>
+          <price2 date="8/8/18 06:53">2.14</price2>
+          <price3 date="10/8/18 06:17">2.14</price3>
      </product>
 <product>
           <name>ΣΤΑΜΝΑΓΚΑΘΙ</name>
@@ -165,9 +170,9 @@
 <product>
           <name>ΚΑΡΟΤΑ</name>
           <kef5Code>2107</kef5Code>
-          <price1 date="5/2/18 08:37">0.79</price1>
-          <price2 date="14/2/18 08:40">0.79</price2>
-          <price3 date="29/1/18 09:25">0.82</price3>
+          <price1 date="29/1/18 09:25">0.82</price1>
+          <price2 date="13/8/18 10:07">1.11</price2>
+          <price3 date="9/8/18 11:22">1.11</price3>
      </product>
 <product>
           <name>ΜΠΡΟΚΟΛΟ</name>
@@ -179,16 +184,16 @@
 <product>
           <name>ΤΟΜΑΤΕΣ LONG LIFE</name>
           <kef5Code>2092</kef5Code>
-          <price1 date="26/2/18 06:56">0.96</price1>
-          <price2 date="1/2/18 06:52">0.92</price2>
-          <price3 date="27/2/18 06:39">0.92</price3>
+          <price1 date="13/8/18 10:07">1.1</price1>
+          <price2 date="9/8/18 11:22">1.34</price2>
+          <price3 date="8/8/18 06:53">1.06</price3>
      </product>
 <product>
           <name>ΠΑΤΑΤΕΣ</name>
           <kef5Code>2085</kef5Code>
-          <price1 date="12/7/18 06:48">0.78</price1>
-          <price2 date="6/2/18 06:57">0.68</price2>
-          <price3 date="14/2/18 08:40">0.64</price3>
+          <price1 date="13/8/18 10:07">0.82</price1>
+          <price2 date="8/8/18 06:53">0.78</price2>
+          <price3 date="10/8/18 06:17">0.78</price3>
      </product>
 <product>
           <name>ΣΕΛΙΝΟΡΙΖΑ</name>
@@ -200,37 +205,37 @@
 <product>
           <name>ΑΝΑΝΑΣ</name>
           <kef5Code>284</kef5Code>
-          <price1 date="6/4/18 06:28">1.84</price1>
-          <price2 date="16/4/18 07:11">1.84</price2>
-          <price3 date="30/4/18 07:45">1.84</price3>
+          <price1 date="16/4/18 07:11">1.84</price1>
+          <price2 date="30/4/18 07:45">1.84</price2>
+          <price3 date="13/8/18 10:07">1.69</price3>
      </product>
 <product>
           <name>ΚΟΛΟΚΥΘΙΑ</name>
           <kef5Code>2108</kef5Code>
-          <price1 date="27/2/18 06:39">1.91</price1>
-          <price2 date="14/2/18 08:40">2.67</price2>
-          <price3 date="29/1/18 09:25">1.83</price3>
+          <price1 date="13/8/18 10:07">1.45</price1>
+          <price2 date="8/8/18 06:53">1.07</price2>
+          <price3 date="10/8/18 06:17">1.37</price3>
      </product>
 <product>
           <name>ΜΑΡΟΥΛΙΑ</name>
           <kef5Code>84</kef5Code>
-          <price1 date="14/2/18 08:40">0.53</price1>
-          <price2 date="29/1/18 09:25">0.53</price2>
-          <price3 date="31/1/18 06:11">0.53</price3>
+          <price1 date="31/1/18 06:11">0.53</price1>
+          <price2 date="13/8/18 10:07">0.5</price2>
+          <price3 date="9/8/18 11:22">0.5</price3>
      </product>
 <product>
           <name>ΠΙΠΕΡΙΕΣ ΦΛΑΣΚΕΣ</name>
           <kef5Code>347</kef5Code>
-          <price1 date="27/2/18 06:39">2.4</price1>
-          <price2 date="14/2/18 08:40">2.75</price2>
-          <price3 date="31/1/18 06:11">1.91</price3>
+          <price1 date="31/1/18 06:11">1.91</price1>
+          <price2 date="13/8/18 10:07">0.99</price2>
+          <price3 date="10/8/18 06:17">0.99</price3>
      </product>
 <product>
           <name>ΠΙΠΕΡΙΕΣ ΠΟΛΥΧΡΩΜΕΣ</name>
           <kef5Code>348</kef5Code>
-          <price1 date="1/2/18 06:52">2.83</price1>
-          <price2 date="1/2/18 06:52">4.1</price2>
-          <price3 date="29/1/18 09:25">4.52</price3>
+          <price1 date="29/1/18 09:25">4.52</price1>
+          <price2 date="13/8/18 10:07">2.4</price2>
+          <price3 date="8/8/18 06:53">2.75</price3>
      </product>
 <product>
           <name>ΜΑΝΤΑΡΙΝΙΑ</name>
@@ -249,23 +254,23 @@
 <product>
           <name>ΜΑΙΝΤΑΝΟΣ</name>
           <kef5Code>149</kef5Code>
-          <price1 date="26/2/18 06:56">0.4</price1>
-          <price2 date="1/2/18 06:52">0.4</price2>
-          <price3 date="5/2/18 08:37">0.4</price3>
+          <price1 date="9/8/18 11:22">0.4</price1>
+          <price2 date="8/8/18 06:53">0.4</price2>
+          <price3 date="10/8/18 06:17">0.4</price3>
      </product>
 <product>
           <name>ΑΓΓΟΥΡΙΑ</name>
           <kef5Code>2100</kef5Code>
-          <price1 date="24/2/18 07:17">1.69</price1>
-          <price2 date="14/2/18 08:40">1.84</price2>
-          <price3 date="31/1/18 06:11">1.91</price3>
+          <price1 date="14/2/18 08:40">1.84</price1>
+          <price2 date="31/1/18 06:11">1.91</price2>
+          <price3 date="9/8/18 11:22">0.61</price3>
      </product>
 <product>
           <name>ΚΡΕΜΜΥΔΙΑ</name>
           <kef5Code>2111</kef5Code>
-          <price1 date="12/7/18 06:48">0.62</price1>
-          <price2 date="6/2/18 06:57">0.51</price2>
-          <price3 date="14/2/18 08:40">0.51</price3>
+          <price1 date="6/2/18 06:57">0.51</price1>
+          <price2 date="14/2/18 08:40">0.51</price2>
+          <price3 date="13/8/18 10:07">0.73</price3>
      </product>
 <product>
           <name>ΛΑΧΑΝΟ</name>
@@ -284,9 +289,9 @@
 <product>
           <name>ΜΑΝΙΤΑΡΙΑ</name>
           <kef5Code>328</kef5Code>
-          <price1 date="30/1/18 06:18">3.53</price1>
-          <price2 date="1/2/18 06:52">3.53</price2>
-          <price3 date="29/1/18 09:25">3.53</price3>
+          <price1 date="13/8/18 10:07">3.53</price1>
+          <price2 date="9/8/18 11:22">3.53</price2>
+          <price3 date="10/8/18 06:17">3.53</price3>
      </product>
 <product>
           <name>ΦΑΣΟΛΙΑ ΑΠΟΣΤΟΛΑΚΙ</name>
@@ -305,23 +310,23 @@
 <product>
           <name>ΔΥΟΣΜΟΣ</name>
           <kef5Code>306</kef5Code>
-          <price1 date="1/2/18 06:52">0.41</price1>
-          <price2 date="27/2/18 06:39">0.41</price2>
-          <price3 date="29/1/18 09:25">0.41</price3>
+          <price1 date="13/8/18 10:07">0.44</price1>
+          <price2 date="9/8/18 11:22">0.44</price2>
+          <price3 date="10/8/18 06:17">0.44</price3>
      </product>
 <product>
           <name>ΜΑΡΑΘΟ</name>
           <kef5Code>369</kef5Code>
-          <price1 date="12/7/18 06:48">0.4</price1>
-          <price2 date="26/2/18 06:56">0.4</price2>
-          <price3 date="30/1/18 06:18">0.4</price3>
+          <price1 date="13/8/18 10:07">0.4</price1>
+          <price2 date="9/8/18 11:22">0.4</price2>
+          <price3 date="8/8/18 06:53">0.4</price3>
      </product>
 <product>
           <name>ΚΡΕΜΜΥΔΑΚΙΑ</name>
           <kef5Code>177</kef5Code>
-          <price1 date="30/1/18 06:18">0.4</price1>
-          <price2 date="1/2/18 06:52">0.4</price2>
-          <price3 date="29/1/18 09:25">0.4</price3>
+          <price1 date="29/1/18 09:25">0.4</price1>
+          <price2 date="8/8/18 06:53">0.38</price2>
+          <price3 date="10/8/18 06:17">0.38</price3>
      </product>
 <product>
           <name>ΛΑΙΜΣ</name>
@@ -333,9 +338,9 @@
 <product>
           <name>ΒΛΗΤΑ</name>
           <kef5Code>2103</kef5Code>
-          <price1 date="12/4/18 06:22">3.51</price1>
-          <price2 date="30/4/18 07:45">3.05</price2>
-          <price3 date="14/7/18 06:28">1.37</price3>
+          <price1 date="14/7/18 06:28">1.37</price1>
+          <price2 date="13/8/18 10:07">1.37</price2>
+          <price3 date="8/8/18 06:53">1.37</price3>
      </product>
 <product>
           <name>ΚΡΕΜΜΥΔΙΑ ΣΤΙΦΑΔΟ</name>
@@ -361,16 +366,16 @@
 <product>
           <name>ΜΗΛΑ JONA COLD</name>
           <kef5Code>279</kef5Code>
-          <price1 date="2/4/18 12:48">1.62</price1>
-          <price2 date="7/4/18 07:23">1.62</price2>
-          <price3 date="16/4/18 07:11">1.62</price3>
+          <price1 date="7/4/18 07:23">1.62</price1>
+          <price2 date="16/4/18 07:11">1.62</price2>
+          <price3 date="13/8/18 10:07">1.84</price3>
      </product>
 <product>
           <name>ΡΟΚΑ</name>
           <kef5Code>339</kef5Code>
-          <price1 date="30/4/18 07:45">0.59</price1>
-          <price2 date="14/7/18 06:28">0.59</price2>
-          <price3 date="29/1/18 09:25">0.59</price3>
+          <price1 date="14/7/18 06:28">0.59</price1>
+          <price2 date="29/1/18 09:25">0.59</price2>
+          <price3 date="10/8/18 06:17">0.59</price3>
      </product>
 <product>
           <name>ΜΕΣΚΛΟΥΜ</name>
@@ -382,9 +387,9 @@
 <product>
           <name>ΛΕΜΟΝΙΑ</name>
           <kef5Code>2117</kef5Code>
-          <price1 date="12/4/18 06:22">0.95</price1>
-          <price2 date="30/4/18 07:45">0.95</price2>
-          <price3 date="5/5/18 06:02">0.95</price3>
+          <price1 date="30/4/18 07:45">0.95</price1>
+          <price2 date="5/5/18 06:02">0.95</price2>
+          <price3 date="10/8/18 06:17">2.79</price3>
      </product>
 <product>
           <name>ΠΙΠΕΡΙΕΣ ΦΛΩΡΙΝΗΣ</name>
@@ -396,9 +401,9 @@
 <product>
           <name>ΠΟΡΤΟΚΑΛΙΑ</name>
           <kef5Code>2093</kef5Code>
-          <price1 date="14/7/18 06:28">0.68</price1>
-          <price2 date="12/7/18 06:48">0.68</price2>
-          <price3 date="14/2/18 08:40">0.51</price3>
+          <price1 date="12/7/18 06:48">0.68</price1>
+          <price2 date="14/2/18 08:40">0.51</price2>
+          <price3 date="13/8/18 10:07">1.03</price3>
      </product>
 <product>
           <name>ΠΙΠΕΡΙΕΣ ΚΑΥΤΕΡΕΣ</name>
@@ -424,23 +429,23 @@
 <product>
           <name>ΣΤΑΦΥΛΙ ΑΣΠΡΟ</name>
           <kef5Code>386</kef5Code>
-          <price1 date="16/4/18 07:11">3.18</price1>
-          <price2 date="14/7/18 06:28">2.53</price2>
-          <price3 date="">0.0</price3>
+          <price1 date="9/8/18 11:22">1.84</price1>
+          <price2 date="8/8/18 06:53">1.91</price2>
+          <price3 date="10/8/18 06:17">1.91</price3>
      </product>
 <product>
           <name>ΠΕΠΟΝΙΑ</name>
           <kef5Code>370</kef5Code>
-          <price1 date="17/4/18 06:04">2.79</price1>
-          <price2 date="30/4/18 07:45">2.35</price2>
-          <price3 date="5/5/18 06:02">1.91</price3>
+          <price1 date="30/4/18 07:45">2.35</price1>
+          <price2 date="5/5/18 06:02">1.91</price2>
+          <price3 date="9/8/18 11:22">0.73</price3>
      </product>
 <product>
           <name>ΑΝΙΘΟ</name>
           <kef5Code>368</kef5Code>
-          <price1 date="5/5/18 06:02">0.4</price1>
-          <price2 date="14/7/18 06:28">0.4</price2>
-          <price3 date="24/2/18 07:17">0.4</price3>
+          <price1 date="24/2/18 07:17">0.4</price1>
+          <price2 date="9/8/18 11:22">0.4</price2>
+          <price3 date="10/8/18 06:17">0.4</price3>
      </product>
 <product>
           <name>ΚΑΡΠΟΥΖΙ</name>
@@ -459,9 +464,9 @@
 <product>
           <name>ΡΟΔΑΚΙΝΑ</name>
           <kef5Code>362</kef5Code>
-          <price1 date="14/7/18 06:28">1.75</price1>
-          <price2 date="12/7/18 06:48">1.75</price2>
-          <price3 date="12/7/18 06:48">2.44</price3>
+          <price1 date="9/8/18 11:22">1.68</price1>
+          <price2 date="9/8/18 11:22">1.68</price2>
+          <price3 date="8/8/18 06:53">1.6</price3>
      </product>
 <product>
           <name>ΚΕΡΑΣΙΑ</name>
@@ -473,9 +478,9 @@
 <product>
           <name>ΒΑΝΙΛΙΕΣ</name>
           <kef5Code>298</kef5Code>
-          <price1 date="14/7/18 06:28">2.35</price1>
-          <price2 date="12/7/18 06:48">3.23</price2>
-          <price3 date="">0.0</price3>
+          <price1 date="12/7/18 06:48">3.23</price1>
+          <price2 date="9/8/18 11:22">1.76</price2>
+          <price3 date="10/8/18 06:17">1.76</price3>
      </product>
 <product>
           <name>ΒΕΡΥΚΟΚΑ</name>
@@ -502,6 +507,48 @@
           <name>ΣΥΚΑ ΞΕΡΑ</name>
           <kef5Code>450.04.04.01</kef5Code>
           <price1 date="29/1/18 09:25">9.55</price1>
+          <price2 date="">0.0</price2>
+          <price3 date="">0.0</price3>
+     </product>
+<product>
+          <name>ΤΟΜΑΤΕΣ ΠΟΜΟΝΤΟΡΙΑ</name>
+          <kef5Code>551</kef5Code>
+          <price1 date="13/8/18 10:07">1.13</price1>
+          <price2 date="8/8/18 06:53">1.16</price2>
+          <price3 date="10/8/18 06:17">1.16</price3>
+     </product>
+<product>
+          <name>ΣΤΑΦΥΛΙ ΜΑΥΡΟ</name>
+          <kef5Code>387</kef5Code>
+          <price1 date="13/8/18 10:07">2.17</price1>
+          <price2 date="">0.0</price2>
+          <price3 date="">0.0</price3>
+     </product>
+<product>
+          <name>ΑΧΛΑΔΙΑ ΚΟΝΤΟΥΛΕΣ</name>
+          <kef5Code>295</kef5Code>
+          <price1 date="13/8/18 10:07">3.23</price1>
+          <price2 date="">0.0</price2>
+          <price3 date="">0.0</price3>
+     </product>
+<product>
+          <name>ΚΑΛΑΜΠΟΚΙ</name>
+          <kef5Code>283</kef5Code>
+          <price1 date="9/8/18 11:22">1.91</price1>
+          <price2 date="">0.0</price2>
+          <price3 date="">0.0</price3>
+     </product>
+<product>
+          <name>ΑΤΖΟΥΡΙΑ</name>
+          <kef5Code>314</kef5Code>
+          <price1 date="8/8/18 06:53">1.13</price1>
+          <price2 date="">0.0</price2>
+          <price3 date="">0.0</price3>
+     </product>
+<product>
+          <name>ΜΠΑΜΙΕΣ</name>
+          <kef5Code>384</kef5Code>
+          <price1 date="10/8/18 06:17">4.27</price1>
           <price2 date="">0.0</price2>
           <price3 date="">0.0</price3>
      </product>

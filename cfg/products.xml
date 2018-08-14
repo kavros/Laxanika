@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<products>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><products>
 
     <element>
         <name>ΑΓΚΙΝΑΡΕΣ</name>
@@ -111,7 +110,7 @@
 	
 	<element>
         <name>ΚΡΕΜΜΥΔΙΑ ΣΤΙΦΑΔΟ</name>
-        <profit>0.3</profit>
+        <profit>0.30</profit>
         <kef5Code>2114</kef5Code>
     </element>
 
@@ -124,7 +123,7 @@
 	<element>
         <name>ΛΑΧΑΝΟ ΚΟΚΚΙΝΟ</name>
         <profit>0.35</profit>
-        <kef5Code>2115</kef5Code>
+        <kef5Code>2114</kef5Code>
     </element>
 	
 	<element>
@@ -733,5 +732,21 @@
       <name>ΒΕΡΥΚΟΚΑ</name>
       <profit>0.3</profit>
       <kef5Code>299</kef5Code>
+   </element>
+<element>
+        <name>ΣΤΑΦΥΛΙ ΣΤΑΦΙΔΑ</name>
+        <profit>0.25</profit>
+        <kef5Code>386</kef5Code>
+</element>
+    <element>
+        <name>ΜΗΛΑ GALA</name>
+        <profit>0.3</profit>
+        <kef5Code>279</kef5Code>
+    </element>
+
+<element>
+      <name>DELETED</name>
+      <profit>0.2</profit>
+      <kef5Code>1212</kef5Code>
    </element>
 </products>
