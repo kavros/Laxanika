@@ -3,4 +3,4 @@ pdf/*
 src/META_INF
 src/Test/*
 src/JUnit
-
+.idea/workspace.xml
