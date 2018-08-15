@@ -102,6 +102,10 @@ public class PdfParser {
         laxaniko.vf_name    = line[0].split("-")[0];
         laxaniko.vf_origin  = (line[0].split("-")[1]).split(" ")[0];
 
+        //special case which is necessary to fix product name
+        if(productLine.contains("ΠΛΑΚΕ")){
+            laxaniko.vf_name = laxaniko.vf_name +" "+"ΠΛΑΚΕ";
+        }
         //System.out.println(laxaniko.vf_origin);
 
         laxaniko.vf_packing = subLine3[0].replace(",",".");
