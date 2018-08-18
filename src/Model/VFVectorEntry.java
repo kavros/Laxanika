@@ -32,6 +32,13 @@ public class VFVectorEntry {
                 +" "+vf_value+" "+vf_discount+" "+vf_net_value+" "+vf_tax+" "+vf_final_price+" "
                 +isUpdateNeeded+" "+kef5_code+" "+kef5_price+"\n";
     }
+    public void setUpdateNeeded(boolean updateNeeded) {
+        isUpdateNeeded = updateNeeded;
+    }
+
+    public void setVf_final_price(double vf_final_price) {
+        this.vf_final_price = vf_final_price;
+    }
 
     public boolean getIsUpdateNeeded(){
         return isUpdateNeeded;

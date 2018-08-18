@@ -74,7 +74,7 @@ public class Controller implements ActionListener,TableModelListener {
 	JTextField _labelCode;
 	JTextField _labelOrigin;
 	JButton _printCustomLabels;
-
+	JTextField _newPrice;
 	public Controller(JTextField searchTermTextField,
 					  JMenuItem openM,
 					  JMenuItem editListMi,
@@ -139,7 +139,7 @@ public class Controller implements ActionListener,TableModelListener {
 		_labelPrice = labelPrice;
 		_labelCode =labelCode;
 		_labelOrigin = labelOrigin;
-
+		_newPrice = new JTextField();
         hist =model.getHistory();
 		//init actions listeners
 		JMenuActionListener();
@@ -506,7 +506,7 @@ public class Controller implements ActionListener,TableModelListener {
 					} else if ((_viewMode == CurrentMode.priceMode.editListMode)  && _table.getSelectedColumn() == 2) {
 						editKef5Code();
 					} else if((_viewMode == CurrentMode.priceMode.priceMode)  && _table.getSelectedColumn() == 1){
-						showHistory();
+						changePriceUsingHistory();
 					}
 
 				}
@@ -861,21 +861,65 @@ public class Controller implements ActionListener,TableModelListener {
 
 	}
 
-	public void showHistory(){
+	public void changePriceUsingHistory() {
 
 		String vf_name = (String) model.getValueAt(_table.getSelectedRow(), 1);
-        String kef5Code = model.getVFHashMap().get(vf_name).getKef5Code();
+		Double vf_price = (Double) model.getValueAt(_table.getSelectedRow(), 5);
+		String kef5Code = model.getVFHashMap().get(vf_name).getKef5Code();
 		String pr = null;
-		for(int i =0; i < hist.getHistoryVector().size(); i++){
-		    if(hist.getHistoryVector().elementAt(i).getKef5Code().equals(kef5Code)){
-		        pr =hist.getHistoryVector().elementAt(i).toString2();
-            }
-        }
+		for (int i = 0; i < hist.getHistoryVector().size(); i++) {
+			if (hist.getHistoryVector().elementAt(i).getKef5Code().equals(kef5Code)) {
+				pr = hist.getHistoryVector().elementAt(i).toString2();
+			}
+		}
 
-		//System.out.println(prices);
-		MessageDialog msg=new MessageDialog();
-		msg.showMessageDialog("Οι παλαιότερες τιμές για το προιoν ειναι: "+pr,"Ιστορικό",
-				JOptionPane.INFORMATION_MESSAGE);
+		_newPrice.setText(vf_price.toString());
+		Object[] dialogContent = new Object[]{"Οι παλαιότερες τιμές για το προιoν ειναι: " + pr, "Νεα Τιμή:", _newPrice};
+		int result = JOptionPane.showConfirmDialog(null, dialogContent, "Ιστορικό", JOptionPane.OK_CANCEL_OPTION);
+
+		boolean priceChanged = false;
+		Double newPriceDouble = null;
+		if (result == JOptionPane.OK_OPTION) {
+			String newPrice = _newPrice.getText().toString().trim().replace(",", ".");
+
+			try {
+				newPriceDouble = Double.parseDouble(newPrice);
+			} catch (Exception e) {
+				MessageDialog msg = new MessageDialog();
+				msg.showMessageDialog("Η νεα τιμή πρέπει να είναι αριθμός.", "Λαθος Νεα Τιμή", JOptionPane.INFORMATION_MESSAGE);
+				return;
+			}
+			if (newPriceDouble.equals(vf_price)) {
+				//System.out.println("Same price");
+			} else {
+				//System.out.println("Price Changed");
+				priceChanged = true;
+			}
+
+		}
+
+		//if price has changed then we need to update both table and vector with the new value.
+		if (priceChanged) {
+			Vector<VFVectorEntry> vec = model.getVector().getVec();
+			for (int i = 0; i < vec.size(); i++) {
+				if (vec.elementAt(i).getKef5Code().equals(kef5Code)) {
+
+					vec.elementAt(i).setUpdateNeeded(true);
+					vec.elementAt(i).setVf_final_price(newPriceDouble);
+					//System.out.println(vec.elementAt(i).getIsUpdateNeeded());
+					//System.out.println(vec.elementAt(i).getVfFinalPrice());
+				}
+			}
+			//change values at table
+			model.setValueAt(newPriceDouble,_table.getSelectedRow(),5);
+			model.setValueAt(true,_table.getSelectedRow(),7);
+		}
+
+
+		//if _newPrice changed set VFVectorEntry value isUpdateNeeded to true.
+
+		dialogContent = null;
+
 	}
 
 }
