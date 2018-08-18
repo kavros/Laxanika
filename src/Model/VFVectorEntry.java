@@ -70,6 +70,14 @@ public class VFVectorEntry {
         return vf_name;
     }
 
+    public double getVf_tax() {
+        return vf_tax;
+    }
+
+    public void setActual_profit(double actual_profit) {
+        this.actual_profit = actual_profit;
+    }
+
     public void updateActualProfit(double actProf){
         //TODO round up final price
         double price_with_taxes = ((vf_price*vf_tax*0.01)+vf_price);

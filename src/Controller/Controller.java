@@ -863,8 +863,9 @@ public class Controller implements ActionListener,TableModelListener {
 
 	public void changePriceUsingHistory() {
 
+
 		String vf_name = (String) model.getValueAt(_table.getSelectedRow(), 1);
-		Double vf_price = (Double) model.getValueAt(_table.getSelectedRow(), 5);
+		Double vf_final_price = (Double) model.getValueAt(_table.getSelectedRow(), 5);
 		String kef5Code = model.getVFHashMap().get(vf_name).getKef5Code();
 		String pr = null;
 		for (int i = 0; i < hist.getHistoryVector().size(); i++) {
@@ -873,23 +874,23 @@ public class Controller implements ActionListener,TableModelListener {
 			}
 		}
 
-		_newPrice.setText(vf_price.toString());
+		_newPrice.setText(vf_final_price.toString());
 		Object[] dialogContent = new Object[]{"Οι παλαιότερες τιμές για το προιoν ειναι: " + pr, "Νεα Τιμή:", _newPrice};
 		int result = JOptionPane.showConfirmDialog(null, dialogContent, "Ιστορικό", JOptionPane.OK_CANCEL_OPTION);
 
 		boolean priceChanged = false;
-		Double newPriceDouble = null;
+		Double newFinalPrice = null;
 		if (result == JOptionPane.OK_OPTION) {
 			String newPrice = _newPrice.getText().toString().trim().replace(",", ".");
 
 			try {
-				newPriceDouble = Double.parseDouble(newPrice);
+				newFinalPrice = Double.parseDouble(newPrice);
 			} catch (Exception e) {
 				MessageDialog msg = new MessageDialog();
 				msg.showMessageDialog("Η νεα τιμή πρέπει να είναι αριθμός.", "Λαθος Νεα Τιμή", JOptionPane.INFORMATION_MESSAGE);
 				return;
 			}
-			if (newPriceDouble.equals(vf_price)) {
+			if (newFinalPrice.equals(vf_final_price)) {
 				//System.out.println("Same price");
 			} else {
 				//System.out.println("Price Changed");
@@ -905,14 +906,21 @@ public class Controller implements ActionListener,TableModelListener {
 				if (vec.elementAt(i).getKef5Code().equals(kef5Code)) {
 
 					vec.elementAt(i).setUpdateNeeded(true);
-					vec.elementAt(i).setVf_final_price(newPriceDouble);
-					//System.out.println(vec.elementAt(i).getIsUpdateNeeded());
-					//System.out.println(vec.elementAt(i).getVfFinalPrice());
+					vec.elementAt(i).setVf_final_price(newFinalPrice);
+					double price_with_taxes = ((vec.elementAt(i).getVfPrice()*vec.elementAt(i).getVf_tax()*0.01)+vec.elementAt(i).getVfPrice());
+					double profit = newFinalPrice-price_with_taxes;
+
+					profit = Math.round((profit*100f))/100f;
+					vec.elementAt(i).setActual_profit(profit);
+
+					model.setValueAt(newFinalPrice,_table.getSelectedRow(),5);
+					model.setValueAt(true,_table.getSelectedRow(),7);
+					model.setValueAt( Math.round((profit*100f))/100f, _table.getSelectedRow(),6);
+
+					break;
 				}
 			}
-			//change values at table
-			model.setValueAt(newPriceDouble,_table.getSelectedRow(),5);
-			model.setValueAt(true,_table.getSelectedRow(),7);
+
 		}
 
 
