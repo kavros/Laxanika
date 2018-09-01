@@ -1,5 +1,6 @@
 package Model;
 
+import org.apache.poi.ss.formula.functions.T;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -18,7 +19,7 @@ import java.util.Vector;
 //TODO: fix  xml indentation
 public class History {
 
-    public class HistoryNode{
+    public class HistoryNode implements  Comparable<HistoryNode>{
         private String _name;
         private String _kef5Code;
 
@@ -140,7 +141,15 @@ public class History {
                     ;
         }
 
+        @Override
+        public int compareTo(HistoryNode o) {
+
+            return _name.compareTo(o._name);
+
+        }
     }
+
+
 
     private Vector<HistoryNode>   _history;
     private Vector<String> _dates;

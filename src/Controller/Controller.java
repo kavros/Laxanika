@@ -12,23 +12,21 @@ import java.awt.event.MouseEvent;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
-import java.util.Vector;
-import java.util.HashMap;
-
-
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
-import javax.swing.text.StyledEditorKit;
-
 import Model.*;
 import Model.Printer;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 public class Controller implements ActionListener,TableModelListener {
 	public enum CurrentMode{
@@ -75,6 +73,8 @@ public class Controller implements ActionListener,TableModelListener {
 	JTextField _labelOrigin;
 	JButton _printCustomLabels;
 	JTextField _newPrice;
+	JButton _printHistoryButton;
+
 	public Controller(JTextField searchTermTextField,
 					  JMenuItem openM,
 					  JMenuItem editListMi,
@@ -99,8 +99,10 @@ public class Controller implements ActionListener,TableModelListener {
 					  JTextField labelPrice,
 					  JTextField labelCode,
 					  JButton printCustomLabels,
-					  JTextField labelOrigin) {
+					  JTextField labelOrigin,
+					  JButton printHistoryButton) {
 		super();
+		_printHistoryButton = printHistoryButton;
 		this._searchTermTextField = searchTermTextField;
 		openMi = openM;
 		this.model = model;
@@ -151,6 +153,7 @@ public class Controller implements ActionListener,TableModelListener {
 		addPrintButtonListener();
 		addPrintLabelsButtonListener();
 		addLabelsListener();
+		addPrintHistoryButtonListener();
 	}
 
 	private void deactivateButtons()
@@ -165,6 +168,7 @@ public class Controller implements ActionListener,TableModelListener {
 		_addLabel.setVisible(false);
 		_deleteLabel.setVisible(false);
 		_printCustomLabels.setVisible(false);
+		_printHistoryButton.setVisible(false);
 	}
 	private void addLabelsListener()
 	{
@@ -289,6 +293,57 @@ public class Controller implements ActionListener,TableModelListener {
 		});
 	}
 
+	private void  addPrintHistoryButtonListener(){
+		_printHistoryButton.addActionListener(e->{
+			Vector<History.HistoryNode> historyVec = hist.getHistoryVector();
+			String historyData = " ";
+			Collections.sort(historyVec);
+
+			for (History.HistoryNode node: historyVec) {
+				String date1 = node.getDate1().split(" ")[0];
+				String date2 = node.getDate2().split(" ")[0];
+				String date3 = node.getDate3().split(" ")[0];
+				String dates  = "("+date1+","+date2+","+date3+")";
+
+				historyData += node.getName()+":" +
+									node.getPrice1()+","+
+									node.getPrice2	()+"," +
+									node.getPrice3()+"  "+
+									dates+"\n";
+			}
+			XWPFDocument document = new XWPFDocument();
+			JFrame parentFrame = new JFrame();
+
+			JFileChooser fileChooser = new JFileChooser();
+			fileChooser.setDialogTitle("Specify a file to save");
+			fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")+"/Desktop"));
+			fileChooser.setFileFilter(new FileNameExtensionFilter("Word","docx"));
+
+			int userSelection = fileChooser.showSaveDialog(parentFrame);
+			File fileToSave ;
+			if (userSelection == JFileChooser.APPROVE_OPTION) {
+				fileToSave = new File (fileChooser.getSelectedFile().getAbsolutePath()+".docx");
+
+				try {
+					FileOutputStream out = new FileOutputStream(fileToSave);
+					XWPFParagraph paragraph = document.createParagraph();
+					String[] wordLines = historyData.split("\n");
+					XWPFRun content = paragraph.createRun();
+					for(int i=0; i < wordLines.length ; i++){
+						content.setText(wordLines[i]);
+						content.addBreak();
+					}
+
+					document.write(out);
+					out.close();
+
+				}catch (Exception ex){
+					System.err.println(ex);
+				}
+			}
+		});
+	}
+
 	private void addPrintButtonListener() {
 		_printButton.addActionListener(e -> {
             Printer printer = new Printer();
@@ -373,7 +428,7 @@ public class Controller implements ActionListener,TableModelListener {
 		_updateButton.setVisible(true);
 		_printButton.setVisible(true);
 		_printLabels.setVisible(true);
-
+		_printHistoryButton.setVisible(true);
 
 
 		//updates every entry on vector

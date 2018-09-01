@@ -26,6 +26,7 @@ public class View {
 		JButton printLabelsButton = new JButton("Εκτύπωση Ταμπελών");
 		JButton filterButton = new JButton("Εύρεση");
 		JButton updateButton = new JButton("Ενημέρωση Κεφαλαίου");
+		JButton printHistoryButton = new JButton("Εκτύπωση Ιστορικού");
 		JTable table ;//= new JTable();
 
 
@@ -125,6 +126,7 @@ public class View {
 		printButton.setVisible(false);
 		printLabelsButton.setVisible(false);
 		printCustomLabels.setVisible(false);
+		printHistoryButton.setVisible(false);
 
 		ctrlPane.add(searchTermTextField);
 		ctrlPane.add(filterButton);
@@ -137,6 +139,7 @@ public class View {
 		ctrlPane.add(newLabel);
 		ctrlPane.add(deleteLabel);
 		ctrlPane.add(printCustomLabels);
+		ctrlPane.add(printHistoryButton);
 
 		addXmlButton.setVisible(false);
 		editXmlButton.setVisible(false);
@@ -189,7 +192,8 @@ public class View {
 											newLabel,deleteLabel,
 											labelName,labelPrice,
 											labelCode,printCustomLabels,
-											labelOrigin);
+											labelOrigin,
+											printHistoryButton);
 
         filterButton.addActionListener(controller);
 		table.getModel().addTableModelListener(controller);
