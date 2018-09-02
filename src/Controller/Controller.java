@@ -267,8 +267,15 @@ public class Controller implements ActionListener,TableModelListener {
 								JOptionPane.ERROR_MESSAGE);
 						ex.printStackTrace();
 					}
-
-					labels += entry.getVfName() + "%" +
+					String vf_name  = entry.getVfName();
+					if(vf_name.contains("ΣΑΛΑΤΑ") || vf_name.contains("ΛΟΛΑ")){
+						String[] productNameWords = vf_name.split(" ");
+						int totalWords = productNameWords.length;
+						if(totalWords == 3){
+							vf_name= productNameWords[1]+" "+productNameWords[2];
+						}
+					}
+					labels += vf_name + "%" +
 							entry.getVfOrigin() + "%" +
 							String.format(	"%.2f",price ) + "€" + "%" +
 							entry.getVfNumber() + "\n";
