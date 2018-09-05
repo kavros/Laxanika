@@ -24,9 +24,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import Model.*;
 import Model.Printer;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-import org.apache.poi.xwpf.usermodel.XWPFRun;
+import org.apache.poi.hssf.usermodel.HSSFFont;
+import org.apache.poi.xwpf.usermodel.*;
 
 public class Controller implements ActionListener,TableModelListener {
 	public enum CurrentMode{
@@ -313,42 +312,108 @@ public class Controller implements ActionListener,TableModelListener {
 				String dates  = "("+date1+","+date2+","+date3+")";
 
 				historyData += node.getName()+":" +
-									node.getPrice1()+","+
-									node.getPrice2	()+"," +
-									node.getPrice3()+"  "+
+									node.getPrice1()+",  "+
+									node.getPrice2	()+",  " +
+									node.getPrice3()+":"+
 									dates+"\n";
 			}
-			XWPFDocument document = new XWPFDocument();
-			JFrame parentFrame = new JFrame();
 
-			JFileChooser fileChooser = new JFileChooser();
-			fileChooser.setDialogTitle("Specify a file to save");
-			fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")+"/Desktop"));
-			fileChooser.setFileFilter(new FileNameExtensionFilter("Word","docx"));
 
-			int userSelection = fileChooser.showSaveDialog(parentFrame);
-			File fileToSave ;
-			if (userSelection == JFileChooser.APPROVE_OPTION) {
-				fileToSave = new File (fileChooser.getSelectedFile().getAbsolutePath()+".docx");
+			generateHistoryFile(historyData);
 
-				try {
-					FileOutputStream out = new FileOutputStream(fileToSave);
-					XWPFParagraph paragraph = document.createParagraph();
-					String[] wordLines = historyData.split("\n");
-					XWPFRun content = paragraph.createRun();
-					for(int i=0; i < wordLines.length ; i++){
-						content.setText(wordLines[i]);
-						content.addBreak();
+		});
+	}
+
+	void generateHistoryFile(String historyData){
+
+		//opens ui in order to write name and path.
+		XWPFDocument document = new XWPFDocument();
+		JFrame parentFrame = new JFrame();
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setDialogTitle("Specify a file to save");
+		fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")+"/Desktop"));
+		fileChooser.setFileFilter(new FileNameExtensionFilter("Word","docx"));
+
+		int userSelection = fileChooser.showSaveDialog(parentFrame);
+		if (userSelection == JFileChooser.APPROVE_OPTION) {
+			File fileToSave;
+			fileToSave = new File(fileChooser.getSelectedFile().getAbsolutePath() + ".docx");
+
+			try {
+				FileOutputStream out = new FileOutputStream(fileToSave);
+				XWPFTable table = document.createTable();
+				String[] wordLines = historyData.split("\n");
+
+				for (int i = 0; i < wordLines.length; i += 2) {
+
+					XWPFTableRow tableRow;
+					String firstProductName = wordLines[i].split(":")[0];
+					String firstPrice = wordLines[i].split(":")[1];
+
+					String secondProductName = " ";
+					String secondPrice = " ";
+
+					if ((i + 1) != wordLines.length) {
+						secondProductName = wordLines[i + 1].split(":")[0];
+						secondPrice = wordLines[i + 1].split(":")[1];
 					}
 
-					document.write(out);
-					out.close();
+					if (i == 0) {
+						//get first row of the table
+						tableRow = table.getRow(0);
 
-				}catch (Exception ex){
-					System.err.println(ex);
+						//removes empty lines
+						tableRow.getCell(0).removeParagraph(0);
+
+						//write product name
+						XWPFRun cellForFirstProductName = tableRow.getCell(0).addParagraph().createRun();
+						setFontForTableCell(cellForFirstProductName, firstProductName);
+
+						//write price
+						tableRow.addNewTableCell().setText(firstPrice);
+
+						//write product name
+						XWPFTableCell cell2 = tableRow.addNewTableCell();//.setText(secondProductName);
+						cell2.removeParagraph(0);
+						XWPFRun cellForSecondProductName = cell2.addParagraph().createRun();
+						setFontForTableCell(cellForSecondProductName, secondProductName);
+
+						//write price
+						tableRow.addNewTableCell().setText(secondPrice);
+
+					} else {
+						//generate new row
+						tableRow = table.createRow();
+
+						//removes empty lines
+						tableRow.getCell(0).removeParagraph(0);
+						tableRow.getCell(2).removeParagraph(0);
+
+						//write product names
+						XWPFRun cellForFirstProductName = tableRow.getCell(0).addParagraph().createRun();
+						XWPFRun cellForSecondProductName = tableRow.getCell(2).addParagraph().createRun();
+						setFontForTableCell(cellForFirstProductName, firstProductName);
+						setFontForTableCell(cellForSecondProductName, secondProductName);
+
+						//write prices
+						tableRow.getCell(1).setText(firstPrice + "  ");
+						tableRow.getCell(3).setText(secondPrice + "  ");
+					}
 				}
+
+				document.write(out);
+				out.close();
+
+			} catch (Exception ex) {
+				System.err.println(ex);
 			}
-		});
+		}
+	}
+
+	void setFontForTableCell(XWPFRun run,String cellContent){
+		run.setBold(true);
+		run.setItalic(true);
+		run.setText(cellContent);
 	}
 
 	private void addPrintButtonListener() {
