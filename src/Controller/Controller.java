@@ -14,6 +14,8 @@ import java.awt.print.PrinterJob;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 import javax.swing.*;
@@ -302,7 +304,8 @@ public class Controller implements ActionListener,TableModelListener {
 	private void  addPrintHistoryButtonListener(){
 		_printHistoryButton.addActionListener(e->{
 			Vector<History.HistoryNode> historyVec = hist.getHistoryVector();
-			String historyData = " ";
+
+			String historyData =" ";
 			Collections.sort(historyVec);
 
 			for (History.HistoryNode node: historyVec) {
@@ -334,6 +337,12 @@ public class Controller implements ActionListener,TableModelListener {
 		fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")+"/Desktop"));
 		fileChooser.setFileFilter(new FileNameExtensionFilter("Word","docx"));
 
+		XWPFParagraph paragraph = document.createParagraph();
+		XWPFRun run = paragraph.createRun();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		String timeStamp = dateFormat.format(date);
+		run.setText(timeStamp);
 		int userSelection = fileChooser.showSaveDialog(parentFrame);
 		if (userSelection == JFileChooser.APPROVE_OPTION) {
 			File fileToSave;
