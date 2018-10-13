@@ -4,6 +4,7 @@ import org.apache.pdfbox.text.PDFTextStripper;
 
 import javax.swing.*;
 import java.io.File;
+import java.util.Arrays;
 
 public class PdfParser {
 
@@ -28,10 +29,11 @@ public class PdfParser {
         for( i=0; i < pdfLines.length;++i){
             String line = pdfLines[i];
             if(i==2 || i == 1){ //date is some times at the second line and some times on third based on input file.
-                if(line.contains("/")) {
+
+                if(line.contains("/") && !line.contains("ΗΜ/ΝΙΑ")) {
                     line = line.replace("  ", " ");//trim in between double spaces.
                     String[] array = line.split(" ");
-
+                    //System.out.println(Arrays.toString(array));
                     String time = array[3];
                     String date = array[2];
                     vector.setDate(date + " " + time);
