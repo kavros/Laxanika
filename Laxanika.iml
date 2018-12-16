@@ -7,14 +7,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="adaptive" level="project" />
+    <orderEntry type="library" name="jdbc" level="project" />
     <orderEntry type="library" name="pdfbox" level="project" />
     <orderEntry type="library" name="poi-3" level="project" />
     <orderEntry type="library" name="commons-logging-1" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/lib/groovy-all-2.4.12.jar!/" />
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/groovy-all-2.4.15.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -35,7 +35,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/jdbc/sqljdbc_6.0/enu/jre8/sqljdbc42.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/jdbc/sqljdbc_6.0/enu/jre8/sqljdbc42.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -44,7 +44,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/poi-3.17/ooxml-lib/curvesapi-1.04.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/poi-3.17/ooxml-lib/curvesapi-1.04.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -53,7 +53,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/poi-3.17/ooxml-lib/xmlbeans-2.6.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/poi-3.17/ooxml-lib/xmlbeans-2.6.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

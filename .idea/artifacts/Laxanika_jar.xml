@@ -13,7 +13,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/pdfbox/pdfbox-2.0.8.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/pdfbox/fontbox-2.0.8.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/lib/groovy-all-2.4.12.jar" path-in-jar="/" />
-      <element id="library" level="project" name="adaptive" />
+      <element id="library" level="project" name="jdbc" />
       <element id="extracted-dir" path="$PROJECT_DIR$/poi-3.17/poi-3.17.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/poi-3.17/poi-ooxml-3.17.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/poi-3.17/poi-examples-3.17.jar" path-in-jar="/" />
