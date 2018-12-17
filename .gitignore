@@ -4,3 +4,8 @@ src/META_INF
 src/Test/*
 src/JUnit
 .idea/workspace.xml
+cfg/database.xml
+cfg/database_desktop.xml
+cfg/database_laptop.xml
+out/
+
