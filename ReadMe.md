@@ -9,3 +9,4 @@ The automation steps involve:
 ## Software Requirements
 * Intellij IDEA
 * Java JDK 1.8.0_171
+* Kefalaio 5 ERP (Unisoft)
