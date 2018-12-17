@@ -241,14 +241,6 @@
             <path>
               <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
               <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="pdfbox" type="462c0819:PsiDirectoryNode" />
-              <item name="pdfbox-2.0.8.jar" type="ab9368bb:PsiFileNode" />
-              <item name="pdfbox" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
               <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -276,7 +268,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545041360957" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/poi-3.17/poi-scratchpad-3.17.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/poi-3.17/ooxml-lib/xmlbeans-2.6.0.jar!/" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.14930016" />
@@ -851,7 +843,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19296375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24375" />
@@ -862,7 +854,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3261105" />
-      <window_info anchor="bottom" x="343" y="260" width="679" height="208" id="Run" order="2" sideWeight="0.52878463" weight="0.32936078" />
+      <window_info anchor="bottom" x="343" y="260" width="679" height="208" id="Run" order="2" sideWeight="0.52878463" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49394855" weight="0.22860238" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
