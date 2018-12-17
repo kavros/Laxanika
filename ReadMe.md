@@ -11,7 +11,7 @@ The automation steps involve:
 * Copy credentials in cfg folder
 * Build and Run using Intellij IDEA
 
-## Software Requirements
+# Software Requirements
 * Intellij IDEA
 * Java JDK 1.8.0_171
 * Kefalaio 5 ERP (Unisoft)
