@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<database>
-    <username>kef2</username>
-    <password>gLWLectR123</password>
-    <dbURL>jdbc:sqlserver://ALEXIS-PC;databaseName=Cmp006</dbURL>
-</database>
