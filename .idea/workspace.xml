@@ -8,59 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a9328e39-4fa2-4caa-81d3-814e46bec8c9" name="Default" comment="make">
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/Laxanika_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Laxanika_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/adaptive.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_logging_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/commons_logging_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/pdfbox.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/pdfbox.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/poi_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/poi_3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Laxanika.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Laxanika.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cfg/history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cfg/history.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cfg/products.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cfg/products.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons-logging-1.2/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons-logging-1.2/NOTICE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons-logging-1.2/RELEASE-NOTES.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons-logging-1.2/commons-logging-1.2-javadoc.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons-logging-1.2/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/auth/x64/sqljdbc_auth.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/auth/x86/sqljdbc_auth.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/install.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/jre7/sqljdbc41.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/jre8/sqljdbc42.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/license.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/release.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/adaptive/executeStoredProcedure.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/adaptive/readLargeData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/adaptive/updateLargeData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/alwaysencrypted/AlwaysEncrypted.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/connections/connectDS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/connections/connectURL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/datatypes/basicDT.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/datatypes/sqlxmlExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/resultsets/cacheRS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/resultsets/retrieveRS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/resultsets/updateRS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/samples/sparse/SparseColumns.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/xa/x64/sqljdbc_xa.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/xa/x86/sqljdbc_xa.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdbc/sqljdbc_6.0/enu/xa/xa_install.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfbox/fontbox-2.0.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfbox/pdfbox-2.0.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/NOTICE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/lib/commons-codec-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/lib/commons-collections4-4.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/lib/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/lib/junit-4.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/lib/log4j-1.2.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/ooxml-lib/curvesapi-1.04.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/ooxml-lib/xmlbeans-2.6.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/poi-3.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/poi-examples-3.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/poi-excelant-3.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/poi-ooxml-3.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/poi-ooxml-schemas-3.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poi-3.17/poi-scratchpad-3.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,22 +31,24 @@
     <session id="-1394459817">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="23" />
-          <entry key="project.open.time.10" value="7" />
+          <entry key="project.closed" value="24" />
+          <entry key="project.open.time.10" value="8" />
           <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="7" />
-          <entry key="project.opened" value="24" />
+          <entry key="project.opened" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="MF" value="1" />
           <entry key="class" value="1" />
-          <entry key="java" value="81" />
+          <entry key="java" value="82" />
           <entry key="txt" value="4" />
           <entry key="xml" value="8" />
         </counts>
@@ -104,7 +56,8 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="81" />
+          <entry key="JAVA" value="82" />
+          <entry key="Manifest" value="1" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="XML" value="8" />
         </counts>
@@ -124,72 +77,12 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="520" column="32" selection-start-line="520" selection-start-column="32" selection-end-line="520" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/VFVector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/ExcelReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Model/VFKef5DataBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/GUIMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/PdfParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1717">
-              <caret line="106" column="17" selection-start-line="106" selection-start-column="17" selection-end-line="106" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+            <state relative-caret-position="187">
+              <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -309,7 +202,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-7" />
+    <option name="x" value="289" />
+    <option name="y" value="15" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -318,9 +212,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -331,23 +223,44 @@
             <path>
               <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
               <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
-              <item name="cfg" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
               <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="pdfbox" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
               <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="pdfbox" type="462c0819:PsiDirectoryNode" />
+              <item name="pdfbox-2.0.8.jar" type="ab9368bb:PsiFileNode" />
+            </path>
+            <path>
+              <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="pdfbox" type="462c0819:PsiDirectoryNode" />
+              <item name="pdfbox-2.0.8.jar" type="ab9368bb:PsiFileNode" />
+              <item name="pdfbox" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Laxanika" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Laxanika" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -360,11 +273,11 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536140175857" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545041360957" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$APPLICATION_HOME_DIR$/lib/groovy-all-2.4.15.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/poi-3.17/poi-scratchpad-3.17.jar!/" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.14930016" />
     <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
@@ -514,6 +427,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Laxanika2" type="JarApplication" factoryName="JAR Application">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Laxanika2/Laxanika2.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Alexis\IdeaProjects\Laxanika" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Laxanika.jar" type="JarApplication" factoryName="JAR Application">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Laxanika_jar/Laxanika.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Alexis\IdeaProjects\Laxanika" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <module name="Laxanika3" />
       <option name="VM_PARAMETERS" />
@@ -546,6 +471,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.HelloWorldPrinter" />
+      <item itemvalue="JAR Application.Laxanika.jar" />
+      <item itemvalue="JAR Application.Laxanika2" />
       <item itemvalue="JUnit.Unnamed" />
       <item itemvalue="Application.GUIMain" />
       <item itemvalue="Application.BookTest" />
@@ -925,9 +852,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19296375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24375" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -936,7 +862,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3261105" />
-      <window_info active="true" anchor="bottom" x="343" y="260" width="679" height="208" id="Run" order="2" sideWeight="0.52878463" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" x="343" y="260" width="679" height="208" id="Run" order="2" sideWeight="0.52878463" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49394855" weight="0.22860238" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1041,7 +967,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/results/9_FEBRUARY_2018.txt" />
     <entry file="file://$PROJECT_DIR$/results/9_APRIL_2018.txt" />
     <entry file="file://$PROJECT_DIR$/src/Test/BookTest.java" />
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.sql/java/sql/DriverManager.java" />
@@ -1257,42 +1182,10 @@
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/poi-3.17/poi-ooxml-3.17.jar!/org/apache/poi/xwpf/usermodel/XWPFTableRow.class" />
-    <entry file="file://$PROJECT_DIR$/src/Main/GUIMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/PdfParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="106" column="17" selection-start-line="106" selection-start-column="17" selection-end-line="106" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/ExcelReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/MyModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="e#1454#1455#0" expanded="true" />
-            <element signature="e#1477#1478#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1300,23 +1193,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
           <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/VFVector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="520" column="32" selection-start-line="520" selection-start-column="32" selection-end-line="520" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1337,13 +1213,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/VFKef5DataBase.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        <state relative-caret-position="316">
+          <caret line="484" column="9" lean-forward="true" selection-start-line="484" selection-start-column="9" selection-end-line="484" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/VFVector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ExcelReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/VFKef5DataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/GUIMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/PdfParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1354,8 +1275,8 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="library" />
               <type id="artifact" />
+              <type id="library" />
             </show-content>
           </artifact-editor>
           <last-edited>Laxanika:jar</last-edited>
@@ -1429,7 +1350,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>commons-logging-1</last-edited>
+          <last-edited>pdfbox</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
