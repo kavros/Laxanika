@@ -6,6 +6,11 @@ The automation steps involve:
 * print labels for the products
 * print catalogues with new prices and history
 
+# Build & Run
+* Import project using Intellij IDEA
+* Copy credentials in cfg folder
+* Build and Run using Intellij IDEA
+
 ## Software Requirements
 * Intellij IDEA
 * Java JDK 1.8.0_171
