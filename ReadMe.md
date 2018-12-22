@@ -7,6 +7,7 @@ The automation steps involve:
 * print catalogues with new prices and history
 
 # Build & Run
+* Install Intellij IDEA, SQL Server Management Studio 2012, Kefalaio 5 ERP
 * Import project using Intellij IDEA
 * Copy credentials in cfg folder
 * Build and Run using Intellij IDEA
