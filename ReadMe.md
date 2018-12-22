@@ -11,6 +11,7 @@ The automation steps involve:
   * Intellij IDEA
   * SQL Server Management Studio 2012
   * Kefalaio 5 ERP
+  * Java SE Development Kit 8
   * Git for Windows
 * Import project using Intellij IDEA
 * Copy credentials in cfg folder
