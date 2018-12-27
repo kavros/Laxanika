@@ -2,9 +2,9 @@
 An MVC Java application that is used by a supermarket to automate a daily process.
 The automation steps involve:
 * calculation of new prices
-* update of databases with history and prices
-* print labels for the products
-* print catalogues with new prices and history
+* update of ERP application databases with new prices
+* exporting price labels for products
+* exporting a catalogue with new prices
 
 # Build & Run
 * Install:
