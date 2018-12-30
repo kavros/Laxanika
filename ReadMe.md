@@ -44,4 +44,8 @@ The automation steps involve:
     * Go to Organwsi->Organwsi->Systima->SQL server setup
     * Fix user, password and hostname
     * Assign  changes
- 
+ * Enable TCP connection to database
+    * You need to Go to Start > Microsoft SQL Server > Configuration Tools > SQL Server Configuration Manager
+    * SQL Server Configuration Manager > SQL Server Network Configuration > Protocols for SQLExpress 
+
+
