@@ -9,7 +9,7 @@ The automation steps involve:
 # Build & Run
 * Install:
   * Intellij IDEA
-  * SQL Server Management Studio 2012
+  * SQL Server Management Studio 2012 using the following [tutotrial](http://eservices.unisoft.gr/pages/loadpage.asp?id=1079)
   * Kefalaio 5 ERP
   * Java SE Development Kit 8
   * Git for Windows
