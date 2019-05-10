@@ -1006,7 +1006,7 @@ public class Controller implements ActionListener,TableModelListener {
 		String pr = null;
 		for (int i = 0; i < hist.getHistoryVector().size(); i++) {
 			if (hist.getHistoryVector().elementAt(i).getKef5Code().equals(kef5Code)) {
-				pr = hist.getHistoryVector().elementAt(i).toString2();
+				pr = hist.getHistoryVector().elementAt(i).toString3();
 			}
 		}
 

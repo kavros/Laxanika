@@ -141,6 +141,14 @@ public class History {
                     ;
         }
 
+        public String toString3()
+        {
+            return "\n("+_date1.split(" ")[0]+") "+ _price1+", "
+                    +"("+_date2.split(" ")[0]+") "+ _price2+", "
+                    +"("+_date3.split(" ")[0]+") "+ _price3;
+
+        }
+
         @Override
         public int compareTo(HistoryNode o) {
 
