@@ -30,22 +30,24 @@ The automation steps involve:
     * Server type:  Database Engine
     * Server name: .
     * Authentication: Windows Authentication
+* Attach *.mdf files to database:
+    * Right click on database folder select attach
+    * Add all mdf files
 * Create kef5 database user:
     * Go to Security->Logins right click new Login
     * Insert Login name eg kef5
     * Choose SQL Server authentication and set password
     * Set as Default database master 
-    * In the field Select a page we select Server Roles and after that we select dbcreator.
+    * In the field Select a page 
+      * Select Server Roles and after that check all the checkboxes.
+      * Select User mapping and after that check all the databases.
     * Select Ok
-* Attach *.mdf files to database:
-    * Right click on database folder select attach
-    * Add all mdf files
 * Open kef5:
     * Go to Organwsi->Organwsi->Systima->SQL server setup
     * Fix user, password and hostname
     * Assign  changes
  * Enable TCP connection to database
     * You need to Go to Start > Microsoft SQL Server > Configuration Tools > SQL Server Configuration Manager
-    * SQL Server Configuration Manager > SQL Server Network Configuration > Protocols for SQLExpress 
+    * SQL Server Configuration Manager > SQL Server Network Configuration > Protocols for SQLExpress and enable TCP connections
 
 
