@@ -87,13 +87,17 @@ public class PdfParser {
          if(productLine.contains("ΚΙΛ ")){
             line = productLine.split("ΚΙΛ ");
             laxaniko.vf_mm      = "ΚΙΛ ";
-        }else if(productLine.contains("ΤΕΜ ")){
+        } else if(productLine.contains("ΤΕΜ ")){
             line =  productLine.split("ΤΕΜ ");
             laxaniko.vf_mm      = "TEM ";
-        }else if(productLine.contains("ΜΑΤ ")) {
+        } else if(productLine.contains("ΜΑΤ ")) {
             line =  productLine.split("ΜΑΤ ");
             laxaniko.vf_mm      = "ΜΑΤ ";
-        }else{
+         } else if(productLine.contains("ΖΕΥ ")) {
+             line =  productLine.split("ΖΕΥ ");
+             laxaniko.vf_mm      = "ΖΕΥ ";
+         } else {
+             System.err.println(productLine);
             throw new Exception("Error: function addProductToVector on PdfParser failed");
         }
 
