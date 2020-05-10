@@ -93,6 +93,18 @@ public class XMLReader {
                     values.setProfit( Double.parseDouble(eElement.getElementsByTagName("profit").item(0).getTextContent()));
                     values.setKef5Code(eElement.getElementsByTagName("kef5Code").item(0).getTextContent());
 
+                    Double profit = Double.parseDouble(eElement.getElementsByTagName("profit").item(0).getTextContent());
+                    String sCode = eElement.getElementsByTagName("kef5Code").item(0).getTextContent();
+                    String name = eElement.getElementsByTagName("name").item(0).getTextContent();
+                    sCode = "'"+sCode+"'";
+                    name =  "'"+name+"'";
+                    System.out.println("insert into Settings values("+
+                                        sCode+","+
+                                        name+","+
+                                        profit +",0.5);"
+                                        );
+
+
                     map.put(vfName,values);
                 }
             }
