@@ -33,16 +33,16 @@ The automation steps involve:
 * Attach *.mdf files to database:
     * Right click on database folder select attach
     * Add all mdf files
-* Create kef5 database user:
+* Create kef database user:
     * Go to Security->Logins right click new Login
-    * Insert Login name eg kef5
-    * Choose SQL Server authentication and set password
+    * Insert Login name eg kef
+    * Choose SQL Server authentication and set the same password as it is on the existing installation
     * Set as Default database master 
     * In the field Select a page 
       * Select Server Roles and after that check all the checkboxes.
       * Select User mapping and after that check all the databases.
     * Select Ok
-* Open kef5:
+* Open kef:
     * Go to Organwsi->Organwsi->Systima->SQL server setup
     * Fix user, password and hostname
     * Assign  changes
