@@ -49,5 +49,9 @@ The automation steps involve:
  * Enable TCP connection to database
     * You need to Go to Start > Microsoft SQL Server > Configuration Tools > SQL Server Configuration Manager
     * SQL Server Configuration Manager > SQL Server Network Configuration > Protocols for SQLExpress and enable TCP connections
-
+* Change windows display language to Greek
+   * Start  > Settings  > Language. 
+* Change language for non unicode programs to greek
+   * Control panel > region > admin > change local settings
+* Install driver for printer [link](https://support.infopos.gr/tameiakes-michanes/)
 
