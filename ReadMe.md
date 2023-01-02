@@ -42,7 +42,7 @@ The automation steps involve:
       * Select Server Roles and after that check all the checkboxes.
       * Select User mapping and after that check all the databases.
     * Select Ok
-* Open kef:
+* Open kef (or edit kef32.ini):
     * Go to Organwsi->Organwsi->Systima->SQL server setup
     * Fix user, password and hostname
     * Assign  changes
